@@ -13,13 +13,13 @@
 
 1. 在 [GitHub](https://github.com/) 官网用自己的邮箱注册一个新的 `Github` 账号，填入用户名和密码即可。
 
-  ![image-20231223233142231](assets/image-20231223233142231.png)
+   ![](assets/copilot1.png)
 
-  最下面那个框不建议勾选，除非你想收到官方各种广告邮件。
+   最下面那个框不建议勾选，除非你想收到官方各种广告邮件。
 
 2. 账号成功注册后 ，你会进入主页，应该是如图所示：
 
-  ![image-20231223230711202](assets/image-20231223230711202.png)
+   ![](assets/copilot2.png)
 
 ### 完善个人信息
 
@@ -27,9 +27,9 @@
 
 1. 点击你的头像，然后选择 `Your Profile` ，进入个人资料界面。
 
-![QQ图片20231223232257](assets/QQ%E5%9B%BE%E7%89%8720231223232257.png)
-
-​	如图中所示，填写昵称（注意，昵称 Name 和用户名 Username 是两个东西），自述，学校和地址。
+   ![](assets/copilot3.png)
+   
+   如图中所示，填写昵称（注意，昵称 Name 和用户名 Username 是两个东西），自述，学校和地址。
 
 2. 填写完成后，点击 `Save` 完成保存。
 
@@ -39,33 +39,33 @@
 
 1. 打开 `Edge` 浏览器的插件 / 扩展商店，搜索 ‘’totp“，添加第一个插件（Authentication：2FA Client），点击 `获取`：
 
-   ![image-20231223234716356](assets/image-20231223234716356.png)
+   ![](assets/copilot4.png)
 
 2. 回到个人主页，点击你的头像，选择 `Settings` 进入设置界面，然后在左侧边栏选择 `Password and authentication` ，你会看到如下界面：
 
-   ![image-20231223234250501](assets/image-20231223234250501.png)
+   ![](assets/copilot5.png)
 
    点击 `Enable two-factor authentication` ，开启二步认证。
 
 3. 这个时候会弹出来一个二维码，打开 `Edge` 浏览器的插件 / 扩展，选择 `Authentication：2FA Client`，
 
-![image-20231223235138462](assets/image-20231223235138462.png)
+   ![](assets/copilot6.png)
 
 4. 用插件扫这个二维码：
 
-   ![image-20231223235447178](assets/image-20231223235447178.png)
+   ![](assets/copilot7.png)
 
-​	扫完后插件里会出现一个六位数密码，将密码填到网页输入框：
+   扫完后插件里会出现一个六位数密码，将密码填到网页输入框：
 
-![image-20231223235722518](assets/image-20231223235722518.png)
+   ![](assets/copilot8.png)
 
 5. 将 `recovery codes` 保存至本地，以防设备丢失后无法登录账户：
 
-   ![image-20231224000004126](assets/image-20231224000004126.png)
+   ![](assets/copilot9.png)
 
 6. 设置好啦！
 
-   ![image-20231224000112691](assets/image-20231224000112691.png)
+   ![](assets/copilot10.png)
 
 ### 支付信息设置
 
@@ -73,41 +73,41 @@
 
 同样是在 `Settings` 里，点击 `Billing and plans`，进入如下界面：
 
-![image-20231224000906254](assets/image-20231224000906254.png)
+![](assets/copilot11.png)
 
-​	填入账户信息（这里显示的是已经填好的状态）
+填入账户信息（这里显示的是已经填好的状态）
 
 ## 提交申请材料
 
-注意，这里 强烈建议 **不要使用梯子** ，否则会出现 IP 地址与学校地址不符的情况，很麻烦。
+注意，这里强烈建议 **不要使用梯子** ，否则会出现 IP 地址与学校地址不符的情况，很麻烦。
 
 1. 回到主页，点击 `Join Github Campus`
 
-   ![image-20231224001132280](assets/image-20231224001132280.png)
+   ![](assets/copilot12.png)
 
 2. 勾选 `Student` 选项
 
-   ![image-20231224001459014](assets/image-20231224001459014.png)
+   ![](assets/copilot13.png)
 
 3. 填入邮箱
 
-   ![image-20231224001905345](assets/image-20231224001905345.png)
+   ![](assets/copilot14.png)
 
 4. 上传学历证明：
 
-   ![image-20231224001950697](assets/image-20231224001950697.png)
+   ![](assets/copilot15.png)
 
-​	这里会要求你现场拍一张照片，可以用校园卡在场拍照上传
+   这里会要求你现场拍一张照片，可以用校园卡在场拍照上传
 
-![image-20231224002208382](assets/image-20231224002208382.png)
+   ![](assets/copilot16.png)
 
 5. 如果你看到如下界面，说明已经成功提交了审核资料
 
-   ![image-20231224002327582](assets/image-20231224002327582.png)
+   ![](assets/copilot17.png)
 
 6. 最后只需要等待确认邮件（可能需要**等待 3~4 天**），就可以快乐加入 `Github Campus` 了！
 
-   ![image-20231224003256793](assets/image-20231224003256793.png)
+   ![](assets/copilot18.png)
 
 ## 在 VS Code 上配置 copilot 插件
 
@@ -116,24 +116,24 @@
 1. 安装 `VS Code` （略）。
 2. 在扩展商店搜索 `Github Copilot` 插件：
 
-![image-20231224003550899](assets/image-20231224003550899.png)
+   ![](assets/copilot19.png)
 
-​	安装第一个插件（第二个会自己安装好）
+   安装第一个插件（第二个会自己安装好）
 
 3. 然后在插件设置里登录自己的 `Github` 账户，就可以快乐玩耍了！
 
 4. 使用示例：
 
-   ![image-20231224004150085](assets/image-20231224004150085.png)
+   ![](assets/copilot20.png)
 
-​	这里使用了聊天功能，类似 `ChatGPT` ，可以很方便询问代码问题。
+   这里使用了聊天功能，类似 `ChatGPT` ，可以很方便询问代码问题。
 
-​	（此外还有自动补全代码，debug等功能，尽情探索吧！）
+   （此外还有自动补全代码，debug等功能，尽情探索吧！）
 
 ## 小结 / 经验
 
 整个过程中最恶心的地方就是提交审核资料的部分，一旦成功提交资料，大概率就能正常通过了。
 
-还是要学会自己看信息，哪里有问题其实写的很清楚：
+还是要学会自己看信息，哪里有问题其实写的很清楚。下面是一个失败案例，我就是从他给的信息找到了自己的问题：
 
-![image-20231224004841816](assets/image-20231224004841816.png)
+![image-20231224004841816](assets/copilot21.png)

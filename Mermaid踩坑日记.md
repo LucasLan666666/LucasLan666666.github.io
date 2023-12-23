@@ -8,7 +8,7 @@
 
 发生了一件非常神奇的事情，我写的代码可以在 `Typora` ，`VS Code` 的 `Markdown` 插件，以及 `Mermaid` [官网](https://mermaid.js.org/) 的在线编辑器中成功渲染，唯独不能再 `Github` 上正常显示。最气人的是他不给出任何报错信息，害我捣鼓了半天：
 
-![20231223000021](assets/20231223000021.png)
+![](assets/mermaid1.png)
 
 ## 真相
 
