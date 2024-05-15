@@ -38,8 +38,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -632,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../UCAS/Assembly-Language/LoongArch%E6%B1%87%E7%BC%96%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83/" class="md-nav__link">
+      <a href="../../../UCAS/Assembly-Language/LoongArch/LoongArch%E6%B1%87%E7%BC%96%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -810,39 +810,37 @@
 <p><img alt="mermaid1" src="../assets/mermaid1.png" /></p>
 <h2 id="_3">真相</h2>
 <p>最终通过对 <code>Markdown</code> 文件中 <code>Mermaid</code> 块的内容一行一行排查，终于找到了原因。我们先查看下面代码：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>flowchart LR
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>A(开始) --&gt; B{判断是否到达时钟信号上升沿&lt;br/&gt;或置位信号下降沿}
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>B --&gt;|N| End(结束)
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>B --&gt;|Y| D{判断信号类型}
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>D --&gt;|clk 上升沿| E{继续判断信号}
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>D --&gt;|rstn 下降沿| F[进行置位操作，&lt;br/&gt;清除内存所有数据&lt;br/&gt;并进入接受数据状态]
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>F --&gt; End
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>E --&gt;|其他| End
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>E --&gt;|input_valid 和 input_enable 均为 1| G1{进入接受数据状态，&lt;br/&gt;判断是否马上填满}
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>G1 --&gt;|Y| H1[将 data_in 写入内存的最后一个 16 bit 空间中，&lt;br/&gt;同时进入输出数据状态]
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>G1 --&gt;|N| I1[将 data_in 继续写入内存中]
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>E --&gt;|output_valid 和 output_enable 均为 1| G2{进入输出数据状态，&lt;br/&gt;判断是否马上读空}
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>G2 --&gt;|Y| H2[读出内存中最后一个 8 bit 数据，&lt;br/&gt;同时进入读取数据状态]
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>G2 --&gt;|N| I2[将内存中的数据读出]
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>H1 &amp; I1 &amp; H2 &amp; I2 --&gt; End
-</code></pre></div>
+<pre class="mermaid"><code>flowchart LR
+A(开始) --&gt; B{判断是否到达时钟信号上升沿&lt;br/&gt;或置位信号下降沿}
+B --&gt;|N| End(结束)
+B --&gt;|Y| D{判断信号类型}
+D --&gt;|clk 上升沿| E{继续判断信号}
+D --&gt;|rstn 下降沿| F[进行置位操作，&lt;br/&gt;清除内存所有数据&lt;br/&gt;并进入接受数据状态]
+F --&gt; End
+E --&gt;|其他| End
+E --&gt;|input_valid 和 input_enable 均为 1| G1{进入接受数据状态，&lt;br/&gt;判断是否马上填满}
+G1 --&gt;|Y| H1[将 data_in 写入内存的最后一个 16 bit 空间中，&lt;br/&gt;同时进入输出数据状态]
+G1 --&gt;|N| I1[将 data_in 继续写入内存中]
+E --&gt;|output_valid 和 output_enable 均为 1| G2{进入输出数据状态，&lt;br/&gt;判断是否马上读空}
+G2 --&gt;|Y| H2[读出内存中最后一个 8 bit 数据，&lt;br/&gt;同时进入读取数据状态]
+G2 --&gt;|N| I2[将内存中的数据读出]
+H1 &amp; I1 &amp; H2 &amp; I2 --&gt; End</code></pre>
 <p>在 <code>Github</code> 上，我发现代码不能正常显示，究其原因，<strong>代码的文本里有 <code>Unicode</code> 符号</strong>——中文逗号，为了解决这个问题，只需要<strong>在文本前后添加英文双引号</strong>即可：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>flowchart LR
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>A(&quot;开始&quot;) --&gt; B{&quot;判断是否到达时钟信号上升沿&lt;br/&gt;或置位信号下降沿&quot;}
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>B --&gt;|N| End(&quot;结束&quot;)
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>B --&gt;|Y| D{&quot;判断信号类型&quot;}
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>D --&gt;|&quot;clk 上升沿&quot;| E{&quot;继续判断信号&quot;}
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>D --&gt;|&quot;rstn 下降沿&quot;| F[&quot;进行置位操作，&lt;br/&gt;清除内存所有数据&lt;br/&gt;并进入接受数据状态&quot;]
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>F --&gt; End
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>E --&gt;|&quot;其他&quot;| End
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>E --&gt;|&quot;input_valid 和 input_enable 均为 1&quot;| G1{&quot;进入接受数据状态，&lt;br/&gt;判断是否马上填满&quot;}
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>G1 --&gt;|Y| H1[&quot;将 data_in 写入内存的最后一个 16 bit 空间中，&lt;br/&gt;同时进入输出数据状态&quot;]
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>G1 --&gt;|N| I1[&quot;将 data_in 继续写入内存中&quot;]
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>E --&gt;|&quot;output_valid 和 output_enable 均为 1&quot;| G2{&quot;进入输出数据状态，&lt;br/&gt;判断是否马上读空&quot;}
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>G2 --&gt;|Y| H2[&quot;读出内存中最后一个 8 bit 数据，&lt;br/&gt;同时进入读取数据状态&quot;]
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>G2 --&gt;|N| I2[&quot;将内存中的数据读出&quot;]
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>H1 &amp; I1 &amp; H2 &amp; I2 --&gt; End
-</code></pre></div>
+<pre class="mermaid"><code>flowchart LR
+A("开始") --&gt; B{"判断是否到达时钟信号上升沿&lt;br/&gt;或置位信号下降沿"}
+B --&gt;|N| End("结束")
+B --&gt;|Y| D{"判断信号类型"}
+D --&gt;|"clk 上升沿"| E{"继续判断信号"}
+D --&gt;|"rstn 下降沿"| F["进行置位操作，&lt;br/&gt;清除内存所有数据&lt;br/&gt;并进入接受数据状态"]
+F --&gt; End
+E --&gt;|"其他"| End
+E --&gt;|"input_valid 和 input_enable 均为 1"| G1{"进入接受数据状态，&lt;br/&gt;判断是否马上填满"}
+G1 --&gt;|Y| H1["将 data_in 写入内存的最后一个 16 bit 空间中，&lt;br/&gt;同时进入输出数据状态"]
+G1 --&gt;|N| I1["将 data_in 继续写入内存中"]
+E --&gt;|"output_valid 和 output_enable 均为 1"| G2{"进入输出数据状态，&lt;br/&gt;判断是否马上读空"}
+G2 --&gt;|Y| H2["读出内存中最后一个 8 bit 数据，&lt;br/&gt;同时进入读取数据状态"]
+G2 --&gt;|N| I2["将内存中的数据读出"]
+H1 &amp; I1 &amp; H2 &amp; I2 --&gt; End</code></pre>
 <p>现在就能正常显示了。</p>
 <p>所以，还是养成用英文双引号括好文本的习惯叭。。。</p>
 <h2 id="_4">附录</h2>
