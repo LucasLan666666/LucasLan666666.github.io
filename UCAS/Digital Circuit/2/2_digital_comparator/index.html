@@ -50,6 +50,9 @@
     
     
     
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   </head>
   
   
@@ -1517,34 +1520,34 @@
 <h3 id="4_1">4 位超前进位加法器</h3>
 <ol>
 <li>由全加器真值表可知, 向高位的进位信号在两种情况下产生:
-    <span class="arithmatex"><span class="MathJax_Preview">A \cdot B = 1</span><script type="math/tex">A \cdot B = 1</script></span>
-    <span class="arithmatex"><span class="MathJax_Preview">A + B = 1, C_{in} = 1</span><script type="math/tex">A + B = 1, C_{in} = 1</script></span></li>
-<li>用 <span class="arithmatex"><span class="MathJax_Preview">C_i</span><script type="math/tex">C_i</script></span> 表示第 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 位的进位信号, 有:
-     <span class="arithmatex"><span class="MathJax_Preview">C_{i+1} = A_iB_i + (A_i + B_i)C_i</span><script type="math/tex">C_{i+1} = A_iB_i + (A_i + B_i)C_i</script></span></li>
-<li>设 <span class="arithmatex"><span class="MathJax_Preview">G_i = A_iB_i</span><script type="math/tex">G_i = A_iB_i</script></span> 为进位生成函数, <span class="arithmatex"><span class="MathJax_Preview">P_i = A_i + B_i</span><script type="math/tex">P_i = A_i + B_i</script></span> 为进位传递函数, 则有:
-    <span class="arithmatex"><span class="MathJax_Preview">C_{i+1} = G_i + P_iC_i</span><script type="math/tex">C_{i+1} = G_i + P_iC_i</script></span>
-    另一方面, 由于 <span class="arithmatex"><span class="MathJax_Preview">S_i = A_i \bigoplus B_i \bigoplus C_i</span><script type="math/tex">S_i = A_i \bigoplus B_i \bigoplus C_i</script></span> , 且我们发现 <span class="arithmatex"><span class="MathJax_Preview">C_{i+1} = A_iB_i + (A_i + B_i)C_i = A_iB_i + (A_i \bigoplus B_i)C_i</span><script type="math/tex">C_{i+1} = A_iB_i + (A_i + B_i)C_i = A_iB_i + (A_i \bigoplus B_i)C_i</script></span> ,
-    因此可以将 <span class="arithmatex"><span class="MathJax_Preview">P_i</span><script type="math/tex">P_i</script></span> 的定义修改成 <span class="arithmatex"><span class="MathJax_Preview">P_i = A_i \bigoplus B_i</span><script type="math/tex">P_i = A_i \bigoplus B_i</script></span>
+    $A \cdot B = 1$
+    $A + B = 1, C_{in} = 1$</li>
+<li>用 $C_i$ 表示第 $i$ 位的进位信号, 有:
+     $C_{i+1} = A_iB_i + (A_i + B_i)C_i$</li>
+<li>设 $G_i = A_iB_i$ 为进位生成函数, $P_i = A_i + B_i$ 为进位传递函数, 则有:
+    $C_{i+1} = G_i + P_iC_i$
+    另一方面, 由于 $S_i = A_i \bigoplus B_i \bigoplus C_i$ , 且我们发现 $C_{i+1} = A_iB_i + (A_i + B_i)C_i = A_iB_i + (A_i \bigoplus B_i)C_i$ ,
+    因此可以将 $P_i$ 的定义修改成 $P_i = A_i \bigoplus B_i$
     于是有:
-    <span class="arithmatex"><span class="MathJax_Preview">C_0 = C_{in}</span><script type="math/tex">C_0 = C_{in}</script></span>
-    <span class="arithmatex"><span class="MathJax_Preview">C_1 = G_1 + P_1C_0 = G_1 + P_1C_{in}</span><script type="math/tex">C_1 = G_1 + P_1C_0 = G_1 + P_1C_{in}</script></span>
-    <span class="arithmatex"><span class="MathJax_Preview">C_2 = G_2 + P_2C_1 = G_2 + P_2(G_1 + P_1C_{in}) = G_2 + P_2G_1 + P_2P_1C_{in}</span><script type="math/tex">C_2 = G_2 + P_2C_1 = G_2 + P_2(G_1 + P_1C_{in}) = G_2 + P_2G_1 + P_2P_1C_{in}</script></span>
-    <span class="arithmatex"><span class="MathJax_Preview">\cdots</span><script type="math/tex">\cdots</script></span>
-    <span class="arithmatex"><span class="MathJax_Preview">C_i = G_{i-1} + P_{i-1}C_{i-1}= G_{i-1} + P_{i-1}(G_{i-2} + P_{i-2}C_{i-2}) = \sum_{j=1}^iP_jG_{j-1} + P_iP_{i-1}\cdots P_1C_{in}</span><script type="math/tex">C_i = G_{i-1} + P_{i-1}C_{i-1}= G_{i-1} + P_{i-1}(G_{i-2} + P_{i-2}C_{i-2}) = \sum_{j=1}^iP_jG_{j-1} + P_iP_{i-1}\cdots P_1C_{in}</script></span></li>
+    $C_0 = C_{in}$
+    $C_1 = G_1 + P_1C_0 = G_1 + P_1C_{in}$
+    $C_2 = G_2 + P_2C_1 = G_2 + P_2(G_1 + P_1C_{in}) = G_2 + P_2G_1 + P_2P_1C_{in}$
+    $\cdots$
+    $C_i = G_{i-1} + P_{i-1}C_{i-1}= G_{i-1} + P_{i-1}(G_{i-2} + P_{i-2}C_{i-2}) = \sum_{j=1}^iP_jG_{j-1} + P_iP_{i-1}\cdots P_1C_{in}$</li>
 <li>而对于 4 位加法器, 只需要取:
-    <span class="arithmatex"><span class="MathJax_Preview">C_0 = C_{in}</span><script type="math/tex">C_0 = C_{in}</script></span>
-    <span class="arithmatex"><span class="MathJax_Preview">C_1 = G_1 + P_1C_0 = G_1 + P_1C_{in}</span><script type="math/tex">C_1 = G_1 + P_1C_0 = G_1 + P_1C_{in}</script></span>
-    <span class="arithmatex"><span class="MathJax_Preview">C_2 = G_2 + P_2C_1 = G_2 + P_2(G_1 + P_1C_{in}) = G_2 + P_2G_1 + P_2P_1C_{in}</span><script type="math/tex">C_2 = G_2 + P_2C_1 = G_2 + P_2(G_1 + P_1C_{in}) = G_2 + P_2G_1 + P_2P_1C_{in}</script></span>
-    <span class="arithmatex"><span class="MathJax_Preview">C_3 = G_3 + P_3C_2 = G_3 + P_3(G_2 + P_2G_1 + P_2P_1C_{in}) = G_3 + P_3G_2 + P_3P_2G_1 + P_3P_2P_1C_{in}</span><script type="math/tex">C_3 = G_3 + P_3C_2 = G_3 + P_3(G_2 + P_2G_1 + P_2P_1C_{in}) = G_3 + P_3G_2 + P_3P_2G_1 + P_3P_2P_1C_{in}</script></span></li>
-<li>设 4 位加法器输出的和为 <span class="arithmatex"><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> , 输出的进位信号为 <span class="arithmatex"><span class="MathJax_Preview">C_{out}</span><script type="math/tex">C_{out}</script></span> , 有:
-    <span class="arithmatex"><span class="MathJax_Preview">S_i = A_i \bigoplus B_i \bigoplus C_i = P_i \bigoplus C_i</span><script type="math/tex">S_i = A_i \bigoplus B_i \bigoplus C_i = P_i \bigoplus C_i</script></span>
-    <span class="arithmatex"><span class="MathJax_Preview">C_{out} = C_4 = G_4 + P_4C_3 = G_4 + P_4(G_3 + P_3G_2 + P_3P_2G_1 + P_3P_2P_1C_{in}) = G_4 + P_4G_3 + P_4P_3G_2 + P_4P_3P_2G_1 + P_4P_3P_2P_1C_{in}</span><script type="math/tex">C_{out} = C_4 = G_4 + P_4C_3 = G_4 + P_4(G_3 + P_3G_2 + P_3P_2G_1 + P_3P_2P_1C_{in}) = G_4 + P_4G_3 + P_4P_3G_2 + P_4P_3P_2G_1 + P_4P_3P_2P_1C_{in}</script></span></li>
+    $C_0 = C_{in}$
+    $C_1 = G_1 + P_1C_0 = G_1 + P_1C_{in}$
+    $C_2 = G_2 + P_2C_1 = G_2 + P_2(G_1 + P_1C_{in}) = G_2 + P_2G_1 + P_2P_1C_{in}$
+    $C_3 = G_3 + P_3C_2 = G_3 + P_3(G_2 + P_2G_1 + P_2P_1C_{in}) = G_3 + P_3G_2 + P_3P_2G_1 + P_3P_2P_1C_{in}$</li>
+<li>设 4 位加法器输出的和为 $S$ , 输出的进位信号为 $C_{out}$ , 有:
+    $S_i = A_i \bigoplus B_i \bigoplus C_i = P_i \bigoplus C_i$
+    $C_{out} = C_4 = G_4 + P_4C_3 = G_4 + P_4(G_3 + P_3G_2 + P_3P_2G_1 + P_3P_2P_1C_{in}) = G_4 + P_4G_3 + P_4P_3G_2 + P_4P_3P_2G_1 + P_4P_3P_2P_1C_{in}$</li>
 <li>至此, 则实现了 4 位超前进位加法器.</li>
 </ol>
 <h3 id="32">32 位超前进位加法器</h3>
 <p><img alt="Fast_Carry_32" src="../assets/Fast_Carry_32.png" /></p>
 <ol>
-<li>我们首先需要对 4 位超前进位加法器的结构进行改良. 上文提到的 4 位超前进位加法器先将输入的 A 和 B 信号转化为 P 和 G 信号, 并与 Cin 一起进行运算, 最终输出 Si 和 Cout . 此处, 我们保留 Pin ( 4 位)以及 Gin ( 4 位)表示每一位接收到的传输信号和生成信号 (注意在 Verilog 代码中我定义的 Pin 和 Gin 接线为 [3:0], 则 Pin[0] ~ Pin[3] 对应上文提到的 <span class="arithmatex"><span class="MathJax_Preview">P_1</span><script type="math/tex">P_1</script></span> ~ <span class="arithmatex"><span class="MathJax_Preview">P_4</span><script type="math/tex">P_4</script></span> , 对于 Gin 信号同理) , 以及 Cin ( 1 位)表示加法器接收到的进位信号. 输出 Pout ( 1 位)和 Gout ( 1 位)表示整个加法器接收到 P 和 G 信号的总体,  C ( 4 位)表示整个加法器输出的每一位的进位信号.</li>
+<li>我们首先需要对 4 位超前进位加法器的结构进行改良. 上文提到的 4 位超前进位加法器先将输入的 A 和 B 信号转化为 P 和 G 信号, 并与 Cin 一起进行运算, 最终输出 Si 和 Cout . 此处, 我们保留 Pin ( 4 位)以及 Gin ( 4 位)表示每一位接收到的传输信号和生成信号 (注意在 Verilog 代码中我定义的 Pin 和 Gin 接线为 [3:0], 则 Pin[0] ~ Pin[3] 对应上文提到的 $P_1$ ~ $P_4$ , 对于 Gin 信号同理) , 以及 Cin ( 1 位)表示加法器接收到的进位信号. 输出 Pout ( 1 位)和 Gout ( 1 位)表示整个加法器接收到 P 和 G 信号的总体,  C ( 4 位)表示整个加法器输出的每一位的进位信号.</li>
 <li>我们先考虑最低 16 位, 一共由 5 个 4 位超前进位加法器模块构成, 第一层分别是 f00, f01, f02, f03, 第二层是 f10. 不难发现, f10 与 f00 同样接收到 Cin 作为来自低位的进位输入. 此外, f10 还接受 f00 输出的 Pout 和 Gout 作为 f10 的输入 Pin[0] 和 Gin[0], 所以 f10 可以据此输出 C[1] 作为 f01 的进位输入, 以此类推, 便构建出该 16 位超前进位加法器. 借助 f10, 我们可以发现传输们的延迟最高只有 6 (每经过 1 个模块则增加了两个传输门(C[0] 除外, 因为 C[0] = Cin 直接接通)), 大大提高了效率.</li>
 <li>采用类似的思想, 可将按照第二步构建的 两个 16 位超前进位加法器再通过一个额外的模块 f20(就是第 3 层的加法器)连接起来. f20 接受来自 f10 的 Pout  和 Gout, 作为 f20 的输入 Pin[0] 和 Gin[0] 并也将 Cin 作为 f20 来自低位的进位输入. 此外, 输出 C[1] 作为 f04 和 f11 来自低位的进位输入. 可以发现最多只需要经过 10 个传输门.</li>
 <li>整个内部框架至此搭建完毕, 剩下部分只需要利用 P = A + B (根据真值表已等效替代为异或, 原因已述)和 G =  AB 得到来自低位的传输信号和生成信号, 并将 f00 至 f07 输出的 C0 和 P0 进行与运算, 即可得到总和 S. 最后将 f20 输出的 C2[2] 作为总输出进位信号 Cout = C2[2].</li>
