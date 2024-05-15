@@ -8,10 +8,13 @@ extra_css:
     - https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css
 
 extra_css:
-    - styles.css
+    - ./custom/styles.css
 
 extra_templates:
-    - katex.html
+    - ./custom/katex.html
+
+extra:
+    favicon: ./cat.ico
 
 nav:
     - Home: index.md
@@ -44,6 +47,10 @@ theme:
         text: Noto Serif SC
 
 markdown_extensions:
+    - codehilite:
+        guess_lang: false
+        linenums: true
+        copyable: true
     - markdown_include.include
     - pymdownx.highlight:
         anchor_linenums: true
