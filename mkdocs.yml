@@ -16,6 +16,7 @@ nav:
             - Lab4: ./UCAS/Digital Circuit/4/4_fifo.md
         - Assembly Language:
             - LoooooooooongArch: ./UCAS/Assembly-Language/LoongArch/LoongArch汇编实验环境.md
+            - quicksort: ./UCAS/Assembly-Language/quicksort/quicksort_group7.md
         - COD-Lab:
             - bhv_sim-env: ./UCAS/COD-Lab/cod-lab 本地仿真环境配置.md
 
