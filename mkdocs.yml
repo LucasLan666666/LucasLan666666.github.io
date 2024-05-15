@@ -4,27 +4,38 @@ nav:
     - Home: index.md
     - About: about.md
     - Experiences:
-      - Page 1: ./Experiences/Markdown 常用模板.md
-      - Page 2: ./Experiences/mermaid/Mermaid踩坑日记.md
-      - Page 3: ./Experiences/copilot/Github-Copilot配置方法.md
-      - Page 4: ./Experiences/Git 入坑指南.md
+        - Page 1: ./Experiences/Markdown 常用模板.md
+        - Page 2: ./Experiences/mermaid/Mermaid踩坑日记.md
+        - Page 3: ./Experiences/copilot/Github-Copilot配置方法.md
+        - Page 4: ./Experiences/Git 入坑指南.md
     - UCAS:
-      - Digital Circuit:
-        - Lab1: ./UCAS/Digital Circuit/1/1_trip.md
-        - Lab2: ./UCAS/Digital Circuit/2/2_digital_comparator.md
-        - Lab3: ./UCAS/Digital Circuit/3/3_FSM.md
-        - Lab4: ./UCAS/Digital Circuit/4/4_fifo.md
-      - Assembly Language:
-        - LoooooooooongArch: ./UCAS/Assembly-Language/LoongArch汇编实验环境.md
-      - COD-Lab:
-        - bhv_sim-env: ./UCAS/COD-Lab/cod-lab 本地仿真环境配置.md
+        - Digital Circuit:
+            - Lab1: ./UCAS/Digital Circuit/1/1_trip.md
+            - Lab2: ./UCAS/Digital Circuit/2/2_digital_comparator.md
+            - Lab3: ./UCAS/Digital Circuit/3/3_FSM.md
+            - Lab4: ./UCAS/Digital Circuit/4/4_fifo.md
+        - Assembly Language:
+            - LoooooooooongArch: ./UCAS/Assembly-Language/LoongArch/LoongArch汇编实验环境.md
+        - COD-Lab:
+            - bhv_sim-env: ./UCAS/COD-Lab/cod-lab 本地仿真环境配置.md
 
 theme:
-    name: material
+    name: "material"
+    font:
+        text: Noto Serif SC
 
 markdown_extensions:
+    - markdown_include.include
     - pymdownx.highlight:
         anchor_linenums: true
     - pymdownx.inlinehilite
     - pymdownx.snippets
-    - pymdownx.superfences
+    - pymdownx.highlight
+    - pymdownx.superfences:
+        custom_fences:
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+    - search
