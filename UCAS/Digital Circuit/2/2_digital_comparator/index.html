@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css">
+      <link rel="stylesheet" href="../../../../styles.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -1531,23 +1531,16 @@
     $A + B = 1, C_{in} = 1$</li>
 <li>用 $C_i$ 表示第 $i$ 位的进位信号, 有:
      $C_{i+1} = A_iB_i + (A_i + B_i)C_i$</li>
-<li>设 $ G_i = A_iB_i $ 为进位生成函数,</li>
-</ol>
-<p>$$
-P_i = A_i + B_i
-$$
-为进位传递函数, 则有:</p>
-<div class="highlight"><pre><span></span><code>$C_{i+1} = G_i + P_iC_i$
-另一方面, 由于 $S_i = A_i \bigoplus B_i \bigoplus C_i$ , 且我们发现 $C_{i+1} = A_iB_i + (A_i + B_i)C_i = A_iB_i + (A_i \bigoplus B_i)C_i$ ,
-因此可以将 $P_i$ 的定义修改成 $P_i = A_i \bigoplus B_i$
-于是有:
-$C_0 = C_{in}$
-$C_1 = G_1 + P_1C_0 = G_1 + P_1C_{in}$
-$C_2 = G_2 + P_2C_1 = G_2 + P_2(G_1 + P_1C_{in}) = G_2 + P_2G_1 + P_2P_1C_{in}$
-$\cdots$
-$C_i = G_{i-1} + P_{i-1}C_{i-1}= G_{i-1} + P_{i-1}(G_{i-2} + P_{i-2}C_{i-2}) = \sum_{j=1}^iP_jG_{j-1} + P_iP_{i-1}\cdots P_1C_{in}$
-</code></pre></div>
-<ol>
+<li>设 $G_i = A_iB_i$ 为进位生成函数, $P_i = A_i + B_i$ 为进位传递函数, 则有:
+    $C_{i+1} = G_i + P_iC_i$
+    另一方面, 由于 $S_i = A_i \bigoplus B_i \bigoplus C_i$ , 且我们发现 $C_{i+1} = A_iB_i + (A_i + B_i)C_i = A_iB_i + (A_i \bigoplus B_i)C_i$ ,
+    因此可以将 $P_i$ 的定义修改成 $P_i = A_i \bigoplus B_i$
+    于是有:
+    $C_0 = C_{in}$
+    $C_1 = G_1 + P_1C_0 = G_1 + P_1C_{in}$
+    $C_2 = G_2 + P_2C_1 = G_2 + P_2(G_1 + P_1C_{in}) = G_2 + P_2G_1 + P_2P_1C_{in}$
+    $\cdots$
+    $C_i = G_{i-1} + P_{i-1}C_{i-1}= G_{i-1} + P_{i-1}(G_{i-2} + P_{i-2}C_{i-2}) = \sum_{j=1}^iP_jG_{j-1} + P_iP_{i-1}\cdots P_1C_{in}$</li>
 <li>而对于 4 位加法器, 只需要取:
     $C_0 = C_{in}$
     $C_1 = G_1 + P_1C_0 = G_1 + P_1C_{in}$
