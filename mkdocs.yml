@@ -1,5 +1,18 @@
 site_name: Blogs of Lucas Lan
 
+extra_javascript:
+    - https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js
+    - https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js
+
+extra_css:
+    - https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css
+
+extra_css:
+    - styles.css
+
+extra_templates:
+    - katex.html
+
 nav:
     - Home: index.md
     - About: about.md
@@ -22,6 +35,11 @@ nav:
 
 theme:
     name: "material"
+    palette:
+        scheme: preference
+        toggle:
+            icon: material/toggle-switch-off-outline
+            name: Switch to dark mode
     font:
         text: Noto Serif SC
 
@@ -37,6 +55,7 @@ markdown_extensions:
             - name: mermaid
               class: mermaid
               format: !!python/name:pymdownx.superfences.fence_code_format
+    # - mdx_math
 
 plugins:
     - search
