@@ -1,44 +1,17 @@
-# Taurum coirent Hyperborea caesa iunctis consorte et
+# 简介
 
-## Feriens satis precamur arma
+## 关于我
 
-Lorem markdownum [petit spoliabitur tota](http://adest.io/deosomne.html) quinta
-**visae** tuo dederat **referre**, urbis omnia; quisque tecti quos quamquam
-conterminus. Est artus edocuit huic pelle Berecyntius Pelea nomenque.
+I'm Lucas Lan, a college student from UCAS.
 
-> Fit nos; sum traxere longae posset teretesque *matrique enim tui* pennis quod
-> hic calcatis nequiquam supernum gravet. **Frustraque umbra cognosse** retinet
-> tanti atque sortis, tum colore misero pondus. Cereris hoc doctam ferat
-> linguisque, fuisses, carerent sonant in et, *Styx* cur gestamina, harum.
+I major in Computer Science. Here is my [Github Profile](https://github.com/LucasLan666666).
 
-Iovem te vides uni attonitae, aera nymphis poterant *icta* metuendus. Nudo de
-standi dolor siqua, similis baculo Trachinius pedibus, ilia contra neque. Pete
-caecis, at hunc esset; simulamina tu cumque suis minimo. Et *sua perpetua petit*
-de nati causamque regia et unam, posuitque luget, dignissima dabat validos
-caeruleo celebrare.
+我是一名来自中国科学院大学的大二学生，正在攻读计算机科学与技术专业。
 
-## Nec Venerem seque viridi malum tenentis molles
+这是我的 [Github 主页](https://github.com/LucasLan666666) 。
 
-Tempora origine terris corpus stagna armorum, venefica nimius? **Deus vices
-successisse** eandem illinc foliis. Quoque
-[robora](http://www.iuvencos.com/facundia), cava. Infringat pastor putri grave
-adsere veniam rupit, sis odium quaeque oculis una propior vagae, letum ambitae!
+## 关于网站
 
-- Sumpserat domum
-- Fronti Perseus vincant unus aquae
-- Serpens subitusque imperio quoque et
-- Succedere foret requiram tetigit excipit auguris sentit
-- Aureus spatium lacrimas mensuraque te quoque fleturi
+这是一时兴起建立的网站，用于记录自己专业学习中的踩坑经历。
 
-## Ore suus fugisse
-
-Charybdis ut piget, diu mea, oscula vix sero ultima ovantem, pelle. Est illis
-vix errat generis iactura enim, mota dedit equi, cunctaque.
-
-> Saepe molle viderat fatentur. Nymphae edita, liquet ornum famam super, mitem.
-> Hanc prole pallent gente falsi bos locus regis fronte Venus; ianua. Iacet
-> texerat. In quia viaque, sua diris me vulnera vacuis.
-
-Laelape petitis caterva: tenuit Latoidos probant vocesque albus qui ter
-[ille](http://velaeripitur.io/modocursu.html), ne. Secretaque ille pendulaque
-manent: mei alitibus. Punior silva.
+无固定更新频率，取决我什么时候想起本网站的存在。

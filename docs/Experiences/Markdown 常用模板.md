@@ -1,9 +1,8 @@
-# Markdown 常用小技巧
+# Markdown 常用模板
 
 - [Typora 快捷键](https://support.typora.io/Shortcut-Keys/#change-shortcut-keys)
 
 - [emoji 表情](https://gist.github.com/rxaviers/7360908)
-
 
 ## HTML 相关
 
@@ -20,7 +19,6 @@
     ```html
     <pre align="right">我是文本</pre>
     ```
-
 
 - 对齐多个元素
 
