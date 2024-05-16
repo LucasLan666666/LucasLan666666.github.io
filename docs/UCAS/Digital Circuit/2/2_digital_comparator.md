@@ -79,14 +79,14 @@
 ### 4 位比较器
 
 ```Verilog
-  input  [ 3: 0] A,
-  input  [ 3: 0] B,
-  input          in_A_G_B,
-  input          in_A_E_B,
-  input          in_A_L_B,
-  output         out_A_G_B,
-  output         out_A_E_B,
-  output         out_A_L_B
+input  [ 3: 0] A,
+input  [ 3: 0] B,
+input          in_A_G_B,
+input          in_A_E_B,
+input          in_A_L_B,
+output         out_A_G_B,
+output         out_A_E_B,
+output         out_A_L_B
 ```
 
 ### 16 位比较器
@@ -102,21 +102,21 @@
 ### 4 位超前进位加法器
 
 ```Verilog
-  input  [ 3: 0] A,
-  input  [ 3: 0] B,
-  input          Cin,
-  output [ 3: 0] S,
-  output         Cout
+input  [ 3: 0] A,
+input  [ 3: 0] B,
+input          Cin,
+output [ 3: 0] S,
+output         Cout
 ```
 
 ### 32 位超前进位加法器
 
 ```Verilog
-  input  [31: 0] A,
-  input  [31: 0] B,
-  input          Cin,
-  output [31: 0] S,
-  output         Cout
+input  [31: 0] A,
+input  [31: 0] B,
+input          Cin,
+output [31: 0] S,
+output         Cout
 ```
 
 ## 调试过程及结果
@@ -151,29 +151,29 @@
 #### 设计文件
 
 ```Verilog
-    module comparator_4 (
-        input  [ 3: 0] A,
-        input  [ 3: 0] B,
-        input          in_A_G_B,
-        input          in_A_E_B,
-        input          in_A_L_B,
-        output         out_A_G_B,
-        output         out_A_E_B,
-        output         out_A_L_B
-    );
+module comparator_4 (
+    input  [ 3: 0] A,
+    input  [ 3: 0] B,
+    input          in_A_G_B,
+    input          in_A_E_B,
+    input          in_A_L_B,
+    output         out_A_G_B,
+    output         out_A_E_B,
+    output         out_A_L_B
+);
 
-        assign out_A_G_B = (  A[3] && ~B[3])
-                        || (( A[3] ==  B[3]) && ( A[2] && ~B[2]))
-                        || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] && ~B    [1]))
-                        || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B    [1]) && ( A[0] && ~B[0]))
-                        || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B    [1]) && ( A[0] ==  B[0]) && in_A_G_B);
-        assign out_A_L_B = ( ~A[3] &&  B[3])
-                        || (( A[3] ==  B[3]) && (~A[2] &&  B[2]))
-                        || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && (~A[1] &&  B    [1]))
-                        || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B    [1]) && (~A[0] &&  B[0]))
-                        || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B    [1]) && ( A[0] ==  B[0]) && in_A_G_B);
-        assign out_A_E_B = (  A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B    [1]) && ( A[0] ==  B[0]) && in_A_E_B;
-    endmodule
+assign out_A_G_B = (  A[3] && ~B[3])
+                || (( A[3] ==  B[3]) && ( A[2] && ~B[2]))
+                || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] && ~B    [1]))
+                || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B    [1]) && ( A[0] && ~B[0]))
+                || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B    [1]) && ( A[0] ==  B[0]) && in_A_G_B);
+assign out_A_L_B = ( ~A[3] &&  B[3])
+                || (( A[3] ==  B[3]) && (~A[2] &&  B[2]))
+                || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && (~A[1] &&  B    [1]))
+                || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B    [1]) && (~A[0] &&  B[0]))
+                || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B    [1]) && ( A[0] ==  B[0]) && in_A_G_B);
+assign out_A_E_B = (  A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B    [1]) && ( A[0] ==  B[0]) && in_A_E_B;
+endmodule
 ```
 
 #### 示例文件(略)
@@ -198,50 +198,50 @@ comparator_4 instance_comparator_4 (
 #### 设计文件
 
 ```Verilog
-    module comparator_16 (
-        input  [15: 0] A,
-        input  [15: 0] B,
-        output         out_A_G_B,
-        output         out_A_E_B,
-        output         out_A_L_B
-    );
+module comparator_16 (
+    input  [15: 0] A,
+    input  [15: 0] B,
+    output         out_A_G_B,
+    output         out_A_E_B,
+    output         out_A_L_B
+);
 
-        wire   [ 2: 0] w0;
-        wire   [ 2: 0] w1;
-        wire   [ 2: 0] w2;
-        wire   [ 2: 0] w3;
+    wire   [ 2: 0] w0;
+    wire   [ 2: 0] w1;
+    wire   [ 2: 0] w2;
+    wire   [ 2: 0] w3;
 
-        assign w0 = 3'b010;
+    assign w0 = 3'b010;
 
-        comparator_4 m1(A[ 3: 0], B[ 3: 0], w0[0], w0[1], w0[2], w1[0]    , w1[1]    , w1[2]    );
-        comparator_4 m2(A[ 7: 4], B[ 7: 4], w1[0], w1[1], w1[2], w2[0]    , w2[1]    , w2[2]    );
-        comparator_4 m3(A[11: 8], B[11: 8], w2[0], w2[1], w2[2], w3[0]    , w3[1]    , w3[2]    );
-        comparator_4 m4(A[15:12], B[15:12], w3[0], w3[1], w3[2], out_A_G_B, out_A_E_B, out_A_L_B);
-    endmodule
+    comparator_4 m1(A[ 3: 0], B[ 3: 0], w0[0], w0[1], w0[2], w1[0]    , w1[1]    , w1[2]    );
+    comparator_4 m2(A[ 7: 4], B[ 7: 4], w1[0], w1[1], w1[2], w2[0]    , w2[1]    , w2[2]    );
+    comparator_4 m3(A[11: 8], B[11: 8], w2[0], w2[1], w2[2], w3[0]    , w3[1]    , w3[2]    );
+    comparator_4 m4(A[15:12], B[15:12], w3[0], w3[1], w3[2], out_A_G_B, out_A_E_B, out_A_L_B);
+endmodule
 
-    module comparator_4 (
-        input  [ 3: 0] A,
-        input  [ 3: 0] B,
-        input          in_A_G_B,
-        input          in_A_E_B,
-        input          in_A_L_B,
-        output         out_A_G_B,
-        output         out_A_E_B,
-        output         out_A_L_B
-    );
+module comparator_4 (
+    input  [ 3: 0] A,
+    input  [ 3: 0] B,
+    input          in_A_G_B,
+    input          in_A_E_B,
+    input          in_A_L_B,
+    output         out_A_G_B,
+    output         out_A_E_B,
+    output         out_A_L_B
+);
 
-        assign out_A_G_B = (  A[3] && ~B[3])
-                        || (( A[3] ==  B[3]) && ( A[2] && ~B[2]))
-                        || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] && ~B[1]))
-                        || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B[1]) && ( A[0] && ~B[0]))
-                        || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B[1]) && ( A[0] ==  B[0]) && in_A_G_B);
-        assign out_A_L_B = ( ~A[3] &&  B[3])
-                        || (( A[3] ==  B[3]) && (~A[2] &&  B[2]))
-                        || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && (~A[1] &&  B[1]))
-                        || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B[1]) && (~A[0] &&  B[0]))
-                        || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B[1]) && ( A[0] ==  B[0]) && in_A_L_B);
-        assign out_A_E_B = (  A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B[1]) && ( A[0] ==  B[0]) && in_A_E_B;
-    endmodule
+    assign out_A_G_B = (  A[3] && ~B[3])
+                    || (( A[3] ==  B[3]) && ( A[2] && ~B[2]))
+                    || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] && ~B[1]))
+                    || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B[1]) && ( A[0] && ~B[0]))
+                    || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B[1]) && ( A[0] ==  B[0]) && in_A_G_B);
+    assign out_A_L_B = ( ~A[3] &&  B[3])
+                    || (( A[3] ==  B[3]) && (~A[2] &&  B[2]))
+                    || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && (~A[1] &&  B[1]))
+                    || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B[1]) && (~A[0] &&  B[0]))
+                    || (( A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B[1]) && ( A[0] ==  B[0]) && in_A_L_B);
+    assign out_A_E_B = (  A[3] ==  B[3]) && ( A[2] ==  B[2]) && ( A[1] ==  B[1]) && ( A[0] ==  B[0]) && in_A_E_B;
+endmodule
 ```
 
 #### 示例文件(略)
@@ -249,13 +249,13 @@ comparator_4 instance_comparator_4 (
 #### 激励测试文件(仅展示自己编辑部分)
 
 ```Verilog
-    comparator_16 instance_comparator_16 (
-        .A              (               A),
-        .B              (               B),
-        .out_A_G_B      (  USER_A_G_B_TMP),
-        .out_A_E_B      (  USER_A_E_B_TMP),
-        .out_A_L_B      (  USER_A_L_B_TMP)
-    );
+comparator_16 instance_comparator_16 (
+    .A              (               A),
+    .B              (               B),
+    .out_A_G_B      (  USER_A_G_B_TMP),
+    .out_A_E_B      (  USER_A_E_B_TMP),
+    .out_A_L_B      (  USER_A_L_B_TMP)
+);
 ```
 
 ### 4 位超前进位加法器
@@ -263,309 +263,309 @@ comparator_4 instance_comparator_4 (
 #### 设计文件
 
 ```Verilog
-    module fastcarry_4 (
-        input  [ 3: 0] A,
-        input  [ 3: 0] B,
-        input          Cin,
-        output [ 3: 0] S,
-        output         Cout
-    );
+module fastcarry_4 (
+    input  [ 3: 0] A,
+    input  [ 3: 0] B,
+    input          Cin,
+    output [ 3: 0] S,
+    output         Cout
+);
 
-        wire   [ 3: 0] C;
-        wire   [ 3: 0] P;
-        wire   [ 3: 0] G;
+    wire   [ 3: 0] C;
+    wire   [ 3: 0] P;
+    wire   [ 3: 0] G;
 
-        PG_generator t0 (A[0], B[0], P[0], G[0]);
-        PG_generator t1 (A[1], B[1], P[1], G[1]);
-        PG_generator t2 (A[2], B[2], P[2], G[2]);
-        PG_generator t3 (A[3], B[3], P[3], G[3]);
+    PG_generator t0 (A[0], B[0], P[0], G[0]);
+    PG_generator t1 (A[1], B[1], P[1], G[1]);
+    PG_generator t2 (A[2], B[2], P[2], G[2]);
+    PG_generator t3 (A[3], B[3], P[3], G[3]);
 
-        assign  C[0] = Cin;
-        assign  C[1] = G[0]
-                    || P[0] && Cin;
-        assign  C[2] = G[1]
-                    || P[1] && G[0]
-                    || P[1] && P[0] && Cin;
-        assign  C[3] = G[2]
-                    || P[2] && G[1]
-                    || P[2] && P[1] && G[0]
-                    || P[2] && P[1] && P[0] && Cin;
-        assign  Cout = G[3]
-                    || P[3] && G[2]
-                    || P[3] && P[2] && G[1]
-                    || P[3] && P[2] && P[1] && G[0]
-                    || P[3] && P[2] && P[1] && P[0] && Cin;
-        assign     S = P ^ C;
-    endmodule
+    assign  C[0] = Cin;
+    assign  C[1] = G[0]
+                || P[0] && Cin;
+    assign  C[2] = G[1]
+                || P[1] && G[0]
+                || P[1] && P[0] && Cin;
+    assign  C[3] = G[2]
+                || P[2] && G[1]
+                || P[2] && P[1] && G[0]
+                || P[2] && P[1] && P[0] && Cin;
+    assign  Cout = G[3]
+                || P[3] && G[2]
+                || P[3] && P[2] && G[1]
+                || P[3] && P[2] && P[1] && G[0]
+                || P[3] && P[2] && P[1] && P[0] && Cin;
+    assign     S = P ^ C;
+endmodule
 
-    module PG_generator (
-        input          a,
-        input          b,
-        output         p,
-        output         g
-    );
+module PG_generator (
+    input          a,
+    input          b,
+    output         p,
+    output         g
+);
 
-        assign  p = a ^ b;
-        assign  g = a & b;
-    endmodule
+    assign  p = a ^ b;
+    assign  g = a & b;
+endmodule
 ```
 
 #### 示例文件
 
 ```Verilog
-    module TEMPLATE_fastcarry_4 (A, B, Cin, S, Cout);
-        input  [ 3: 0] A;
-        input  [ 3: 0] B;
-        input          Cin;
-        output [ 3: 0] S;
-        output         Cout;
+module TEMPLATE_fastcarry_4 (A, B, Cin, S, Cout);
+    input  [ 3: 0] A;
+    input  [ 3: 0] B;
+    input          Cin;
+    output [ 3: 0] S;
+    output         Cout;
 
-        assign {Cout, S} = A + B + Cin;
-    endmodule
+    assign {Cout, S} = A + B + Cin;
+endmodule
 ```
 
 #### 激励测试文件
 
 ```Verilog
-    module test_fastcarry_4();
-        reg   [3:0] A;
-        reg   [3:0] B;
-        reg         Cin;
-        wire  [3:0] S1;
-        wire        Cout1;
-        wire  [3:0] S2;
-        wire        Cout2;
-        wire        check = (   S1 === S2   )
-                         && (Cout1 === Cout2);
+module test_fastcarry_4();
+    reg   [3:0] A;
+    reg   [3:0] B;
+    reg         Cin;
+    wire  [3:0] S1;
+    wire        Cout1;
+    wire  [3:0] S2;
+    wire        Cout2;
+    wire        check = (   S1 === S2   )
+                        && (Cout1 === Cout2);
 
-        fastcarry_4 instance_fastcarry_4 (
-            .A    (          A),
-            .B    (          B),
-            .Cin  (        Cin),
-            .S    (         S1),
-            .Cout (      Cout1)
-        );
+    fastcarry_4 instance_fastcarry_4 (
+        .A    (          A),
+        .B    (          B),
+        .Cin  (        Cin),
+        .S    (         S1),
+        .Cout (      Cout1)
+    );
 
-        TEMPLATE_fastcarry_4 instance_TEMPLATE_fastcarry_4 (
-            .A    (          A),
-            .B    (          B),
-            .Cin  (        Cin),
-            .S    (         S2),
-            .Cout (      Cout2)
-        );
+    TEMPLATE_fastcarry_4 instance_TEMPLATE_fastcarry_4 (
+        .A    (          A),
+        .B    (          B),
+        .Cin  (        Cin),
+        .S    (         S2),
+        .Cout (      Cout2)
+    );
 
-        initial
-        begin
-              A = 4'd0;
-              B = 4'd0;
-            Cin = 1'b0;
-        end
+    initial
+    begin
+            A = 4'd0;
+            B = 4'd0;
+        Cin = 1'b0;
+    end
 
-        always
-        begin
-            #2;
-              A = $random() % 16;
-              B = $random() % 16;
-            Cin = $random() %  2;
-        end
-    endmodule
+    always
+    begin
+        #2;
+            A = $random() % 16;
+            B = $random() % 16;
+        Cin = $random() %  2;
+    end
+endmodule
 ```
 
 ### 32 位超前进位加法器
 
 ```Verilog
-    module fastcarry_32 (
-        input  [31: 0] A,
-        input  [31: 0] B,
-        input          Cin,
-        output [31: 0] S,
-        output         Cout
+module fastcarry_32 (
+    input  [31: 0] A,
+    input  [31: 0] B,
+    input          Cin,
+    output [31: 0] S,
+    output         Cout
+);
+
+    wire   [31: 0] P0;
+    wire   [31: 0] G0;
+    wire   [31: 0] C0;
+    wire   [ 7: 0] P1;
+    wire   [ 7: 0] G1;
+    wire   [ 7: 0] C1;
+    wire   [ 3: 0] P2;
+    wire   [ 3: 0] G2;
+    wire   [ 3: 0] C2;
+
+    assign    P0 =  A ^ B;
+    assign    G0 =  A & B;
+    assign     S = P0 ^ C0;
+    assign  Cout = C[2];
+
+    fastcarry_4_2  f00 (
+        .Pin  ( P0 [ 3: 0]),
+        .Gin  ( G0 [ 3: 0]),
+        .Cin  (Cin        ),
+        .C    ( C0 [ 3: 0]),
+        .Pout ( P1 [    0]),
+        .Gout ( G1 [    0])
     );
 
-        wire   [31: 0] P0;
-        wire   [31: 0] G0;
-        wire   [31: 0] C0;
-        wire   [ 7: 0] P1;
-        wire   [ 7: 0] G1;
-        wire   [ 7: 0] C1;
-        wire   [ 3: 0] P2;
-        wire   [ 3: 0] G2;
-        wire   [ 3: 0] C2;
-
-        assign    P0 =  A ^ B;
-        assign    G0 =  A & B;
-        assign     S = P0 ^ C0;
-        assign  Cout = C[2];
-
-        fastcarry_4_2  f00 (
-            .Pin  ( P0 [ 3: 0]),
-            .Gin  ( G0 [ 3: 0]),
-            .Cin  (Cin        ),
-            .C    ( C0 [ 3: 0]),
-            .Pout ( P1 [    0]),
-            .Gout ( G1 [    0])
-        );
-
-        fastcarry_4_2  f01 (
-            .Pin  ( P0 [ 7: 4]),
-            .Gin  ( G0 [ 7: 4]),
-            .Cin  ( C1 [    1]),
-            .C    ( C0 [ 7: 4]),
-            .Pout ( P1 [    1]),
-            .Gout ( G1 [    1])
-        );
-        fastcarry_4_2  f02 (
-            .Pin  ( P0 [11: 8]),
-            .Gin  ( G0 [11: 8]),
-            .Cin  ( C1 [    2]),
-            .C    ( C0 [11: 8]),
-            .Pout ( P1 [    2]),
-            .Gout ( G1 [    2])
-        );
-        fastcarry_4_2  f03 (
-            .Pin  ( P0 [15:12]),
-            .Gin  ( G0 [15:12]),
-            .Cin  ( C1 [    3]),
-            .C    ( C0 [15:12]),
-            .Pout ( P1 [    3]),
-            .Gout ( G1 [    3])
-        );
-        fastcarry_4_2  f04 (
-            .Pin  ( P0 [19:16]),
-            .Gin  ( G0 [19:16]),
-            .Cin  ( C2 [    1]),
-            .C    ( C0 [19:16]),
-            .Pout ( P1 [    4]),
-            .Gout ( G1 [    4])
-        );
-        fastcarry_4_2  f05 (
-            .Pin  ( P0 [23:20]),
-            .Gin  ( G0 [23:20]),
-            .Cin  ( C1 [    5]),
-            .C    ( C0 [23:20]),
-            .Pout ( P1 [    5]),
-            .Gout ( G1 [    5])
-        );
-        fastcarry_4_2  f06 (
-            .Pin  ( P0 [27:24]),
-            .Gin  ( G0 [27:24]),
-            .Cin  ( C1 [    6]),
-            .C    ( C0 [27:24]),
-            .Pout ( P1 [    6]),
-            .Gout ( G1 [    6])
-        );
-        fastcarry_4_2  f07 (
-            .Pin  ( P0 [31:28]),
-            .Gin  ( G0 [31:28]),
-            .Cin  ( C1 [    7]),
-            .C    ( C0 [31:28]),
-            .Pout ( P1 [    7]),
-            .Gout ( G1 [    7])
-        );
-        fastcarry_4_2  f10 (
-            .Pin  ( P1 [ 3: 0]),
-            .Gin  ( G1 [ 3: 0]),
-            .Cin  (Cin        ),
-            .C    ( C1 [ 3: 0]),
-            .Pout ( P2 [    0]),
-            .Gout ( G2 [    0])
-        );
-        fastcarry_4_2  f11 (
-            .Pin  ( P1 [ 7: 4]),
-            .Gin  ( G1 [ 7: 4]),
-            .Cin  ( C2 [    1]),
-            .C    ( C1 [ 7: 4])
-        );
-        fastcarry_4_2  f20 (
-            .Pin  ( P2 [ 3: 0]),
-            .Gin  ( G2 [ 3: 0]),
-            .Cin  (Cin        ),
-            .C    ( C2 [ 3: 0])
-        );
-    endmodule
-    module fastcarry_4_2 (
-        input  [ 3: 0] Pin,
-        input  [ 3: 0] Gin,
-        input          Cin,
-        output [ 3: 0] C,
-        output         Pout,
-        output         Gout
+    fastcarry_4_2  f01 (
+        .Pin  ( P0 [ 7: 4]),
+        .Gin  ( G0 [ 7: 4]),
+        .Cin  ( C1 [    1]),
+        .C    ( C0 [ 7: 4]),
+        .Pout ( P1 [    1]),
+        .Gout ( G1 [    1])
     );
-        assign  C[0] = Cin;
-        assign  C[1] = Gin[0]
-                    || Pin[0] && Cin;
-        assign  C[2] = Gin[1]
-                    || Pin[1] && Gin[0]
-                    || Pin[1] && Pin[0] && Cin;
-        assign  C[3] = Gin[2]
-                    || Pin[2] && Gin[1]
-                    || Pin[2] && Pin[1] && Gin[0]
-                    || Pin[2] && Pin[1] && Pin[0] && Cin;
-        assign  Gout = Gin[3]
-                    || Pin[3] && Gin[2]
-                    || Pin[3] && Pin[2] && Gin[1]
-                    || Pin[3] && Pin[2] && Pin[1] && Gin[0];
-        assign  Pout = Pin[3] && Pin[2] && Pin[1] && Pin[0];
-    endmodule
+    fastcarry_4_2  f02 (
+        .Pin  ( P0 [11: 8]),
+        .Gin  ( G0 [11: 8]),
+        .Cin  ( C1 [    2]),
+        .C    ( C0 [11: 8]),
+        .Pout ( P1 [    2]),
+        .Gout ( G1 [    2])
+    );
+    fastcarry_4_2  f03 (
+        .Pin  ( P0 [15:12]),
+        .Gin  ( G0 [15:12]),
+        .Cin  ( C1 [    3]),
+        .C    ( C0 [15:12]),
+        .Pout ( P1 [    3]),
+        .Gout ( G1 [    3])
+    );
+    fastcarry_4_2  f04 (
+        .Pin  ( P0 [19:16]),
+        .Gin  ( G0 [19:16]),
+        .Cin  ( C2 [    1]),
+        .C    ( C0 [19:16]),
+        .Pout ( P1 [    4]),
+        .Gout ( G1 [    4])
+    );
+    fastcarry_4_2  f05 (
+        .Pin  ( P0 [23:20]),
+        .Gin  ( G0 [23:20]),
+        .Cin  ( C1 [    5]),
+        .C    ( C0 [23:20]),
+        .Pout ( P1 [    5]),
+        .Gout ( G1 [    5])
+    );
+    fastcarry_4_2  f06 (
+        .Pin  ( P0 [27:24]),
+        .Gin  ( G0 [27:24]),
+        .Cin  ( C1 [    6]),
+        .C    ( C0 [27:24]),
+        .Pout ( P1 [    6]),
+        .Gout ( G1 [    6])
+    );
+    fastcarry_4_2  f07 (
+        .Pin  ( P0 [31:28]),
+        .Gin  ( G0 [31:28]),
+        .Cin  ( C1 [    7]),
+        .C    ( C0 [31:28]),
+        .Pout ( P1 [    7]),
+        .Gout ( G1 [    7])
+    );
+    fastcarry_4_2  f10 (
+        .Pin  ( P1 [ 3: 0]),
+        .Gin  ( G1 [ 3: 0]),
+        .Cin  (Cin        ),
+        .C    ( C1 [ 3: 0]),
+        .Pout ( P2 [    0]),
+        .Gout ( G2 [    0])
+    );
+    fastcarry_4_2  f11 (
+        .Pin  ( P1 [ 7: 4]),
+        .Gin  ( G1 [ 7: 4]),
+        .Cin  ( C2 [    1]),
+        .C    ( C1 [ 7: 4])
+    );
+    fastcarry_4_2  f20 (
+        .Pin  ( P2 [ 3: 0]),
+        .Gin  ( G2 [ 3: 0]),
+        .Cin  (Cin        ),
+        .C    ( C2 [ 3: 0])
+    );
+endmodule
+module fastcarry_4_2 (
+    input  [ 3: 0] Pin,
+    input  [ 3: 0] Gin,
+    input          Cin,
+    output [ 3: 0] C,
+    output         Pout,
+    output         Gout
+);
+    assign  C[0] = Cin;
+    assign  C[1] = Gin[0]
+                || Pin[0] && Cin;
+    assign  C[2] = Gin[1]
+                || Pin[1] && Gin[0]
+                || Pin[1] && Pin[0] && Cin;
+    assign  C[3] = Gin[2]
+                || Pin[2] && Gin[1]
+                || Pin[2] && Pin[1] && Gin[0]
+                || Pin[2] && Pin[1] && Pin[0] && Cin;
+    assign  Gout = Gin[3]
+                || Pin[3] && Gin[2]
+                || Pin[3] && Pin[2] && Gin[1]
+                || Pin[3] && Pin[2] && Pin[1] && Gin[0];
+    assign  Pout = Pin[3] && Pin[2] && Pin[1] && Pin[0];
+endmodule
 ```
 
 #### 示例文件
 
 ```Verilog
-    module TEMPLATE_fastcarry_32 (A, B, Cin, S, Cout);
-        input  [31: 0] A;
-        input  [31: 0] B;
-        input          Cin;
-        output [31: 0] S;
-        output         Cout;
+module TEMPLATE_fastcarry_32 (A, B, Cin, S, Cout);
+    input  [31: 0] A;
+    input  [31: 0] B;
+    input          Cin;
+    output [31: 0] S;
+    output         Cout;
 
-        assign {Cout, S} = A + B + Cin;
-    endmodule
+    assign {Cout, S} = A + B + Cin;
+endmodule
 ```
 
 #### 激励测试文件
 
 ```Verilog
-    module test_fastcarry_32();
-        reg   [31:0] A;
-        reg   [31:0] B;
-        reg          Cin;
-        wire  [31:0] S1;
-        wire         Cout1;
-        wire  [31:0] S2;
-        wire         Cout2;
-        wire         check = (   S1 === S2   )
-                          && (Cout1 === Cout2);
+module test_fastcarry_32();
+    reg   [31:0] A;
+    reg   [31:0] B;
+    reg          Cin;
+    wire  [31:0] S1;
+    wire         Cout1;
+    wire  [31:0] S2;
+    wire         Cout2;
+    wire         check = (   S1 === S2   )
+                        && (Cout1 === Cout2);
 
-        fastcarry_32 instance_fastcarry_32 (
-            .A    (          A),
-            .B    (          B),
-            .Cin  (        Cin),
-            .S    (         S1),
-            .Cout (      Cout1)
-        );
+    fastcarry_32 instance_fastcarry_32 (
+        .A    (          A),
+        .B    (          B),
+        .Cin  (        Cin),
+        .S    (         S1),
+        .Cout (      Cout1)
+    );
 
-        TEMPLATE_fastcarry_32 instance_TEMPLATE_fastcarry_32 (
-            .A    (          A),
-            .B    (          B),
-            .Cin  (        Cin),
-            .S    (         S2),
-            .Cout (      Cout2)
-        );
+    TEMPLATE_fastcarry_32 instance_TEMPLATE_fastcarry_32 (
+        .A    (          A),
+        .B    (          B),
+        .Cin  (        Cin),
+        .S    (         S2),
+        .Cout (      Cout2)
+    );
 
-        initial
-        begin
-              A = 32'h0;
-              B = 32'h0;
-            Cin =  1'b0;
-        end
+    initial
+    begin
+            A = 32'h0;
+            B = 32'h0;
+          Cin =  1'b0;
+    end
 
-        always
-        begin
-            #2;
-              A = $random() % 2^32;
-              B = $random() % 2^32;
-            Cin = $random() %    2;
-        end
-    endmodule
+    always
+    begin
+        #2;
+            A = $random() % 2^32;
+            B = $random() % 2^32;
+          Cin = $random() %    2;
+    end
+endmodule
 ```

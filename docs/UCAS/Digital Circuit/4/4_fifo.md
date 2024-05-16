@@ -184,8 +184,6 @@ H2 & I2 --> End
 #### 设计文件
 
 ```Verilog
-`timescale 1ns / 1ps
-
 module fifo(
     input               clk,
     input               rstn,
@@ -246,8 +244,6 @@ endmodule
 #### 激励测试文件
 
 ```Verilog
-`timescale 1ns / 1ps
-
 module fifo_test(
 );
     reg          clk;
@@ -301,8 +297,6 @@ endmodule
 #### 设计文件
 
 ```Verilog
-`timescale 1ns / 1ps
-
 module fifo2(
     input               clk,
     input               rstn,
@@ -366,8 +360,6 @@ endmodule
 #### 激励测试文件
 
 ```Verilog
-`timescale 1ns / 1ps
-
 module fifo2_test(
 );
     reg          clk;

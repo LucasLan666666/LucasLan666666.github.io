@@ -41,7 +41,7 @@ sudo ln -s ~/barebones-toolchain/cross/x86_64/bin/mips-gcc /usr/local/bin/mips-g
 
 以 `hello` 为例
 
-### 软件部分：
+### 软件部分
 
 ![software_test_1](assets/software_test_1.png)
 
@@ -55,12 +55,9 @@ sudo ln -s ~/barebones-toolchain/cross/x86_64/bin/mips-gcc /usr/local/bin/mips-g
 
 ### 硬件部分
 
-***记得先把 `fpga/sim_out/custom_cpu` 和 `verilator_include` 删干净！！！***
+!!! warning
+    记得先把 `fpga/sim_out/custom_cpu` 和 `verilator_include` 删干净！！！
 
-***记得先把 `fpga/sim_out/custom_cpu` 和 `verilator_include` 删干净！！！***
+![custom_cpu_test_1](assets/custom_cpu_test_1.png)
 
-***记得先把 `fpga/sim_out/custom_cpu` 和 `verilator_include` 删干净！！！***
-
-![custom_cpu_test_1.png](assets/custom_cpu_test_1.png)
-
-![custom_cpu_test_2.png](assets/custom_cpu_test_2.png)
+![custom_cpu_test_2](assets/custom_cpu_test_2.png)
