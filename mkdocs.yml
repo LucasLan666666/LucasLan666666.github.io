@@ -11,26 +11,26 @@ extra_css:
     # - https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/lxgwwenkaiscreen.css
 
 nav:
-    # - Home: index.md
-    # - About: about.md
-    # - Experiences:
-    #     - Markdown: Experiences/Markdown 常用模板.md
-    #     - Mermaid: Experiences/mermaid/Mermaid 踩坑日记.md
-    #     - Github-Copilot: Experiences/copilot/Github-Copilot 配置方法.md
-    #     - Git: Experiences/Git 入坑指南.md
+    - Home: index.md
+    - About: about.md
+    - Experiences:
+        - Markdown: Experiences/Markdown 常用模板.md
+        - Mermaid: Experiences/mermaid/Mermaid 踩坑日记.md
+        - Github-Copilot: Experiences/copilot/Github-Copilot 配置方法.md
+        - Git: Experiences/Git 入坑指南.md
     - UCAS:
         - Digital Circuit:
-    #         - Lab1: UCAS/Digital Circuit/1/1_trip.md
+            - Lab1: UCAS/Digital Circuit/1/1_trip.md
             - Lab2: UCAS/Digital Circuit/2/2_digital_comparator.md
-    #         - Lab3: UCAS/Digital Circuit/3/3_FSM.md
-    #         - Lab4: UCAS/Digital Circuit/4/4_fifo.md
-    #     - Assembly Language:
-    #         - LoooooooooongArch: UCAS/Assembly-Language/LoongArch/LoongArch汇编实验环境.md
-    #         - quicksort: UCAS/Assembly-Language/quicksort/quicksort_group7.md
-    #     - COD-Lab:
-    #         - bhv_sim-env: UCAS/COD-Lab/cod-lab 本地仿真环境配置.md
-    - Test:
-        - Latex: test/Latex test.md
+            - Lab3: UCAS/Digital Circuit/3/3_FSM.md
+            - Lab4: UCAS/Digital Circuit/4/4_fifo.md
+        - Assembly Language:
+            - LoooooooooongArch: UCAS/Assembly-Language/LoongArch/LoongArch汇编实验环境.md
+            - quicksort: UCAS/Assembly-Language/quicksort/quicksort_group7.md
+        - COD-Lab:
+            - bhv_sim-env: UCAS/COD-Lab/cod-lab 本地仿真环境配置.md
+    # - Test:
+    #     - Latex: test/Latex test.md
     #     - font: test/font.md
 
 theme:
