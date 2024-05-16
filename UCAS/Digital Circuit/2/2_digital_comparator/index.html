@@ -37,8 +37,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CJet+Brains+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Jet Brains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono+NL:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono NL"}</style>
       
     
     
@@ -791,10 +791,10 @@
 <ol>
 <li>由全加器真值表可知, 向高位的进位信号在两种情况下产生:
    $$
-   \begin{align<em>}
+   \begin{align}
         &amp;A \cdot B = 1 \
         &amp;A + B = 1, C_{in} = 1
-   \end{align</em>}
+   \end{align}
    $$</li>
 <li>用 <span class="arithmatex">\(C_i\)</span> 表示第 <span class="arithmatex">\(i\)</span> 位的进位信号, 有:
    $$
@@ -806,15 +806,15 @@
     $$
     另一方面, 由于 <span class="arithmatex">\(S_i = A_i \oplus B_i \oplus C_i\)</span> , 且我们发现
     $$
-    \begin{align<em>}
+    \begin{align}
     C_{i+1} &amp;= A_iB_i + (A_i + B_i)C_i \
             &amp;= A_iB_i + (A_i \oplus B_i)C_i
-    \end{align</em>}
+    \end{align}
     $$
     因此可以将 <span class="arithmatex">\(P_i\)</span> 的定义修改成 <span class="arithmatex">\(P_i = A_i \oplus B_i\)</span>
     于是有:
     $$
-    \begin{align<em>}
+    \begin{align}
         C_0 &amp;= C_{in} \
         C_1 &amp;= G_1 + P_1C_0 = G_1 + P_1C_{in} \
         C_2 &amp;= G_2 + P_2C_1 = G_2 + P_2(G_1 + P_1C_{in}) \
@@ -828,31 +828,31 @@
         C_i &amp;= G_{i-1} + P_{i-1}C_{i-1} \
             &amp;= G_{i-1} + P_{i-1}(G_{i-2} + P_{i-2}C_{i-2}) \
             &amp;= \sum_{j=1}^iP_jG_{j-1} + P_iP_{i-1}\cdots P_1C_{in}
-    \end{align</em>}
+    \end{align}
     $$</li>
 <li>
 <p>而对于 4 位加法器, 只需要取:
    $$
-   \begin{align<em>}
+   \begin{align}
         C_0 &amp;= C_{in} \
         C_1 &amp;= G_1 + P_1C_0 = G_1 + P_1C_{in} \
         C_2 &amp;= G_2 + P_2C_1 = G_2 + P_2(G_1 + P_1C_{in}) = G_2 + P_2G_1 + P_2P_1C_{in} \
         C_3 &amp;= G_3 + P_3C_2 = G_3 + P_3(G_2 + P_2G_1 + P_2P_1C_{in}) \
             &amp;= G_3 + P_3G_2 + P_3P_2G_1 +  P_3P_2P_1C_{in}
-   \end{align</em>}
+   \end{align}
    $$</p>
 </li>
 <li>
 <p>设 4 位加法器输出的和为 <span class="arithmatex">\(S\)</span> , 输出的进位信号为 <span class="arithmatex">\(C_{out}\)</span> , 有:
    $$
-   \begin{align<em>}
+   \begin{align}
         S_i &amp;= A_i \oplus B_i \oplus C_i \
             &amp;= P_i \oplus C_i \
         C_{out} &amp;= C_4 \
                 &amp;= G_4 + P_4C_3 \
                 &amp;= G_4 + P_4(G_3 + P_3G_2 + P_3P_2G_1 + P_3P_2P_1C_{in}) \
                 &amp;= G_4 + P_4G_3 + P_4P_3G_2 + P_4P_3P_2G_1 + P_4P_3P_2P_1C_{in}
-   \end{align</em>}
+   \end{align}
    $$</p>
 </li>
 <li>至此, 则实现了 4 位超前进位加法器.</li>
