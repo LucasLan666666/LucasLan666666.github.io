@@ -22,17 +22,17 @@
 
 - 对齐多个元素
 
-  ```html
-  <table>
-  <tr>
-  <td style="text-align: left">左对齐的文字</td>
-  <td style="text-align: center">居中的文字</td>
-  <td style="text-align: right">右对齐的文字</td>
-  </tr>
-  <tr>
-  <td style="text-align: left">左对齐的文字</td>
-  <td style="text-align: center">居中的文字</td>
-  <td style="text-align: right">右对齐的文字</td>
-  </tr>
-  </table>对齐多个元素并放在屏幕最右侧
-  ```
+    ```html
+    <table>
+    <tr>
+    <td style="text-align: left">左对齐的文字</td>
+    <td style="text-align: center">居中的文字</td>
+    <td style="text-align: right">右对齐的文字</td>
+    </tr>
+    <tr>
+    <td style="text-align: left">左对齐的文字</td>
+    <td style="text-align: center">居中的文字</td>
+    <td style="text-align: right">右对齐的文字</td>
+    </tr>
+    </table>对齐多个元素并放在屏幕最右侧
+    ```

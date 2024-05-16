@@ -64,25 +64,25 @@
 
 - 注意到，原本 C 代码结构是 `for` 循环嵌套 `while` 循环：
 
-  ```C
-    for (i = 0; s[i] != '\0'; i++) {
-        while (*uart_status & UART_TX_FIFO_FULL)
-            ;
-        *uart_tx_fifo = (unsigned int)s[i];
-    }
-  ```
+    ```C
+        for (i = 0; s[i] != '\0'; i++) {
+            while (*uart_status & UART_TX_FIFO_FULL)
+                ;
+            *uart_tx_fifo = (unsigned int)s[i];
+        }
+    ```
 
 - 如果不使用 `volatile` ，函数的执行顺序相当于变成了这样：
 
-  ```C
-    i = 0;
-    while (*uart_status & UART_TX_FIFO_FULL)
-        ;
-    *uart_tx_fifo = (unsigned int)s[i];
-    i++;
-    for (i = 1; s[i] != '\0'; i++)
+    ```C
+        i = 0;
+        while (*uart_status & UART_TX_FIFO_FULL)
+            ;
         *uart_tx_fifo = (unsigned int)s[i];
-  ```
+        i++;
+        for (i = 1; s[i] != '\0'; i++)
+            *uart_tx_fifo = (unsigned int)s[i];
+    ```
 
 - 因为 `for` 循环中并没有对地址 `uart_status` 处的值进行修改，在非嵌入式环境的情况下我们有理由认为 `*uart_status` 并没有发生变化，既然这样，就没有必要重复判断了。所以编译器也看似“理所应当”地改变了程序执行的顺序：`for` 循环自从第一次判断结束后，跳转时直接从 `*uart_tx_fifo = (unsigned int)s[i]` 开始执行。
 
