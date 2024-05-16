@@ -28,7 +28,7 @@ nav:
             - LoooooooooongArch: UCAS/Assembly-Language/LoongArch/LoongArch汇编实验环境.md
             - quicksort: UCAS/Assembly-Language/quicksort/quicksort_group7.md
         - COD-Lab:
-            - bhv_sim-env: UCAS/COD-Lab/bhv_sim-env/cod-lab 本地仿真环境配置.md
+            - bhv_sim_env: UCAS/COD-Lab/bhv_sim_env/cod-lab 本地仿真环境配置.md
             # - prj3: UCAS/COD-Lab/prj3/prj3.md
     # - Test:
     #     - Latex: test/Latex test.md
