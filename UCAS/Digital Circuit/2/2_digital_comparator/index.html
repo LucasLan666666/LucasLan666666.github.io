@@ -37,8 +37,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CJet+Brains+Mono+NL:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Jet Brains Mono NL"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CJet+Brains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Jet Brains Mono"}</style>
       
     
     
@@ -302,6 +302,27 @@
   
   <span class="md-ellipsis">
     Latex
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../test/font/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    font
   </span>
   
 
@@ -783,14 +804,14 @@
     $$
     C_{i+1} = G_i + P_iC_i
     $$
-    另一方面, 由于 <span class="arithmatex">\(S_i = A_i \bigoplus B_i \bigoplus C_i\)</span> , 且我们发现
+    另一方面, 由于 <span class="arithmatex">\(S_i = A_i \oplus B_i \oplus C_i\)</span> , 且我们发现
     $$
     \begin{align<em>}
     C_{i+1} &amp;= A_iB_i + (A_i + B_i)C_i \
-            &amp;= A_iB_i + (A_i \bigoplus B_i)C_i
+            &amp;= A_iB_i + (A_i \oplus B_i)C_i
     \end{align</em>}
     $$
-    因此可以将 <span class="arithmatex">\(P_i\)</span> 的定义修改成 <span class="arithmatex">\(P_i = A_i \bigoplus B_i\)</span>
+    因此可以将 <span class="arithmatex">\(P_i\)</span> 的定义修改成 <span class="arithmatex">\(P_i = A_i \oplus B_i\)</span>
     于是有:
     $$
     \begin{align<em>}
@@ -825,8 +846,8 @@
 <p>设 4 位加法器输出的和为 <span class="arithmatex">\(S\)</span> , 输出的进位信号为 <span class="arithmatex">\(C_{out}\)</span> , 有:
    $$
    \begin{align<em>}
-        S_i &amp;= A_i \bigoplus B_i \bigoplus C_i \
-            &amp;= P_i \bigoplus C_i \
+        S_i &amp;= A_i \oplus B_i \oplus C_i \
+            &amp;= P_i \oplus C_i \
         C_{out} &amp;= C_4 \
                 &amp;= G_4 + P_4C_3 \
                 &amp;= G_4 + P_4(G_3 + P_3G_2 + P_3P_2G_1 + P_3P_2P_1C_{in}) \
