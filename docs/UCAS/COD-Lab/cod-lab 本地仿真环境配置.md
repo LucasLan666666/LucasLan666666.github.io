@@ -8,23 +8,42 @@
 
 ![verilator](assets/verilator.png)
 
-找一个目录（不要放到框架里，可以选择 `~` 主目录）本地解压即可，然后 `cd verilator-4.222`
-
-依次执行以下命令
+找一个目录（不要放到框架里，可以选择 `~` 主目录）本地解压即可，用以下命令解压：
 
 ```bash
-sudo apt-get install git help2man perl python3 make autoconf g++ flex bison ccache
+tar -xvf verilator-4.222.tar.gz
+```
 
-sudo apt-get install libgoogle-perftools-dev numactl perl-doc
+然后移动至解压后的目录：
 
+ ```bash
+ cd verilator-4.222
+ ```
 
-autoconf         # Create ./configure script
-./configure      # Configure and create Makefile
+依次执行以下命令:
 
-# 下面这两步会很漫长，如果在 S-IDE 上编译可能会花个二三十分钟
-# 如果 S-IDE 分配的内存太小，可能因为内存占用过大被操作系统杀死进程
-# 我测试 S-IDE 的时候开了 16 G，也整了很久
-make -j `nproc`  # Build Verilator itself (if error, try just 'make')
+首先安装必备的依赖：
+
+```bash
+sudo apt-get install git help2man perl python3 make autoconf g++ flex bison ccache libgoogle-perftools-dev numactl perl-doc
+ ```
+
+生成配置脚本：
+
+```bash
+autoconf && ./configure
+```
+
+!!! warning
+    下面这两步会很漫长，如果在 S-IDE 上编译可能会花个二三十分钟
+    我测试 S-IDE 的时候开了 16 G，也整了很久
+    如果 S-IDE 分配的内存太小，可能因为内存占用过大被操作系统杀死进程
+
+```bash
+make -j `nproc`
+```
+
+```bash
 sudo make install
 ```
 
@@ -34,24 +53,28 @@ sudo make install
 
 ```bash
 cd && git clone https://github.com/rm-hull/barebones-toolchain.git
+```
+
+```bash
 sudo ln -s ~/barebones-toolchain/cross/x86_64/bin/mips-gcc /usr/local/bin/mips-gcc
 ```
 
-## 展示
+## 成功示例
 
 以 `hello` 为例
 
 ### 软件部分
 
+!!! tip
+    没错它就是这么长
+
 ![software_test_1](assets/software_test_1.png)
-
 ![software_test_2](assets/software_test_2.png)
-
 ![software_test_3](assets/software_test_3.png)
-
 ![software_test_4](assets/software_test_4.png)
 
-没错它就是这么长
+!!! success
+    成功编译软件！！！
 
 ### 硬件部分
 
@@ -61,3 +84,6 @@ sudo ln -s ~/barebones-toolchain/cross/x86_64/bin/mips-gcc /usr/local/bin/mips-g
 ![custom_cpu_test_1](assets/custom_cpu_test_1.png)
 
 ![custom_cpu_test_2](assets/custom_cpu_test_2.png)
+
+!!! success
+    成功完成行为仿真并在终端显示结果！！！
