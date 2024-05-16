@@ -1038,17 +1038,20 @@
 
 <h1 id="loongarch-linux">搭建 LoongArch 汇编实验环境 (Linux)</h1>
 <h2 id="_1">先前准备</h2>
-<p><strong><em>注意：任何用到 <code>sudo</code> 指令的地方会提示输入密码，输入你自己的密码即可</em></strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>任何用到 <code>sudo</code> 指令的地方会提示输入密码，输入你自己的密码即可</p>
+</div>
 <ol>
 <li>
 <p>首先在主目录下创建一个 <code>LoongArch</code> 文件夹用来存放环境</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>~<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>LoongArch
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>~<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>LoongArch
+</span></code></pre></div></td></tr></table></div>
 </li>
 <li>
 <p>然后进入 <code>LoongArch</code> 文件夹</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>LoongArch
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>LoongArch
+</span></code></pre></div></td></tr></table></div>
 </li>
 </ol>
 <p>完成后如下图</p>
@@ -1057,47 +1060,47 @@
 <ol>
 <li>
 <p>下载<a href="https://download.qemu.org/qemu-8.2.2.tar.xz">这里</a>QEMU源码</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://gitlab.com/qemu-project/qemu.git
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://gitlab.com/qemu-project/qemu.git
+</span></code></pre></div></td></tr></table></div>
 <p>完成后如下图</p>
 <p><img alt="image-20240319200857574" src="../assets/image-20240319200857574.png" /></p>
 </li>
 <li>
 <p>安装依赖</p>
 <p>安装前可以先更新一下软件包（非必须）</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade
+</span></code></pre></div></td></tr></table></div>
 <p>这里会提示 <code>Do you want to continue?</code> ，输入 <code>Y</code> 即可</p>
 <p><img alt="image-20240319201352406" src="../assets/image-20240319201352406.png" /></p>
 <p>然后安装依赖</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>make<span class="w"> </span>ninja-build<span class="w"> </span>gcc<span class="w"> </span>pkg-config<span class="w"> </span>libglib2.0-dev<span class="w"> </span>git<span class="w"> </span>python3-venv
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>make<span class="w"> </span>ninja-build<span class="w"> </span>gcc<span class="w"> </span>pkg-config<span class="w"> </span>libglib2.0-dev<span class="w"> </span>git<span class="w"> </span>python3-venv
+</span></code></pre></div></td></tr></table></div>
 <p>安装好后如下图（这里已经安装好）</p>
 <p><img alt="image-20240319201611111" src="../assets/image-20240319201611111.png" /></p>
 </li>
 <li>
 <p>编译 QEMU</p>
 <p>在 <code>LoongArch</code> 目录下输入以下命令，进入 <code>build</code> 子目录</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>qemu<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>qemu<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+</span></code></pre></div></td></tr></table></div>
 <p><img alt="image-20240319202103320" src="../assets/image-20240319202103320.png" /></p>
 <p>然后依次输入以下两条命令进行编译</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>../configure<span class="w"> </span>--target-list<span class="o">=</span>loongarch64-linux-user
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>ninja
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>../configure<span class="w"> </span>--target-list<span class="o">=</span>loongarch64-linux-user
+</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>ninja
+</span></code></pre></div></td></tr></table></div>
 <p>完成后如下图（图太长了截不完）</p>
 <p><img alt="image-20240319202240766" src="../assets/image-20240319202240766.png" /></p>
 <p>输入如下命令</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>./qemu-loongarch64<span class="w"> </span>--version
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>./qemu-loongarch64<span class="w"> </span>--version
+</span></code></pre></div></td></tr></table></div>
 <p>显示类似版本信息，则配置成功</p>
 <p><img alt="image-20240319202402092" src="../assets/image-20240319202402092.png" /></p>
 </li>
 <li>
 <p>建立符号链接到 <code>usr/bin/</code> 目录下，方便以后使用</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/LoongArch/qemu/build/qemu-loongarch64<span class="w"> </span>/usr/bin/qemu-loongarch64
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/LoongArch/qemu/build/qemu-loongarch64<span class="w"> </span>/usr/bin/qemu-loongarch64
+</span></code></pre></div></td></tr></table></div>
 <p><img alt="image-20240319203343563" src="../assets/image-20240319203343563.png" /></p>
 </li>
 </ol>
@@ -1105,41 +1108,41 @@
 <ol>
 <li>
 <p>先回到 <code>LoongArch</code> 目录下</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>../..
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>../..
+</span></code></pre></div></td></tr></table></div>
 <p>完成后如下图</p>
 <p><img alt="image-20240319202551876" src="../assets/image-20240319202551876.png" /></p>
 </li>
 <li>
 <p>下载交叉工具的压缩包</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>wget<span class="w"> </span>https://github.com/sunhaiyong1978/CLFS-for-LoongArch/releases/download/8.1/CLFS-loongarch64-8.1.1-x86_64-cross-tools-gcc-libc.tar.xz
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>wget<span class="w"> </span>https://github.com/sunhaiyong1978/CLFS-for-LoongArch/releases/download/8.1/CLFS-loongarch64-8.1.1-x86_64-cross-tools-gcc-libc.tar.xz
+</span></code></pre></div></td></tr></table></div>
 <p>完成后如下图</p>
 <p><img alt="image-20240319202723314" src="../assets/image-20240319202723314.png" /></p>
 </li>
 <li>
 <p>解压</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>tar<span class="w"> </span>-xf<span class="w"> </span>CLFS-loongarch64-8.1.1-x86_64-cross-tools-gcc-libc.tar.xz
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a>tar<span class="w"> </span>-xf<span class="w"> </span>CLFS-loongarch64-8.1.1-x86_64-cross-tools-gcc-libc.tar.xz
+</span></code></pre></div></td></tr></table></div>
 <p>如下图</p>
 <p><img alt="image-20240319202801862" src="../assets/image-20240319202801862.png" /></p>
 <p>输入如下命令</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>./cross-tools/bin/loongarch64-unknown-linux-gnu-gcc<span class="w"> </span>--version
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a>./cross-tools/bin/loongarch64-unknown-linux-gnu-gcc<span class="w"> </span>--version
+</span></code></pre></div></td></tr></table></div>
 <p>显示类似版本信息，则配置成功</p>
 <p><img alt="image-20240319202915420" src="../assets/image-20240319202915420.png" /></p>
 </li>
 <li>
 <p>建立符号链接到 <code>usr/bin/</code> 目录下，方便以后使用</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/LoongArch/cross-tools/bin/loongarch64-unknown-linux-gnu-gcc<span class="w"> </span>/usr/bin/loongarch64-unknown-linux-gnu-gcc
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/LoongArch/cross-tools/bin/loongarch64-unknown-linux-gnu-gcc<span class="w"> </span>/usr/bin/loongarch64-unknown-linux-gnu-gcc
+</span></code></pre></div></td></tr></table></div>
 <p>如下图</p>
 <p><img alt="image-20240319203806693" src="../assets/image-20240319203806693.png" /></p>
 </li>
 </ol>
 <h2 id="_2">编写测试（用任何编辑器即可，可以创建在任意目录下）</h2>
 <p>编写 hello_loongarch.S</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">GAS</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">GAS</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
@@ -1167,44 +1170,44 @@
 <span class="normal"><a href="#__codelineno-15-26">26</a></span>
 <span class="normal"><a href="#__codelineno-15-27">27</a></span>
 <span class="normal"><a href="#__codelineno-15-28">28</a></span>
-<span class="normal"><a href="#__codelineno-15-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="c1"># LoongArch Assembler program to print &quot;Hello World!&quot;</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="c1"># to stdout.</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="c1">#</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="c1"># a0-a2 - parameters to linux syscall services</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="c1"># a7 - linux syscall number</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="c1">#</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7"></a>
-<a id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="na">.global</span><span class="w"> </span><span class="no">_start</span><span class="w">      </span><span class="c1"># Provide program starting address to linker</span>
-<a id="__codelineno-15-9" name="__codelineno-15-9"></a>
-<a id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="c1"># Setup the parameters to print hello world</span>
-<a id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="c1"># and then call Linux to do it.</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12"></a>
-<a id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="nl">_start:</span>
-<a id="__codelineno-15-14" name="__codelineno-15-14"></a>
-<a id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="w">        </span><span class="nf">li.d</span><span class="w">  </span><span class="no">$a0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w">          </span><span class="c1"># 1 = StdOut</span>
-<a id="__codelineno-15-16" name="__codelineno-15-16"></a><span class="w">        </span><span class="nf">la</span><span class="w">    </span><span class="no">$a1</span><span class="p">,</span><span class="w"> </span><span class="no">helloworld</span><span class="w"> </span><span class="c1"># load address of helloworld</span>
-<a id="__codelineno-15-17" name="__codelineno-15-17"></a><span class="w">        </span><span class="nf">li.d</span><span class="w">  </span><span class="no">$a2</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="w">         </span><span class="c1"># length of our string</span>
-<a id="__codelineno-15-18" name="__codelineno-15-18"></a><span class="w">        </span><span class="nf">li.d</span><span class="w">  </span><span class="no">$a7</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="w">         </span><span class="c1"># linux write system call</span>
-<a id="__codelineno-15-19" name="__codelineno-15-19"></a><span class="w">        </span><span class="nf">syscall</span><span class="w"> </span><span class="mi">0</span><span class="w">             </span><span class="c1"># Call linux to output the string</span>
-<a id="__codelineno-15-20" name="__codelineno-15-20"></a>
-<a id="__codelineno-15-21" name="__codelineno-15-21"></a><span class="c1"># Setup the parameters to exit the program</span>
-<a id="__codelineno-15-22" name="__codelineno-15-22"></a><span class="c1"># and then call Linux to do it.</span>
-<a id="__codelineno-15-23" name="__codelineno-15-23"></a>
-<a id="__codelineno-15-24" name="__codelineno-15-24"></a><span class="w">        </span><span class="nf">li.d</span><span class="w">    </span><span class="no">$a0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w">       </span><span class="c1"># Use 0 return code</span>
-<a id="__codelineno-15-25" name="__codelineno-15-25"></a><span class="w">        </span><span class="nf">li.d</span><span class="w">    </span><span class="no">$a7</span><span class="p">,</span><span class="w"> </span><span class="mi">93</span><span class="w">      </span><span class="c1"># Service command code 93 terminates</span>
-<a id="__codelineno-15-26" name="__codelineno-15-26"></a><span class="w">        </span><span class="nf">syscall</span><span class="w"> </span><span class="mi">0</span><span class="w">            </span><span class="c1"># Call linux to terminate the program</span>
-<a id="__codelineno-15-27" name="__codelineno-15-27"></a>
-<a id="__codelineno-15-28" name="__codelineno-15-28"></a><span class="na">.data</span>
-<a id="__codelineno-15-29" name="__codelineno-15-29"></a><span class="nl">helloworld:</span><span class="w">      </span><span class="na">.ascii</span><span class="w"> </span><span class="s">&quot;Hello LoongArch!\n&quot;</span>
-</code></pre></div></td></tr></table></div>
+<span class="normal"><a href="#__codelineno-15-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="c1"># LoongArch Assembler program to print &quot;Hello World!&quot;</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="c1"># to stdout.</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="c1">#</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="c1"># a0-a2 - parameters to linux syscall services</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="c1"># a7 - linux syscall number</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="c1">#</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7"></a>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="na">.global</span><span class="w"> </span><span class="no">_start</span><span class="w">      </span><span class="c1"># Provide program starting address to linker</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9"></a>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="c1"># Setup the parameters to print hello world</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="c1"># and then call Linux to do it.</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12"></a>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="nl">_start:</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14"></a>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="w">        </span><span class="nf">li.d</span><span class="w">  </span><span class="no">$a0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w">          </span><span class="c1"># 1 = StdOut</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16"></a><span class="w">        </span><span class="nf">la</span><span class="w">    </span><span class="no">$a1</span><span class="p">,</span><span class="w"> </span><span class="no">helloworld</span><span class="w"> </span><span class="c1"># load address of helloworld</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17"></a><span class="w">        </span><span class="nf">li.d</span><span class="w">  </span><span class="no">$a2</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="w">         </span><span class="c1"># length of our string</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18"></a><span class="w">        </span><span class="nf">li.d</span><span class="w">  </span><span class="no">$a7</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="w">         </span><span class="c1"># linux write system call</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19"></a><span class="w">        </span><span class="nf">syscall</span><span class="w"> </span><span class="mi">0</span><span class="w">             </span><span class="c1"># Call linux to output the string</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20"></a>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21"></a><span class="c1"># Setup the parameters to exit the program</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22"></a><span class="c1"># and then call Linux to do it.</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23"></a>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24"></a><span class="w">        </span><span class="nf">li.d</span><span class="w">    </span><span class="no">$a0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w">       </span><span class="c1"># Use 0 return code</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25"></a><span class="w">        </span><span class="nf">li.d</span><span class="w">    </span><span class="no">$a7</span><span class="p">,</span><span class="w"> </span><span class="mi">93</span><span class="w">      </span><span class="c1"># Service command code 93 terminates</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26"></a><span class="w">        </span><span class="nf">syscall</span><span class="w"> </span><span class="mi">0</span><span class="w">            </span><span class="c1"># Call linux to terminate the program</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27"></a>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28"></a><span class="na">.data</span>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29"></a><span class="nl">helloworld:</span><span class="w">      </span><span class="na">.ascii</span><span class="w"> </span><span class="s">&quot;Hello LoongArch!\n&quot;</span>
+</span></code></pre></div></td></tr></table></div>
 <h2 id="_3">编译测试</h2>
 <p>如果按照先前步骤在 <code>/usr/bin</code> 设置好符号链接，只需要输入</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>loongarch64-unknown-linux-gnu-gcc<span class="w"> </span>-nostdlib<span class="w"> </span>-static<span class="w"> </span>hello_loongarch.S<span class="w"> </span>-o<span class="w"> </span>hello_loongarch
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a>loongarch64-unknown-linux-gnu-gcc<span class="w"> </span>-nostdlib<span class="w"> </span>-static<span class="w"> </span>hello_loongarch.S<span class="w"> </span>-o<span class="w"> </span>hello_loongarch
+</span></code></pre></div></td></tr></table></div>
 <h2 id="_4">运行测试</h2>
 <p>如果按照先前步骤在 <code>/usr/bin</code> 设置好符号链接，只需要输入</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>qemu-loongarch64<span class="w"> </span>./hello_loongarch
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a>qemu-loongarch64<span class="w"> </span>./hello_loongarch
+</span></code></pre></div></td></tr></table></div>
 <p>如图，成功打印输出，配置完成</p>
 <p><img alt="image-20240319204127631" src="../assets/image-20240319204127631.png" /></p>
 <h2 id="_5">参考资料</h2>

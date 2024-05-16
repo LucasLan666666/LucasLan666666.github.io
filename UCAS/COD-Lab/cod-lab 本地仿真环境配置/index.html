@@ -1017,7 +1017,7 @@
 <p><img alt="verilator" src="../assets/verilator.png" /></p>
 <p>找一个目录（不要放到框架里，可以选择 <code>~</code> 主目录）本地解压即可，然后 <code>cd verilator-4.222</code></p>
 <p>依次执行以下命令</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
@@ -1029,26 +1029,26 @@
 <span class="normal"><a href="#__codelineno-0-10">10</a></span>
 <span class="normal"><a href="#__codelineno-0-11">11</a></span>
 <span class="normal"><a href="#__codelineno-0-12">12</a></span>
-<span class="normal"><a href="#__codelineno-0-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>help2man<span class="w"> </span>perl<span class="w"> </span>python3<span class="w"> </span>make<span class="w"> </span>autoconf<span class="w"> </span>g++<span class="w"> </span>flex<span class="w"> </span>bison<span class="w"> </span>ccache
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libgoogle-perftools-dev<span class="w"> </span>numactl<span class="w"> </span>perl-doc
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>autoconf<span class="w">         </span><span class="c1"># Create ./configure script</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>./configure<span class="w">      </span><span class="c1"># Configure and create Makefile</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># 下面这两步会很漫长，如果在 S-IDE 上编译可能会花个二三十分钟</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="c1"># 如果 S-IDE 分配的内存太小，可能因为内存占用过大被操作系统杀死进程</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="c1"># 我测试 S-IDE 的时候开了 16 G，也整了很久</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>make<span class="w"> </span>-j<span class="w"> </span><span class="sb">`</span>nproc<span class="sb">`</span><span class="w">  </span><span class="c1"># Build Verilator itself (if error, try just &#39;make&#39;)</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
-</code></pre></div></td></tr></table></div>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>help2man<span class="w"> </span>perl<span class="w"> </span>python3<span class="w"> </span>make<span class="w"> </span>autoconf<span class="w"> </span>g++<span class="w"> </span>flex<span class="w"> </span>bison<span class="w"> </span>ccache
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libgoogle-perftools-dev<span class="w"> </span>numactl<span class="w"> </span>perl-doc
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>autoconf<span class="w">         </span><span class="c1"># Create ./configure script</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a>./configure<span class="w">      </span><span class="c1"># Configure and create Makefile</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># 下面这两步会很漫长，如果在 S-IDE 上编译可能会花个二三十分钟</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="c1"># 如果 S-IDE 分配的内存太小，可能因为内存占用过大被操作系统杀死进程</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="c1"># 我测试 S-IDE 的时候开了 16 G，也整了很久</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a>make<span class="w"> </span>-j<span class="w"> </span><span class="sb">`</span>nproc<span class="sb">`</span><span class="w">  </span><span class="c1"># Build Verilator itself (if error, try just &#39;make&#39;)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
+</span></code></pre></div></td></tr></table></div>
 <h2 id="mips-gcc">mips-gcc</h2>
 <p>依次执行以下命令</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rm-hull/barebones-toolchain.git
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/barebones-toolchain/cross/x86_64/bin/mips-gcc<span class="w"> </span>/usr/local/bin/mips-gcc
-</code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rm-hull/barebones-toolchain.git
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/barebones-toolchain/cross/x86_64/bin/mips-gcc<span class="w"> </span>/usr/local/bin/mips-gcc
+</span></code></pre></div></td></tr></table></div>
 <h2 id="_1">展示</h2>
 <p>以 <code>hello</code> 为例</p>
 <h3 id="_2">软件部分</h3>
