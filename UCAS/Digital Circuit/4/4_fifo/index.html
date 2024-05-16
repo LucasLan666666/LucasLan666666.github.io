@@ -15,7 +15,7 @@
         <link rel="next" href="../../../Assembly-Language/LoongArch/LoongArch%E6%B1%87%E7%BC%96%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
     
     
@@ -41,8 +41,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CJet+Brains+Mono+NL:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Jet Brains Mono NL"}</style>
       
     
     
@@ -90,8 +90,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../../.." title="Blogs of Lucas Lan" class="md-header__button md-logo" aria-label="Blogs of Lucas Lan" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -312,8 +311,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../../.." title="Blogs of Lucas Lan" class="md-nav__button md-logo" aria-label="Blogs of Lucas Lan" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     Blogs of Lucas Lan
@@ -1424,8 +1422,8 @@
                   
 
 
-<h1 id="report-4-fifo">REPORT 4 FIFO 实验<a class="headerlink" href="#report-4-fifo" title="Permanent link">&para;</a></h1>
-<h2 id="_1">实验目的<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h1 id="report-4-fifo">REPORT 4 FIFO 实验</h1>
+<h2 id="_1">实验目的</h2>
 <ul>
 <li>
 <p>熟悉 <code>Verilog</code> 编程、调试</p>
@@ -1437,7 +1435,7 @@
 <p>实现功能较复杂的数字电路</p>
 </li>
 </ul>
-<h2 id="_2">实验环境<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">实验环境</h2>
 <table>
 <thead>
 <tr>
@@ -1454,9 +1452,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_3">原理说明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="_4">正式实验<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<h4 id="_5">流程图<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<h2 id="_3">原理说明</h2>
+<h3 id="_4">正式实验</h3>
+<h4 id="_5">流程图</h4>
 <pre class="mermaid"><code>flowchart LR
 A("开始") --&gt; B{"判断是否到达时钟信号上升沿&lt;br/&gt;或置位信号下降沿"}
 B --&gt;|N| End("结束")
@@ -1472,7 +1470,7 @@ E --&gt;|"output_valid 和 output_enable 均为 1"| G2{"进入输出数据状态
 G2 --&gt;|Y| H2["读出内存中最后一个 8 bit 数据，&lt;br/&gt;同时进入读取数据状态"]
 G2 --&gt;|N| I2["将内存中的数据读出"]
 H1 &amp; I1 &amp; H2 &amp; I2 --&gt; End</code></pre>
-<h4 id="_6">说明<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<h4 id="_6">说明</h4>
 <ol>
 <li>在 <code>input</code> 状态下，当写到第 30 个地址时认为写满（因为一个地址储存 8 bit 数据，每次写入两个地址，即 16 bit）；</li>
 </ol>
@@ -1480,8 +1478,8 @@ H1 &amp; I1 &amp; H2 &amp; I2 --&gt; End</code></pre>
 <ol>
 <li>本实验全程使用 <strong>非阻塞赋值</strong> ，所以在读 / 写到最后一个地址时，就应该转换 <code>input_enable</code> / <code>output_valid</code> 信号，并同时完成最后一个读 / 写操作，而不是等到读 / 写完后。</li>
 </ol>
-<h3 id="_7">附加实验<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<h4 id="_8">流程图<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<h3 id="_7">附加实验</h3>
+<h4 id="_8">流程图</h4>
 <pre class="mermaid"><code>flowchart LR
 A("开始") --&gt; B{"判断是否到达时钟信号上升沿&lt;br/&gt;或置位信号下降沿"}
 B --&gt;|N| End("结束")
@@ -1497,7 +1495,7 @@ G3 --&gt;|N| End
 G2 --&gt;|Y| H2["读出内存中最后 2 个地址的数据，&lt;br/&gt;清除内存，进入读取数据状态"]
 G2 --&gt;|N| I2["将内存中的数据读出"]
 H2 &amp; I2 --&gt; End</code></pre>
-<h4 id="_9">说明<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<h4 id="_9">说明</h4>
 <ol>
 <li>
 <p>和上一实验相比，本实验有两个最大区别：首先是输入输出的<strong>端口位宽发生了改变</strong>，其次是<strong>读取规则</strong>的变化。</p>
@@ -1560,8 +1558,8 @@ H2 &amp; I2 --&gt; End</code></pre>
 </code></pre></div></td></tr></table></div>
 <p>这里修改了读入位置的判断，这是和正式实验不一样的地方。此处， <code>write_addr</code> 在值等于 31 后将其重新赋值为 0。因为它的定义是 5 位无符号二进制数，所以在这种情况下 <code>write_addr</code> 和 <code>read_addr</code> 的差值仍然是合法的，同样可以返回出未读出数据所占空间的大小，能保证 <code>write_addr - read_addr &gt;= 2</code> 依然适用。</p>
 <p>如果按照正式实验的规则， <code>write_addr == 31</code>  后保持不变的话，那么当 <code>read_addr == 30</code> 的时候，因为 <code>write_addr - read_addr == 1</code> ，导致虽然内存中还剩最后 2 个地址中的数据，但读不出来。</p>
-<h2 id="_10">接口定义<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<h3 id="_11">正式实验<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h2 id="_10">接口定义</h2>
+<h3 id="_11">正式实验</h3>
 <table>
 <thead>
 <tr>
@@ -1604,7 +1602,7 @@ H2 &amp; I2 --&gt; End</code></pre>
 </tr>
 </tbody>
 </table>
-<h3 id="_12">附加实验<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<h3 id="_12">附加实验</h3>
 <table>
 <thead>
 <tr>
@@ -1647,15 +1645,15 @@ H2 &amp; I2 --&gt; End</code></pre>
 </tr>
 </tbody>
 </table>
-<h2 id="_13">调试过程及结果<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
-<h3 id="_14">正式实验<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<h2 id="_13">调试过程及结果</h2>
+<h3 id="_14">正式实验</h3>
 <p>波形图如下：</p>
 <p><img alt="1(1)" src="../assets/1%281%29.png" /></p>
 <p><img alt="1(2)" src="../assets/1%282%29.png" /></p>
-<h3 id="_15">附加实验<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<h3 id="_15">附加实验</h3>
 <p>波形图如下：</p>
 <p><img alt="2" src="../assets/2.png" /></p>
-<h2 id="_16">实验总结<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<h2 id="_16">实验总结</h2>
 <ul>
 <li>
 <p>通过本次实验，我学习到了有关 <code>memory</code>  的知识。之前在课堂上对计算机存储数据的方式有了大致的了解，但只有亲手操作后，才更加深刻地体会到计算机的工作原理。这也是我第一次接触到 <code>enable</code> （使能）信号，并将其和 <code>valid</code> （有效）信号加以区分，了解到它们各自的用途。</p>
@@ -1686,9 +1684,9 @@ H2 &amp; I2 --&gt; End</code></pre>
 <p>最终是自定义了一个  <code>wire</code> 型变量 <code>output_v</code> 来解决问题。我也因此学习到 <code>wire</code> 型变量的全新用法：在时序逻辑中，如果出现非阻塞赋值解决不了的问题时，可以借助 <code>wire</code> 型变量来巧妙化解。</p>
 </li>
 </ul>
-<h2 id="_17">源代码<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
-<h3 id="_18">正式实验<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
-<h4 id="_19">设计文件<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<h2 id="_17">源代码</h2>
+<h3 id="_18">正式实验</h3>
+<h4 id="_19">设计文件</h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
@@ -1803,7 +1801,7 @@ H2 &amp; I2 --&gt; End</code></pre>
 <a id="__codelineno-3-56" name="__codelineno-3-56"></a><span class="w">    </span><span class="k">end</span>
 <a id="__codelineno-3-57" name="__codelineno-3-57"></a><span class="k">endmodule</span>
 </code></pre></div></td></tr></table></div>
-<h4 id="_20">激励测试文件<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<h4 id="_20">激励测试文件</h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
@@ -1900,8 +1898,8 @@ H2 &amp; I2 --&gt; End</code></pre>
 <a id="__codelineno-4-47" name="__codelineno-4-47"></a><span class="w">    </span><span class="k">end</span>
 <a id="__codelineno-4-48" name="__codelineno-4-48"></a><span class="k">endmodule</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="_21">附加实验<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
-<h4 id="_22">设计文件<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<h3 id="_21">附加实验</h3>
+<h4 id="_22">设计文件</h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
@@ -2022,7 +2020,7 @@ H2 &amp; I2 --&gt; End</code></pre>
 <a id="__codelineno-5-59" name="__codelineno-5-59"></a><span class="w">    </span><span class="k">end</span>
 <a id="__codelineno-5-60" name="__codelineno-5-60"></a><span class="k">endmodule</span>
 </code></pre></div></td></tr></table></div>
-<h4 id="_23">激励测试文件<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<h4 id="_23">激励测试文件</h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
@@ -2179,7 +2177,7 @@ H2 &amp; I2 --&gt; End</code></pre>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.ebd0bdb7.min.js"></script>

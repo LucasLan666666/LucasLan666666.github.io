@@ -15,7 +15,7 @@
         <link rel="next" href="../../4/4_fifo/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
     
     
@@ -41,8 +41,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CJet+Brains+Mono+NL:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Jet Brains Mono NL"}</style>
       
     
     
@@ -90,8 +90,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../../.." title="Blogs of Lucas Lan" class="md-header__button md-logo" aria-label="Blogs of Lucas Lan" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -312,8 +311,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../../.." title="Blogs of Lucas Lan" class="md-nav__button md-logo" aria-label="Blogs of Lucas Lan" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     Blogs of Lucas Lan
@@ -1376,13 +1374,13 @@
                   
 
 
-<h1 id="report-3">REPORT 3 状态机实验<a class="headerlink" href="#report-3" title="Permanent link">&para;</a></h1>
-<h2 id="_1">实验目的<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h1 id="report-3">REPORT 3 状态机实验</h1>
+<h2 id="_1">实验目的</h2>
 <ol>
 <li>熟悉 vivado 编程, 调试;</li>
 <li>熟悉状态机的工作原理, 能熟练编写状态机程序.</li>
 </ol>
-<h2 id="_2">实验环境<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">实验环境</h2>
 <table>
 <thead>
 <tr>
@@ -1399,8 +1397,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_3">原理说明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="0110"><strong>0110</strong> 序列检测器<a class="headerlink" href="#0110" title="Permanent link">&para;</a></h3>
+<h2 id="_3">原理说明</h2>
+<h3 id="0110"><strong>0110</strong> 序列检测器</h3>
 <ul>
 <li>状态图:</li>
 </ul>
@@ -1411,7 +1409,7 @@
 <li>每个箭头从一个圆圈指向另一个圆圈, 表示状态之间的转换. 箭头上的数字表示该转换的条件, 这里是输入信号. 例如, 从 <code>S0</code> 指向 <code>S1</code> 的箭头上标有数字 <strong>0</strong> , 表示当状态机处于状态 <code>S0</code> 的时候, 输入信号 <strong>0</strong> , 状态机会跳转到 <code>S1</code> ;</li>
 <li>本题中状态机的输出由状态机本身所处状态决定, 与输入无关, 因此可以将输出信号和状态写在同一个圆圈内. 输入信号有 <strong>0</strong> 和 <strong>1</strong> 两种, 所以每一个圆圈出发有两条箭头.</li>
 </ul>
-<h3 id="11011"><strong>11011</strong> 序列检测器<a class="headerlink" href="#11011" title="Permanent link">&para;</a></h3>
+<h3 id="11011"><strong>11011</strong> 序列检测器</h3>
 <ul>
 <li>状态图:</li>
 </ul>
@@ -1421,7 +1419,7 @@
 <li>设计思路与规范和上文相同, 不再赘述;</li>
 <li>差别在于序列的不同, 画出状态转移图即可.</li>
 </ul>
-<h3 id="0010111001001"><strong>0010111001001</strong> 序列信号发生器<a class="headerlink" href="#0010111001001" title="Permanent link">&para;</a></h3>
+<h3 id="0010111001001"><strong>0010111001001</strong> 序列信号发生器</h3>
 <ul>
 <li>说明:</li>
 <li>本题通过循环移位寄存器实现, 无状态转移图;</li>
@@ -1429,7 +1427,7 @@
 <li>每当 <code>clk</code> 上升沿到来时, 将 <code>seq</code> 左移一位, 并把左边多出来的那一位补到最右侧 (注意一定要用 <code>&lt;=</code> 非阻塞赋值的方式完成这一操作);</li>
 <li>每次输出 <code>out = seq[12]</code> 即可.</li>
 </ul>
-<h3 id="_4">报纸售卖机<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_4">报纸售卖机</h3>
 <ul>
 <li>状态图:</li>
 </ul>
@@ -1448,8 +1446,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="_5">接口定义<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<h3 id="0110_1"><strong>0110</strong> 序列检测器<a class="headerlink" href="#0110_1" title="Permanent link">&para;</a></h3>
+<h2 id="_5">接口定义</h2>
+<h3 id="0110_1"><strong>0110</strong> 序列检测器</h3>
 <table>
 <thead>
 <tr>
@@ -1480,7 +1478,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="11011_1"><strong>11011</strong> 序列检测器<a class="headerlink" href="#11011_1" title="Permanent link">&para;</a></h3>
+<h3 id="11011_1"><strong>11011</strong> 序列检测器</h3>
 <table>
 <thead>
 <tr>
@@ -1511,7 +1509,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="0010111001001_1"><strong>0010111001001</strong> 序列信号发生器<a class="headerlink" href="#0010111001001_1" title="Permanent link">&para;</a></h3>
+<h3 id="0010111001001_1"><strong>0010111001001</strong> 序列信号发生器</h3>
 <table>
 <thead>
 <tr>
@@ -1536,7 +1534,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_6">报纸售卖机<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_6">报纸售卖机</h3>
 <table>
 <thead>
 <tr>
@@ -1567,16 +1565,16 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_7">调试过程及结果<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<h3 id="0110_2"><strong>0110</strong> 序列检测器<a class="headerlink" href="#0110_2" title="Permanent link">&para;</a></h3>
+<h2 id="_7">调试过程及结果</h2>
+<h3 id="0110_2"><strong>0110</strong> 序列检测器</h3>
 <p><img alt="" src="../assets/fig1.png" /></p>
-<h3 id="11011_2"><strong>11011</strong> 序列检测器<a class="headerlink" href="#11011_2" title="Permanent link">&para;</a></h3>
+<h3 id="11011_2"><strong>11011</strong> 序列检测器</h3>
 <p><img alt="" src="../assets/fig2.png" /></p>
-<h3 id="0010111001001_2"><strong>0010111001001</strong> 序列信号发生器<a class="headerlink" href="#0010111001001_2" title="Permanent link">&para;</a></h3>
+<h3 id="0010111001001_2"><strong>0010111001001</strong> 序列信号发生器</h3>
 <p><img alt="" src="../assets/fig3.png" /></p>
-<h3 id="_8">报纸售卖机<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="_8">报纸售卖机</h3>
 <p><img alt="" src="../assets/fig4.png" /></p>
-<h2 id="_9">实验总结<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_9">实验总结</h2>
 <ul>
 <li>本次实验主要完成了状态机的设计. 正式实验首先要求以 <code>0110</code> 序列检测器的状态图为例, 完成 verilog 代码设计. 并举一反三, 独立设计 <code>11011</code> 序列检测器 (包括状态转移图以及 verilog 源码). 在完成正式实验的基础上, 可以继续尝试序列信号发生器和报纸售卖机的设计. 本次实验所有 testbench 文件均由自己编写.</li>
 <li>正式实验中, 进一步熟悉了时序电路设计的一般流程: 先根据需求画出对应的状态转移图, 然后用 verilog 代码实现.</li>
@@ -1586,8 +1584,8 @@
 <li>附加实验 2 则需要对实际问题进行分析. 利用抽象思维, 用售卖机已经投入的钱币金额来描述状态, 投入的硬币种类规定为输入, 是否打印报纸作为输出. 这样即可画出状态转移图, 并用 verilog 代码完成实现.</li>
 <li>在这个过程中, 我不仅对旧知识进行了回顾, 也对状态机有了更深刻的理解, 这对我相关课程的学习打下了坚实的基础.</li>
 </ul>
-<h2 id="_10">源代码<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<h3 id="0110_3"><strong>0110</strong> 序列检测器<a class="headerlink" href="#0110_3" title="Permanent link">&para;</a></h3>
+<h2 id="_10">源代码</h2>
+<h3 id="0110_3"><strong>0110</strong> 序列检测器</h3>
 <ul>
 <li>设计文件:</li>
 </ul>
@@ -1768,7 +1766,7 @@
 <a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="w">    </span><span class="k">end</span>
 <a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="k">endmodule</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="11011_3"><strong>11011</strong> 序列检测器<a class="headerlink" href="#11011_3" title="Permanent link">&para;</a></h3>
+<h3 id="11011_3"><strong>11011</strong> 序列检测器</h3>
 <ul>
 <li>设计文件:</li>
 </ul>
@@ -1959,7 +1957,7 @@
 <a id="__codelineno-3-29" name="__codelineno-3-29"></a><span class="w">    </span><span class="k">end</span>
 <a id="__codelineno-3-30" name="__codelineno-3-30"></a><span class="k">endmodule</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="0010111001001_3"><strong>0010111001001</strong> 序列信号发生器<a class="headerlink" href="#0010111001001_3" title="Permanent link">&para;</a></h3>
+<h3 id="0010111001001_3"><strong>0010111001001</strong> 序列信号发生器</h3>
 <ul>
 <li>设计文件:</li>
 </ul>
@@ -2050,7 +2048,7 @@
 <a id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="w">    </span><span class="k">end</span>
 <a id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="k">endmodule</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="_11">报纸售卖机<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h3 id="_11">报纸售卖机</h3>
 <ul>
 <li>设计文件:</li>
 </ul>
@@ -2273,7 +2271,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.ebd0bdb7.min.js"></script>

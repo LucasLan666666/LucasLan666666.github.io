@@ -13,7 +13,7 @@
       
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
     
     
@@ -39,8 +39,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CJet+Brains+Mono+NL:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Jet Brains Mono NL"}</style>
       
     
     
@@ -88,8 +88,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="Blogs of Lucas Lan" class="md-header__button md-logo" aria-label="Blogs of Lucas Lan" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -310,8 +309,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Blogs of Lucas Lan" class="md-nav__button md-logo" aria-label="Blogs of Lucas Lan" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../assets/logo.png" alt="logo">
 
     </a>
     Blogs of Lucas Lan
@@ -1014,9 +1012,9 @@
                   
 
 
-<h1 id="cod-lab">cod-lab 本地仿真环境配置<a class="headerlink" href="#cod-lab" title="Permanent link">&para;</a></h1>
+<h1 id="cod-lab">cod-lab 本地仿真环境配置</h1>
 <p>经过亲身实践，本方法可以在 S-IDE 和 Ubuntu 22.04.4 LTS on Windows 10 x86_64 环境下成功进行软件编译和行为仿真。（其他 Linux 版本应该也可以......吧）</p>
-<h2 id="verilator">verilator<a class="headerlink" href="#verilator" title="Permanent link">&para;</a></h2>
+<h2 id="verilator">verilator</h2>
 <p>在 <a href="https://github.com/verilator/verilator/releases/tag/v4.222">这里</a> 下载 4.222 版本的 <code>verilator</code> 。</p>
 <p><img alt="verilator" src="../assets/verilator.png" /></p>
 <p>找一个目录（不要放到框架里，可以选择 <code>~</code> 主目录）本地解压即可，然后 <code>cd verilator-4.222</code></p>
@@ -1047,21 +1045,21 @@
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a>make<span class="w"> </span>-j<span class="w"> </span><span class="sb">`</span>nproc<span class="sb">`</span><span class="w">  </span><span class="c1"># Build Verilator itself (if error, try just &#39;make&#39;)</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
 </code></pre></div></td></tr></table></div>
-<h2 id="mips-gcc">mips-gcc<a class="headerlink" href="#mips-gcc" title="Permanent link">&para;</a></h2>
+<h2 id="mips-gcc">mips-gcc</h2>
 <p>依次执行以下命令</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rm-hull/barebones-toolchain.git
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/barebones-toolchain/cross/x86_64/bin/mips-gcc<span class="w"> </span>/usr/local/bin/mips-gcc
 </code></pre></div></td></tr></table></div>
-<h2 id="_1">展示<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">展示</h2>
 <p>以 <code>hello</code> 为例</p>
-<h3 id="_2">软件部分：<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_2">软件部分：</h3>
 <p><img alt="software_test_1" src="../assets/software_test_1.png" /></p>
 <p><img alt="software_test_2" src="../assets/software_test_2.png" /></p>
 <p><img alt="software_test_3" src="../assets/software_test_3.png" /></p>
 <p><img alt="software_test_4" src="../assets/software_test_4.png" /></p>
 <p>没错它就是这么长</p>
-<h3 id="_3">硬件部分<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_3">硬件部分</h3>
 <p><strong><em>记得先把 <code>fpga/sim_out/custom_cpu</code> 和 <code>verilator_include</code> 删干净！！！</em></strong></p>
 <p><strong><em>记得先把 <code>fpga/sim_out/custom_cpu</code> 和 <code>verilator_include</code> 删干净！！！</em></strong></p>
 <p><strong><em>记得先把 <code>fpga/sim_out/custom_cpu</code> 和 <code>verilator_include</code> 删干净！！！</em></strong></p>
@@ -1119,7 +1117,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.ebd0bdb7.min.js"></script>

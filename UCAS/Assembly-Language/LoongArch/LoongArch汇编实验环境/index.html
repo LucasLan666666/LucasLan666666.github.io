@@ -15,7 +15,7 @@
         <link rel="next" href="../../quicksort/quicksort_group7/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
     
     
@@ -41,8 +41,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CJet+Brains+Mono+NL:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Jet Brains Mono NL"}</style>
       
     
     
@@ -90,8 +90,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../../.." title="Blogs of Lucas Lan" class="md-header__button md-logo" aria-label="Blogs of Lucas Lan" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -312,8 +311,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../../.." title="Blogs of Lucas Lan" class="md-nav__button md-logo" aria-label="Blogs of Lucas Lan" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     Blogs of Lucas Lan
@@ -1040,8 +1038,8 @@
                   
 
 
-<h1 id="loongarch-linux">搭建 LoongArch 汇编实验环境 (Linux)<a class="headerlink" href="#loongarch-linux" title="Permanent link">&para;</a></h1>
-<h2 id="_1">先前准备<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h1 id="loongarch-linux">搭建 LoongArch 汇编实验环境 (Linux)</h1>
+<h2 id="_1">先前准备</h2>
 <p><strong><em>注意：任何用到 <code>sudo</code> 指令的地方会提示输入密码，输入你自己的密码即可</em></strong></p>
 <ol>
 <li>
@@ -1057,7 +1055,7 @@
 </ol>
 <p>完成后如下图</p>
 <p><img alt="image-20240319200615159" src="../assets/image-20240319200615159.png" /></p>
-<h2 id="qemu-loongarch64">编译安装 qemu-loongarch64<a class="headerlink" href="#qemu-loongarch64" title="Permanent link">&para;</a></h2>
+<h2 id="qemu-loongarch64">编译安装 qemu-loongarch64</h2>
 <ol>
 <li>
 <p>下载<a href="https://download.qemu.org/qemu-8.2.2.tar.xz">这里</a>QEMU源码</p>
@@ -1105,7 +1103,7 @@
 <p><img alt="image-20240319203343563" src="../assets/image-20240319203343563.png" /></p>
 </li>
 </ol>
-<h2 id="loongarch-gcc">下载loongarch-gcc交叉工具链<a class="headerlink" href="#loongarch-gcc" title="Permanent link">&para;</a></h2>
+<h2 id="loongarch-gcc">下载loongarch-gcc交叉工具链</h2>
 <ol>
 <li>
 <p>先回到 <code>LoongArch</code> 目录下</p>
@@ -1141,7 +1139,7 @@
 <p><img alt="image-20240319203806693" src="../assets/image-20240319203806693.png" /></p>
 </li>
 </ol>
-<h2 id="_2">编写测试（用任何编辑器即可，可以创建在任意目录下）<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">编写测试（用任何编辑器即可，可以创建在任意目录下）</h2>
 <p>编写 hello_loongarch.S</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">GAS</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
@@ -1201,17 +1199,17 @@
 <a id="__codelineno-15-28" name="__codelineno-15-28"></a><span class="na">.data</span>
 <a id="__codelineno-15-29" name="__codelineno-15-29"></a><span class="nl">helloworld:</span><span class="w">      </span><span class="na">.ascii</span><span class="w"> </span><span class="s">&quot;Hello LoongArch!\n&quot;</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="_3">编译测试<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">编译测试</h2>
 <p>如果按照先前步骤在 <code>/usr/bin</code> 设置好符号链接，只需要输入</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>loongarch64-unknown-linux-gnu-gcc<span class="w"> </span>-nostdlib<span class="w"> </span>-static<span class="w"> </span>hello_loongarch.S<span class="w"> </span>-o<span class="w"> </span>hello_loongarch
 </code></pre></div></td></tr></table></div>
-<h2 id="_4">运行测试<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">运行测试</h2>
 <p>如果按照先前步骤在 <code>/usr/bin</code> 设置好符号链接，只需要输入</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>qemu-loongarch64<span class="w"> </span>./hello_loongarch
 </code></pre></div></td></tr></table></div>
 <p>如图，成功打印输出，配置完成</p>
 <p><img alt="image-20240319204127631" src="../assets/image-20240319204127631.png" /></p>
-<h2 id="_5">参考资料<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_5">参考资料</h2>
 <ul>
 <li>LongArch指令集手册<a href="https://github.com/loongson/LoongArch-Documentation/releases/latest/download/LoongArch-Vol1-v1.10-CN.pdf">https://github.com/loongson/LoongArch-Documentation/releases/latest/download/LoongArch-Vol1-v1.10-CN.pdf</a></li>
 <li>LoongArch ABI<a href="https://loongson.github.io/LoongArch-Documentation/LoongArch-ELF-ABI-CN.html">https://loongson.github.io/LoongArch-Documentation/LoongArch-ELF-ABI-CN.html</a></li>
@@ -1270,7 +1268,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.ebd0bdb7.min.js"></script>

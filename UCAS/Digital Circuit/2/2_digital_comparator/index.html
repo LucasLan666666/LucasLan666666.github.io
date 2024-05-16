@@ -15,7 +15,7 @@
         <link rel="next" href="../../3/3_FSM/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
     
     
@@ -41,8 +41,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CJet+Brains+Mono+NL:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Jet Brains Mono NL"}</style>
       
     
     
@@ -90,8 +90,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../../.." title="Blogs of Lucas Lan" class="md-header__button md-logo" aria-label="Blogs of Lucas Lan" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -312,8 +311,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../../.." title="Blogs of Lucas Lan" class="md-nav__button md-logo" aria-label="Blogs of Lucas Lan" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     Blogs of Lucas Lan
@@ -1622,8 +1620,8 @@
                   
 
 
-<h1 id="report-2-16">REPORT 2 16 位比较器实验<a class="headerlink" href="#report-2-16" title="Permanent link">&para;</a></h1>
-<h2 id="_1">实验目的<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h1 id="report-2-16">REPORT 2 16 位比较器实验</h1>
+<h2 id="_1">实验目的</h2>
 <ol>
 <li>熟悉 vivado 编程, 调试</li>
 <li>熟悉简单比较器的工作原理</li>
@@ -1634,7 +1632,7 @@
 </ol>
 </li>
 </ol>
-<h2 id="_2">实验环境<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">实验环境</h2>
 <table>
 <thead>
 <tr>
@@ -1651,8 +1649,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_3">原理说明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="4">4 位比较器<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<h2 id="_3">原理说明</h2>
+<h3 id="4">4 位比较器</h3>
 <ol>
 <li>接受 5 个输入信号, 分别为两个 4 位二进制数 A, B, 以及三个控制信号 in_A_G_B, in_A_E_B, in_A_L_B.
     输出 3 个信号, 分别为 out_A_G_B, out_A_E_B, out_A_L_B.</li>
@@ -1667,7 +1665,7 @@
 </ol>
 </li>
 </ol>
-<h3 id="16">16 位比较器<a class="headerlink" href="#16" title="Permanent link">&para;</a></h3>
+<h3 id="16">16 位比较器</h3>
 <ol>
 <li>接受 2 个输入信号, 分别为两个 4 位二进制数 A, B.
     输出 3 个信号, 分别为 out_A_G_B, out_A_E_B, out_A_L_B.</li>
@@ -1675,7 +1673,7 @@
     再将 4 个 4 位比较器用 3 根 wire 串联在一起,以连接来自低位的比较结果;
     最终输出信号即为最高 4 位对应比较器的输出信号 out_A_G_B, out_A_E_B, out_A_L_B.</li>
 </ol>
-<h3 id="4_1">4 位超前进位加法器<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<h3 id="4_1">4 位超前进位加法器</h3>
 <ol>
 <li>由全加器真值表可知, 向高位的进位信号在两种情况下产生:
     <span class="arithmatex">\(A \cdot B = 1\)</span>
@@ -1702,7 +1700,7 @@
     <span class="arithmatex">\(C_{out} = C_4 = G_4 + P_4C_3 = G_4 + P_4(G_3 + P_3G_2 + P_3P_2G_1 + P_3P_2P_1C_{in}) = G_4 + P_4G_3 + P_4P_3G_2 + P_4P_3P_2G_1 + P_4P_3P_2P_1C_{in}\)</span></li>
 <li>至此, 则实现了 4 位超前进位加法器.</li>
 </ol>
-<h3 id="32">32 位超前进位加法器<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<h3 id="32">32 位超前进位加法器</h3>
 <p><img alt="Fast_Carry_32" src="../assets/Fast_Carry_32.png" /></p>
 <ol>
 <li>我们首先需要对 4 位超前进位加法器的结构进行改良. 上文提到的 4 位超前进位加法器先将输入的 A 和 B 信号转化为 P 和 G 信号, 并与 Cin 一起进行运算, 最终输出 Si 和 Cout . 此处, 我们保留 Pin ( 4 位)以及 Gin ( 4 位)表示每一位接收到的传输信号和生成信号 (注意在 Verilog 代码中我定义的 Pin 和 Gin 接线为 [3:0], 则 Pin[0] ~ Pin[3] 对应上文提到的 <span class="arithmatex">\(P_1\)</span> ~ <span class="arithmatex">\(P_4\)</span> , 对于 Gin 信号同理) , 以及 Cin ( 1 位)表示加法器接收到的进位信号. 输出 Pout ( 1 位)和 Gout ( 1 位)表示整个加法器接收到 P 和 G 信号的总体,  C ( 4 位)表示整个加法器输出的每一位的进位信号.</li>
@@ -1710,8 +1708,8 @@
 <li>采用类似的思想, 可将按照第二步构建的 两个 16 位超前进位加法器再通过一个额外的模块 f20(就是第 3 层的加法器)连接起来. f20 接受来自 f10 的 Pout  和 Gout, 作为 f20 的输入 Pin[0] 和 Gin[0] 并也将 Cin 作为 f20 来自低位的进位输入. 此外, 输出 C[1] 作为 f04 和 f11 来自低位的进位输入. 可以发现最多只需要经过 10 个传输门.</li>
 <li>整个内部框架至此搭建完毕, 剩下部分只需要利用 P = A + B (根据真值表已等效替代为异或, 原因已述)和 G =  AB 得到来自低位的传输信号和生成信号, 并将 f00 至 f07 输出的 C0 和 P0 进行与运算, 即可得到总和 S. 最后将 f20 输出的 C2[2] 作为总输出进位信号 Cout = C2[2].</li>
 </ol>
-<h2 id="_4">接口定义<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="4_2">4 位比较器<a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h3>
+<h2 id="_4">接口定义</h2>
+<h3 id="4_2">4 位比较器</h3>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
@@ -1728,7 +1726,7 @@
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">  </span><span class="k">output</span><span class="w">         </span><span class="n">out_A_E_B</span><span class="p">,</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">  </span><span class="k">output</span><span class="w">         </span><span class="n">out_A_L_B</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="16_1">16 位比较器<a class="headerlink" href="#16_1" title="Permanent link">&para;</a></h3>
+<h3 id="16_1">16 位比较器</h3>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
 <span class="normal"><a href="#__codelineno-1-3">3</a></span>
@@ -1739,7 +1737,7 @@
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">  </span><span class="k">output</span><span class="w">         </span><span class="n">out_A_E_B</span><span class="p">,</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">  </span><span class="k">output</span><span class="w">         </span><span class="n">out_A_L_B</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="4_3">4 位超前进位加法器<a class="headerlink" href="#4_3" title="Permanent link">&para;</a></h3>
+<h3 id="4_3">4 位超前进位加法器</h3>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
@@ -1750,7 +1748,7 @@
 <a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mh">3</span><span class="o">:</span><span class="w"> </span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">S</span><span class="p">,</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">  </span><span class="k">output</span><span class="w">         </span><span class="n">Cout</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="32_1">32 位超前进位加法器<a class="headerlink" href="#32_1" title="Permanent link">&para;</a></h3>
+<h3 id="32_1">32 位超前进位加法器</h3>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
 <span class="normal"><a href="#__codelineno-3-3">3</a></span>
@@ -1761,25 +1759,25 @@
 <a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">  </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="w"> </span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">S</span><span class="p">,</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">  </span><span class="k">output</span><span class="w">         </span><span class="n">Cout</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="_5">调试过程及结果<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<h3 id="4_4">4 位比较器<a class="headerlink" href="#4_4" title="Permanent link">&para;</a></h3>
+<h2 id="_5">调试过程及结果</h2>
+<h3 id="4_4">4 位比较器</h3>
 <p><img alt="fig1" src="../assets/fig1.png" /></p>
-<h3 id="16_2">16 位比较器<a class="headerlink" href="#16_2" title="Permanent link">&para;</a></h3>
+<h3 id="16_2">16 位比较器</h3>
 <p><img alt="fig2" src="../assets/fig2.png" /></p>
-<h3 id="4_5">4 位超前进位加法器<a class="headerlink" href="#4_5" title="Permanent link">&para;</a></h3>
+<h3 id="4_5">4 位超前进位加法器</h3>
 <p><img alt="fig3" src="../assets/fig3.png" /></p>
-<h3 id="32_2">32 位超前进位加法器<a class="headerlink" href="#32_2" title="Permanent link">&para;</a></h3>
+<h3 id="32_2">32 位超前进位加法器</h3>
 <p><img alt="fig4" src="../assets/fig4.png" /></p>
-<h2 id="_6">实验总结<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_6">实验总结</h2>
 <ul>
 <li>本次实验主要完成了比较器和超前进位加法器的设计. 其中比较器的设计较为简单, 而超前进位加法器的设计则需要对进位信号的生成和传递进行分析, 并利用生成和传递的关系, 通过递推的方式, 将 4 位超前进位加法器扩展到 32 位超前进位加法器.</li>
 <li>注意到在 4 位超前进位加法器扩展到 32 位超前进位加法器的过程中, 不能单纯将 4 位超前进位加法器串联在一起, 因为这样会导致传输延迟过长, 从而影响整个加法器的性能. 因此, 我们需要对 4 位超前进位加法器的结构进行改良, 最终使得传输延迟最多只有 10 个传输门.</li>
 <li>此外, 通过和同学的讨论, 我们对讲义所给的 32 位超前进位加法器结构进行了改良. 讲义上最终输出的进位信号由 f07 给出, 我们将其修改为 f20 的 C[2] 信号, 这样可以减少经过传输们的数量, 提高效率.</li>
 <li>在这个过程中, 我对超前进位加法器有更深刻的认识, 这对我日后学习体系结构相关课程打下了坚实的根基.</li>
 </ul>
-<h2 id="_7">源代码<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<h3 id="4_6">4 位比较器<a class="headerlink" href="#4_6" title="Permanent link">&para;</a></h3>
-<h4 id="_8">设计文件<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<h2 id="_7">源代码</h2>
+<h3 id="4_6">4 位比较器</h3>
+<h4 id="_8">设计文件</h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
@@ -1826,8 +1824,8 @@
 <a id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="w">        </span><span class="k">assign</span><span class="w"> </span><span class="n">out_A_E_B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w">  </span><span class="n">A</span><span class="p">[</span><span class="mh">3</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w">  </span><span class="n">B</span><span class="p">[</span><span class="mh">3</span><span class="p">])</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="mh">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w">  </span><span class="n">B</span><span class="p">[</span><span class="mh">2</span><span class="p">])</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="mh">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w">  </span><span class="n">B</span><span class="w">    </span><span class="p">[</span><span class="mh">1</span><span class="p">])</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w">  </span><span class="n">B</span><span class="p">[</span><span class="mh">0</span><span class="p">])</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">in_A_E_B</span><span class="p">;</span>
 <a id="__codelineno-4-23" name="__codelineno-4-23"></a><span class="w">    </span><span class="k">endmodule</span>
 </code></pre></div></td></tr></table></div>
-<h4 id="_9">示例文件(略)<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
-<h4 id="_10">激励测试文件(仅展示自己编辑部分)<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<h4 id="_9">示例文件(略)</h4>
+<h4 id="_10">激励测试文件(仅展示自己编辑部分)</h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
@@ -1848,8 +1846,8 @@
 <a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="p">.</span><span class="n">out_A_L_B</span><span class="w">  </span><span class="p">(</span><span class="n">USER_A_L_B_TMP</span><span class="p">)</span>
 <a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="16_3">16 位比较器<a class="headerlink" href="#16_3" title="Permanent link">&para;</a></h3>
-<h4 id="_11">设计文件<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<h3 id="16_3">16 位比较器</h3>
+<h4 id="_11">设计文件</h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
@@ -1938,8 +1936,8 @@
 <a id="__codelineno-6-43" name="__codelineno-6-43"></a><span class="w">        </span><span class="k">assign</span><span class="w"> </span><span class="n">out_A_E_B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w">  </span><span class="n">A</span><span class="p">[</span><span class="mh">3</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w">  </span><span class="n">B</span><span class="p">[</span><span class="mh">3</span><span class="p">])</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="mh">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w">  </span><span class="n">B</span><span class="p">[</span><span class="mh">2</span><span class="p">])</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="mh">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w">  </span><span class="n">B</span><span class="p">[</span><span class="mh">1</span><span class="p">])</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w">  </span><span class="n">B</span><span class="p">[</span><span class="mh">0</span><span class="p">])</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">in_A_E_B</span><span class="p">;</span>
 <a id="__codelineno-6-44" name="__codelineno-6-44"></a><span class="w">    </span><span class="k">endmodule</span>
 </code></pre></div></td></tr></table></div>
-<h4 id="_12">示例文件(略)<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
-<h4 id="_13">激励测试文件(仅展示自己编辑部分)<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<h4 id="_12">示例文件(略)</h4>
+<h4 id="_13">激励测试文件(仅展示自己编辑部分)</h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
 <span class="normal"><a href="#__codelineno-7-3">3</a></span>
@@ -1954,8 +1952,8 @@
 <a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">        </span><span class="p">.</span><span class="n">out_A_L_B</span><span class="w">      </span><span class="p">(</span><span class="w">  </span><span class="n">USER_A_L_B_TMP</span><span class="p">)</span>
 <a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="4_7">4 位超前进位加法器<a class="headerlink" href="#4_7" title="Permanent link">&para;</a></h3>
-<h4 id="_14">设计文件<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<h3 id="4_7">4 位超前进位加法器</h3>
+<h4 id="_14">设计文件</h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
@@ -2046,7 +2044,7 @@
 <a id="__codelineno-8-44" name="__codelineno-8-44"></a><span class="w">        </span><span class="k">assign</span><span class="w">  </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <a id="__codelineno-8-45" name="__codelineno-8-45"></a><span class="w">    </span><span class="k">endmodule</span>
 </code></pre></div></td></tr></table></div>
-<h4 id="_15">示例文件<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<h4 id="_15">示例文件</h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
 <span class="normal"><a href="#__codelineno-9-2">2</a></span>
 <span class="normal"><a href="#__codelineno-9-3">3</a></span>
@@ -2065,7 +2063,7 @@
 <a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">        </span><span class="k">assign</span><span class="w"> </span><span class="p">{</span><span class="n">Cout</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cin</span><span class="p">;</span>
 <a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">    </span><span class="k">endmodule</span>
 </code></pre></div></td></tr></table></div>
-<h4 id="_16">激励测试文件<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<h4 id="_16">激励测试文件</h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
@@ -2150,7 +2148,7 @@
 <a id="__codelineno-10-41" name="__codelineno-10-41"></a><span class="w">        </span><span class="k">end</span>
 <a id="__codelineno-10-42" name="__codelineno-10-42"></a><span class="w">    </span><span class="k">endmodule</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="32_3">32 位超前进位加法器<a class="headerlink" href="#32_3" title="Permanent link">&para;</a></h3>
+<h3 id="32_3">32 位超前进位加法器</h3>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">  1</a></span>
 <span class="normal"><a href="#__codelineno-11-2">  2</a></span>
 <span class="normal"><a href="#__codelineno-11-3">  3</a></span>
@@ -2417,7 +2415,7 @@
 <a id="__codelineno-11-132" name="__codelineno-11-132"></a><span class="w">        </span><span class="k">assign</span><span class="w">  </span><span class="n">Pout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pin</span><span class="p">[</span><span class="mh">3</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Pin</span><span class="p">[</span><span class="mh">2</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Pin</span><span class="p">[</span><span class="mh">1</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Pin</span><span class="p">[</span><span class="mh">0</span><span class="p">];</span>
 <a id="__codelineno-11-133" name="__codelineno-11-133"></a><span class="w">    </span><span class="k">endmodule</span>
 </code></pre></div></td></tr></table></div>
-<h4 id="_17">示例文件<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<h4 id="_17">示例文件</h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
 <span class="normal"><a href="#__codelineno-12-2">2</a></span>
 <span class="normal"><a href="#__codelineno-12-3">3</a></span>
@@ -2436,7 +2434,7 @@
 <a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">        </span><span class="k">assign</span><span class="w"> </span><span class="p">{</span><span class="n">Cout</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cin</span><span class="p">;</span>
 <a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">    </span><span class="k">endmodule</span>
 </code></pre></div></td></tr></table></div>
-<h4 id="_18">激励测试文件<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<h4 id="_18">激励测试文件</h4>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Verilog</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
@@ -2573,7 +2571,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.ebd0bdb7.min.js"></script>

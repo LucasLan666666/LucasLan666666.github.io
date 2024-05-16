@@ -15,7 +15,7 @@
         <link rel="next" href="../../../COD-Lab/cod-lab%20%E6%9C%AC%E5%9C%B0%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
     
     
@@ -41,8 +41,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CJet+Brains+Mono+NL:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Jet Brains Mono NL"}</style>
       
     
     
@@ -90,8 +90,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../../.." title="Blogs of Lucas Lan" class="md-header__button md-logo" aria-label="Blogs of Lucas Lan" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -312,8 +311,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../../.." title="Blogs of Lucas Lan" class="md-nav__button md-logo" aria-label="Blogs of Lucas Lan" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     Blogs of Lucas Lan
@@ -1088,40 +1086,40 @@
                   
 
 
-<h1 id="20241">2024春汇编语言小组作业1——快速排序的汇编实现<a class="headerlink" href="#20241" title="Permanent link">&para;</a></h1>
-<h2 id="_1">实验环境<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h1 id="20241">2024春汇编语言小组作业1——快速排序的汇编实现</h1>
+<h2 id="_1">实验环境</h2>
 <ul>
 <li>操作系统：<code>Ubuntu 22.04.4 LTS on Windows 10 x86_64</code></li>
 <li>汇编语言：<code>x86-32</code> 架构， <code>AT&amp;T</code> 语法</li>
 </ul>
-<h2 id="_2">实验准备<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">实验准备</h2>
 <p>从 <a href="https://github.com/tyssjhx/quicksort">quicksort</a> 克隆代码框架到本地，按照 <code>README.md</code> 文件说明，编写 <code>partition_asm</code> 和 <code>quicksort_asm</code> 函数，并利用脚本进行检测。</p>
-<h2 id="_3">实验内容<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="_4">测试脚本改写<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h2 id="_3">实验内容</h2>
+<h3 id="_4">测试脚本改写</h3>
 <p>因为编译过程会生成可执行文件和可重定向文件，为了方便管理，我们改写了 <code>quicksort.sh</code> 脚本。通过以下 <code>Makefile</code> 文件实现一键编译和清理功能：</p>
 <p><img alt="makefile" src="../assets/makefile.png" /></p>
-<h3 id="partition_asm">编写 <code>partition_asm</code> 函数<a class="headerlink" href="#partition_asm" title="Permanent link">&para;</a></h3>
+<h3 id="partition_asm">编写 <code>partition_asm</code> 函数</h3>
 <p><code>partition_asm</code> 函数接受三个参数：一个数组的指针和两个整数，分别表示数组的低索引和高索引。</p>
 <p>在每个函数的开头，我们首先要对 <code>%edi</code> 、 <code>%esi</code> 和 <code>%ebx</code> 这三个寄存器进行压栈操作，因为这三个是被调用者保存寄存器。</p>
 <p>然后，它从栈中获取参数，并将它们移动到寄存器中。 <code>%eax</code> 存储数组的地址， <code>%ebx</code> 存储低索引， <code>%ecx</code> 存储高索引。 <code>%edx</code> 存储基准值，即数组的低索引处的值。</p>
 <p>接下来通过三个跳转类指令实现一个大循环套三个小循环， <code>cmp</code> 指令设置状态码，然后通过跳转类指令完成跳转，确定是否跳出循环。</p>
 <p>具体步骤及含义详见下图代码和注释：</p>
 <p><img alt="partition" src="../assets/partition.png" /></p>
-<h3 id="quicksort_asm">编写 <code>quicksort_asm</code> 函数<a class="headerlink" href="#quicksort_asm" title="Permanent link">&para;</a></h3>
+<h3 id="quicksort_asm">编写 <code>quicksort_asm</code> 函数</h3>
 <p>关于函数的传参以及被调用者寄存器的压栈操作见上一部分。</p>
 <p>这里只有一个条件判断语句，所以我划分了两个标签 <code>sort</code> 和 <code>end</code> ，如果满足 <code>low &lt; high</code> ，就执行 <code>sort</code> 中的内容。</p>
 <p>快速排序涉及到三次函数调用，一次 <code>partition_asm</code> 和两次自身递归调用。因此在调用前需要手动压栈传递参数，并在调用结束时通过 <code>addl $12, %esp</code> 使栈指针回到正常位置（因为两个参数来自内存，一个参数来自被调用者保存寄存器，因此不需要 <code>pop</code> 来恢复数据）。</p>
 <p>在计算 <code>pivot + 1</code> 和 <code>pivot - 1</code> 时，我们没有使用常见的 <code>add</code> 和 <code>sub</code> 指令，而是利用 <code>leal</code> （加载有效地址） 和 <code>dec</code> 指令，减少了计算所需要的步骤。</p>
 <p>具体步骤及含义详见下图代码和注释：</p>
 <p><img alt="quicksort" src="../assets/quicksort.png" /></p>
-<h3 id="_5">调试中遇到的问题<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_5">调试中遇到的问题</h3>
 <p>在调试 <code>quicksort_asm</code> 函数过程中，出现了无限死循环的情况，起初以为是递归调用出现了问题，后来通过 <code>gdb</code> 打印内存地址，才发现 <code>quicksort_asm</code> 的返回地址并没有减少（如果递归调用不停止，按理说栈指针的值应该不断减少，因为栈向下增长）。</p>
 <p>最终找到问题在 <code>jl</code> 上。因为 <code>sort</code> 部分执行完后没有返回，按顺序又进行了一次 <code>low &lt; high</code> 的判断。相当于 <code>if</code> 语句变成了 <code>while</code> 语句，且条件始终为真或假。</p>
 <p><img alt="problem" src="../assets/problem.png" /></p>
-<h3 id="_6">最终结果<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_6">最终结果</h3>
 <p>成功通过测试：</p>
 <p><img alt="result" src="../assets/result.png" /></p>
-<h2 id="_7">收获与反思<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_7">收获与反思</h2>
 <p>通过本次实验，我们也收获到了很多：</p>
 <ol>
 <li>
@@ -1189,7 +1187,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
