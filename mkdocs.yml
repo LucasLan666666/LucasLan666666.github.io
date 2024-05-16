@@ -1,13 +1,14 @@
 site_name: Blogs of Lucas Lan
 
 extra_javascript:
-    - javascripts/extra.js
-    - javascripts/mathjax.js
+    # - javascripts/extra.js
+    # - javascripts/mathjax.js
     - https://polyfill.io/v3/polyfill.min.js?features=es6
     - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
-    - stylesheets/extra.css
+    # - stylesheets/extra.css
+    # - https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/lxgwwenkaiscreen.css
 
 nav:
     - Home: index.md
@@ -28,14 +29,21 @@ nav:
             - quicksort: UCAS/Assembly-Language/quicksort/quicksort_group7.md
         - COD-Lab:
             - bhv_sim-env: UCAS/COD-Lab/cod-lab 本地仿真环境配置.md
+    # - Test:
+    #     - Latex: test/Latex test.md
+    #     - font: test/font.md
 
 theme:
     name: material
     logo: assets/faye.png # logo
     favicon: images/cat.ico  # favicon
     font:
-        text: Noto Serif SC
-        code: Jet Brains Mono NL
+        text: Noto Sans SC
+        # text: Montserrat
+        # text: Noto Serif SC
+        # text: Zen Old Mincho
+        # text: LXGW WenKai Screen
+        code: JetBrains Mono NL
     palette:
       # Palette toggle for light mode
       - scheme: default
@@ -72,6 +80,7 @@ markdown_extensions:
     - pymdownx.caret
     - pymdownx.mark
     - pymdownx.tilde
+    - pymdownx.smartsymbols  # 符号转换
     - md_in_html
     - pymdownx.arithmatex:  # latex支持
         generic: true
