@@ -41,28 +41,68 @@
 ### 4 位超前进位加法器
 
 1. 由全加器真值表可知, 向高位的进位信号在两种情况下产生:
-    $A \cdot B = 1$
-    $A + B = 1, C_{in} = 1$
+   $$
+   \begin{align*}
+        &A \cdot B = 1 \\
+        &A + B = 1, C_{in} = 1
+   \end{align*}
+   $$
 2. 用 $C_i$ 表示第 $i$ 位的进位信号, 有:
-     $C_{i+1} = A_iB_i + (A_i + B_i)C_i$
+   $$
+   C_{i+1} = A_iB_i + (A_i + B_i)C_i
+   $$
 3. 设 $G_i = A_iB_i$ 为进位生成函数, $P_i = A_i + B_i$ 为进位传递函数, 则有:
-    $C_{i+1} = G_i + P_iC_i$
-    另一方面, 由于 $S_i = A_i \bigoplus B_i \bigoplus C_i$ , 且我们发现 $C_{i+1} = A_iB_i + (A_i + B_i)C_i = A_iB_i + (A_i \bigoplus B_i)C_i$ ,
+    $$
+    C_{i+1} = G_i + P_iC_i
+    $$
+    另一方面, 由于 $S_i = A_i \bigoplus B_i \bigoplus C_i$ , 且我们发现
+    $$
+    \begin{align*}
+    C_{i+1} &= A_iB_i + (A_i + B_i)C_i \\
+            &= A_iB_i + (A_i \bigoplus B_i)C_i
+    \end{align*}
+    $$
     因此可以将 $P_i$ 的定义修改成 $P_i = A_i \bigoplus B_i$
     于是有:
-    $C_0 = C_{in}$
-    $C_1 = G_1 + P_1C_0 = G_1 + P_1C_{in}$
-    $C_2 = G_2 + P_2C_1 = G_2 + P_2(G_1 + P_1C_{in}) = G_2 + P_2G_1 + P_2P_1C_{in}$
-    $\cdots$
-    $C_i = G_{i-1} + P_{i-1}C_{i-1}= G_{i-1} + P_{i-1}(G_{i-2} + P_{i-2}C_{i-2}) = \sum_{j=1}^iP_jG_{j-1} + P_iP_{i-1}\cdots P_1C_{in}$
+    $$
+    \begin{align*}
+        C_0 &= C_{in} \\
+        C_1 &= G_1 + P_1C_0 = G_1 + P_1C_{in} \\
+        C_2 &= G_2 + P_2C_1 = G_2 + P_2(G_1 + P_1C_{in}) \\
+            &= G_2 + P_2G_1 + P_2P_1C_{in} \\
+        C_2 &= G_2 + P_2C_1 = G_2 + P_2(G_1 + P_1C_{in}) \\
+            &= G_2 + P_2G_1 + P_2P_1C_{in} \\
+        C_2 &= G_2 + P_2C_1 \\
+            &= G_2 + P_2(G_1 + P_1C_{in}) \\
+            &= G_2 + P_2G_1 + P_2P_1C_{in} \\
+            &\cdots \\
+        C_i &= G_{i-1} + P_{i-1}C_{i-1} \\
+            &= G_{i-1} + P_{i-1}(G_{i-2} + P_{i-2}C_{i-2}) \\
+            &= \sum_{j=1}^iP_jG_{j-1} + P_iP_{i-1}\cdots P_1C_{in}
+    \end{align*}
+    $$
 4. 而对于 4 位加法器, 只需要取:
-    $C_0 = C_{in}$
-    $C_1 = G_1 + P_1C_0 = G_1 + P_1C_{in}$
-    $C_2 = G_2 + P_2C_1 = G_2 + P_2(G_1 + P_1C_{in}) = G_2 + P_2G_1 + P_2P_1C_{in}$
-    $C_3 = G_3 + P_3C_2 = G_3 + P_3(G_2 + P_2G_1 + P_2P_1C_{in}) = G_3 + P_3G_2 + P_3P_2G_1 + P_3P_2P_1C_{in}$
+   $$
+   \begin{align*}
+        C_0 &= C_{in} \\
+        C_1 &= G_1 + P_1C_0 = G_1 + P_1C_{in} \\
+        C_2 &= G_2 + P_2C_1 = G_2 + P_2(G_1 + P_1C_{in}) = G_2 + P_2G_1 + P_2P_1C_{in} \\
+        C_3 &= G_3 + P_3C_2 = G_3 + P_3(G_2 + P_2G_1 + P_2P_1C_{in}) \\
+            &= G_3 + P_3G_2 + P_3P_2G_1 +  P_3P_2P_1C_{in}
+   \end{align*}
+   $$
+
 5. 设 4 位加法器输出的和为 $S$ , 输出的进位信号为 $C_{out}$ , 有:
-    $S_i = A_i \bigoplus B_i \bigoplus C_i = P_i \bigoplus C_i$
-    $C_{out} = C_4 = G_4 + P_4C_3 = G_4 + P_4(G_3 + P_3G_2 + P_3P_2G_1 + P_3P_2P_1C_{in}) = G_4 + P_4G_3 + P_4P_3G_2 + P_4P_3P_2G_1 + P_4P_3P_2P_1C_{in}$
+   $$
+   \begin{align*}
+        S_i &= A_i \bigoplus B_i \bigoplus C_i \\
+            &= P_i \bigoplus C_i \\
+        C_{out} &= C_4 \\
+                &= G_4 + P_4C_3 \\
+                &= G_4 + P_4(G_3 + P_3G_2 + P_3P_2G_1 + P_3P_2P_1C_{in}) \\
+                &= G_4 + P_4G_3 + P_4P_3G_2 + P_4P_3P_2G_1 + P_4P_3P_2P_1C_{in}
+   \end{align*}
+   $$
 6. 至此, 则实现了 4 位超前进位加法器.
 
 ### 32 位超前进位加法器
