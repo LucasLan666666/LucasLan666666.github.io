@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -46,14 +46,51 @@
       
     
     
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Github-Copilot - Blogs of Lucas Lan" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="./assets/images/social/Experiences/copilot/Github-Copilot 配置方法.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="None" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Github-Copilot - Blogs of Lucas Lan" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="./assets/images/social/Experiences/copilot/Github-Copilot 配置方法.png" >
+      
     
-  </head>
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -73,7 +110,7 @@
       
         
         <a href="#github-copilot" class="md-skip">
-          跳转至
+          Skip to content
         </a>
       
     </div>
@@ -84,8 +121,10 @@
     
       
 
-<header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="Blogs of Lucas Lan" class="md-header__button md-logo" aria-label="Blogs of Lucas Lan" data-md-component="logo">
       
   <img src="../../../assets/faye.png" alt="logo">
@@ -143,62 +182,24 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
     
+      <div class="md-header__source">
+        <a href="https://github.com/LucasLan666666/LucasLan666666.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LucasLan666666.github.io
+  </div>
+</a>
+      </div>
     
   </nav>
   
-</header>
     
-    <div class="md-container" data-md-component="container">
       
-      
-        
-          
-            
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -286,7 +287,13 @@
     </ul>
   </div>
 </nav>
-          
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
       
       <main class="md-main" data-md-component="main">
@@ -303,7 +310,7 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Blogs of Lucas Lan" class="md-nav__button md-logo" aria-label="Blogs of Lucas Lan" data-md-component="logo">
       
@@ -312,6 +319,18 @@
     </a>
     Blogs of Lucas Lan
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/LucasLan666666/LucasLan666666.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LucasLan666666.github.io
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -370,6 +389,8 @@
         
         
       
+      
+        
       
     
     
@@ -479,7 +500,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -488,7 +509,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -627,6 +648,8 @@
     
       
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -666,6 +689,8 @@
     
     
       
+      
+        
       
     
     
@@ -799,6 +824,8 @@
     
       
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -889,6 +916,8 @@
     
       
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -967,7 +996,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
@@ -976,7 +1005,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      目录
+      Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -1081,6 +1110,9 @@
                 
                   
 
+  
+  
+
 
 <h1 id="github-copilot">Github-Copilot 配置方法</h1>
 <p>九月份自己配置过一次 <code>Github copilot</code> ，当时踩了很多坑。这两天帮一个朋友从头开始配置，发现又多了许多新的规则，折腾了很久，整个过程还是比较繁琐的。因此萌发了写一个教程的想法，主要是想从纯小白的角度分享一些容易遇到的问题以及解决方法。</p>
@@ -1094,18 +1126,18 @@
 <ol>
 <li>在 <a href="https://github.com/">GitHub</a> 官网用自己的邮箱注册一个新的 <code>Github</code> 账号，填入用户名和密码即可。</li>
 </ol>
-<p><img alt="copilot1" src="../assets/copilot1.png" /></p>
+<p><a class="glightbox" href="../assets/copilot1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot1" src="../assets/copilot1.png" /></a></p>
 <p>最下面那个框不建议勾选，除非你想收到官方各种广告邮件。</p>
 <ol>
 <li>账号成功注册后 ，你会进入主页，应该是如图所示：</li>
 </ol>
-<p><img alt="copilot2" src="../assets/copilot2.png" /></p>
+<p><a class="glightbox" href="../assets/copilot2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot2" src="../assets/copilot2.png" /></a></p>
 <h3 id="_3">完善个人信息</h3>
 <p><strong><em>这一步很关键，直接决定能否通过审核！！！</em></strong></p>
 <ol>
 <li>点击你的头像，然后选择 <code>Your Profile</code> ，进入个人资料界面。</li>
 </ol>
-<p><img alt="copilot3" src="../assets/copilot3.png" /></p>
+<p><a class="glightbox" href="../assets/copilot3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot3" src="../assets/copilot3.png" /></a></p>
 <p>如图中所示，填写昵称（注意，昵称 Name 和用户名 Username 是两个东西），自述，学校和地址。</p>
 <ol>
 <li>填写完成后，点击 <code>Save</code> 完成保存。</li>
@@ -1115,70 +1147,70 @@
 <ol>
 <li>打开 <code>Edge</code> 浏览器的插件 / 扩展商店，搜索 ‘’totp“，添加第一个插件（Authentication：2FA Client），点击 <code>获取</code>：</li>
 </ol>
-<p><img alt="copilot4" src="../assets/copilot4.png" /></p>
+<p><a class="glightbox" href="../assets/copilot4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot4" src="../assets/copilot4.png" /></a></p>
 <ol>
 <li>回到个人主页，点击你的头像，选择 <code>Settings</code> 进入设置界面，然后在左侧边栏选择 <code>Password and authentication</code> ，你会看到如下界面：</li>
 </ol>
-<p><img alt="copilot5" src="../assets/copilot5.png" /></p>
+<p><a class="glightbox" href="../assets/copilot5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot5" src="../assets/copilot5.png" /></a></p>
 <p>点击 <code>Enable two-factor authentication</code> ，开启二步认证。</p>
 <ol>
 <li>这个时候会弹出来一个二维码，打开 <code>Edge</code> 浏览器的插件 / 扩展，选择 <code>Authentication：2FA Client</code>，</li>
 </ol>
-<p><img alt="copilot6" src="../assets/copilot6.png" /></p>
+<p><a class="glightbox" href="../assets/copilot6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot6" src="../assets/copilot6.png" /></a></p>
 <ol>
 <li>用插件扫这个二维码：</li>
 </ol>
-<p><img alt="copilot7" src="../assets/copilot7.png" /></p>
+<p><a class="glightbox" href="../assets/copilot7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot7" src="../assets/copilot7.png" /></a></p>
 <p>扫完后插件里会出现一个六位数密码，将密码填到网页输入框：</p>
-<p><img alt="copilot8" src="../assets/copilot8.png" /></p>
+<p><a class="glightbox" href="../assets/copilot8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot8" src="../assets/copilot8.png" /></a></p>
 <ol>
 <li>将 <code>recovery codes</code> 保存至本地，以防设备丢失后无法登录账户：</li>
 </ol>
-<p><img alt="copilot9" src="../assets/copilot9.png" /></p>
+<p><a class="glightbox" href="../assets/copilot9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot9" src="../assets/copilot9.png" /></a></p>
 <ol>
 <li>设置好啦！</li>
 </ol>
-<p><img alt="copilot10" src="../assets/copilot10.png" /></p>
+<p><a class="glightbox" href="../assets/copilot10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot10" src="../assets/copilot10.png" /></a></p>
 <h3 id="_4">支付信息设置</h3>
 <p>（我九月的时候也不需要这个步骤，现在不弄不行）</p>
 <p>同样是在 <code>Settings</code> 里，点击 <code>Billing and plans</code>，进入如下界面：</p>
-<p><img alt="copilot11" src="../assets/copilot11.png" /></p>
+<p><a class="glightbox" href="../assets/copilot11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot11" src="../assets/copilot11.png" /></a></p>
 <p>填入账户信息（这里显示的是已经填好的状态）</p>
 <h2 id="_5">提交申请材料</h2>
 <p>注意，这里强烈建议 <strong>不要使用梯子</strong> ，否则会出现 IP 地址与学校地址不符的情况，很麻烦。</p>
 <ol>
 <li>回到主页，点击 <code>Join Github Campus</code></li>
 </ol>
-<p><img alt="copilot12" src="../assets/copilot12.png" /></p>
+<p><a class="glightbox" href="../assets/copilot12.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot12" src="../assets/copilot12.png" /></a></p>
 <ol>
 <li>勾选 <code>Student</code> 选项</li>
 </ol>
-<p><img alt="copilot13" src="../assets/copilot13.png" /></p>
+<p><a class="glightbox" href="../assets/copilot13.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot13" src="../assets/copilot13.png" /></a></p>
 <ol>
 <li>填入邮箱</li>
 </ol>
-<p><img alt="copilot14" src="../assets/copilot14.png" /></p>
+<p><a class="glightbox" href="../assets/copilot14.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot14" src="../assets/copilot14.png" /></a></p>
 <ol>
 <li>上传学历证明：</li>
 </ol>
-<p><img alt="copilot15" src="../assets/copilot15.png" /></p>
+<p><a class="glightbox" href="../assets/copilot15.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot15" src="../assets/copilot15.png" /></a></p>
 <p>这里会要求你现场拍一张照片，可以用校园卡在场拍照上传</p>
-<p><img alt="copilot16" src="../assets/copilot16.png" /></p>
+<p><a class="glightbox" href="../assets/copilot16.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot16" src="../assets/copilot16.png" /></a></p>
 <ol>
 <li>如果你看到如下界面，说明已经成功提交了审核资料</li>
 </ol>
-<p><img alt="copilot17" src="../assets/copilot17.png" /></p>
+<p><a class="glightbox" href="../assets/copilot17.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot17" src="../assets/copilot17.png" /></a></p>
 <ol>
 <li>最后只需要等待确认邮件（可能需要<strong>等待 3~4 天</strong>），就可以快乐加入 <code>Github Campus</code> 了！</li>
 </ol>
-<p><img alt="copilot18" src="../assets/copilot18.png" /></p>
+<p><a class="glightbox" href="../assets/copilot18.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot18" src="../assets/copilot18.png" /></a></p>
 <h2 id="vs-code-copilot">在 VS Code 上配置 copilot 插件</h2>
 <p>下面介绍在 <code>VS Code</code> 上配置插件的流程。</p>
 <ol>
 <li>安装 <code>VS Code</code> （略）。</li>
 <li>在扩展商店搜索 <code>Github Copilot</code> 插件：</li>
 </ol>
-<p><img alt="copilot19" src="../assets/copilot19.png" /></p>
+<p><a class="glightbox" href="../assets/copilot19.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot19" src="../assets/copilot19.png" /></a></p>
 <p>安装第一个插件（第二个会自己安装好）</p>
 <ol>
 <li>
@@ -1188,19 +1220,22 @@
 <p>使用示例：</p>
 </li>
 </ol>
-<p><img alt="copilot20" src="../assets/copilot20.png" /></p>
+<p><a class="glightbox" href="../assets/copilot20.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot20" src="../assets/copilot20.png" /></a></p>
 <p>这里使用了聊天功能，类似 <code>ChatGPT</code> ，可以很方便询问代码问题。</p>
 <p>（此外还有自动补全代码，debug等功能，尽情探索吧！）</p>
 <h2 id="_6">小结 / 经验</h2>
 <p>整个过程中最恶心的地方就是提交审核资料的部分，一旦成功提交资料，大概率就能正常通过了。</p>
 <p>还是要学会自己看信息，哪里有问题其实写的很清楚。下面是一个失败案例，我就是从他给的信息找到了自己的问题：</p>
-<p><img alt="copilot21" src="../assets/copilot21.png" /></p>
+<p><a class="glightbox" href="../assets/copilot21.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="copilot21" src="../assets/copilot21.png" /></a></p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1218,7 +1253,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
-  回到页面顶部
+  Back to top
 </button>
         
       </main>
@@ -1247,15 +1282,21 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
       
+        <script src="../../../javascripts/extra.js"></script>
+      
+        <script src="../../../javascripts/mathjex.js"></script>
+      
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
