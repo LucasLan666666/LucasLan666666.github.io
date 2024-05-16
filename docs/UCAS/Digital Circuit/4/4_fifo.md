@@ -82,14 +82,14 @@ H2 & I2 --> End
 
       ```Verilog
       module fifo2(...);
-      ...
-      wire output_v;
-      assign output_v = (write_addr - read_addr >= 2)? 1'b1 : 1'b0;
-      ...
-      always @(posedge clk or negedge rstn) begin
-      output_valid <= output_v;
-      ...
-      end
+        ...
+        wire output_v;
+        assign output_v = (write_addr - read_addr >= 2)? 1'b1 : 1'b0;
+        ...
+        always @(posedge clk or negedge rstn) begin
+        output_valid <= output_v;
+        ...
+        end
       endmodule
       ```
 
