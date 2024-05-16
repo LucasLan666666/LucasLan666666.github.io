@@ -1039,9 +1039,7 @@
 </span></code></pre></div></td></tr></table></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>下面这两步会很漫长，如果在 S-IDE 上编译可能会花个二三十分钟
-我测试 S-IDE 的时候开了 16 G，也整了很久
-如果 S-IDE 分配的内存太小，可能因为内存占用过大被操作系统杀死进程</p>
+<p>下面这两步会很漫长，如果在 S-IDE 上编译可能会花较长时间（我测试 S-IDE 的时候开了 16 G，也整了快半小时）。此外，如果 S-IDE 分配的内存太小，可能因为内存占用过大被操作系统杀死进程（建议开 16 G，但注意个人申请的内存空间总和不要超过 20 G，避免浪费服务器资源）</p>
 </div>
 <div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>make<span class="w"> </span>-j<span class="w"> </span><span class="sb">`</span>nproc<span class="sb">`</span>
 </span></code></pre></div></td></tr></table></div>
