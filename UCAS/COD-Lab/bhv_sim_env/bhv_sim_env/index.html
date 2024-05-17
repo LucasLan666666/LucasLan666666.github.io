@@ -391,6 +391,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      补充
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -484,6 +493,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      补充
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -572,6 +590,9 @@
 <p>记得用 <code>git pull upstream master</code> 同步框架！！！</p>
 </div>
 <h3 id="_1">软件部分</h3>
+<p>软件编译输入：</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>phy_os<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>mips<span class="w"> </span>workload
+</span></code></pre></div></td></tr></table></div>
 <!-- !!! tip
     没错它就是这么长 -->
 
@@ -588,9 +609,12 @@
 <p class="admonition-title">Warning</p>
 <p>记得每一次仿真前都先把 <code>fpga/sim_out/custom_cpu</code> 和 <code>verilator_include</code> 删干净！！！</p>
 </div>
+<p>先删掉先前仿真生成的多余文件：</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>./fpga/sim_out/custom_cpu<span class="w"> </span>./verilator_include
+</span></code></pre></div></td></tr></table></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><code>make</code> 前要加 <code>sudo</code></p>
+<p>记得 <code>make</code> 前要加 <code>sudo</code></p>
 </div>
 <p><a class="glightbox" href="../assets/custom_cpu_test_1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="custom_cpu_test_1" src="../assets/custom_cpu_test_1.png" /></a></p>
 <p><a class="glightbox" href="../assets/custom_cpu_test_2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="custom_cpu_test_2" src="../assets/custom_cpu_test_2.png" /></a></p>
@@ -598,6 +622,108 @@
 <p class="admonition-title">Success</p>
 <p>成功完成行为仿真并在终端显示结果！！！</p>
 </div>
+<h2 id="_3">补充</h2>
+<p>懒人必备（一键仿真脚本）：</p>
+<div class="language-shell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span>
+<span class="normal"><a href="#__codelineno-13-14">14</a></span>
+<span class="normal"><a href="#__codelineno-13-15">15</a></span>
+<span class="normal"><a href="#__codelineno-13-16">16</a></span>
+<span class="normal"><a href="#__codelineno-13-17">17</a></span>
+<span class="normal"><a href="#__codelineno-13-18">18</a></span>
+<span class="normal"><a href="#__codelineno-13-19">19</a></span>
+<span class="normal"><a href="#__codelineno-13-20">20</a></span>
+<span class="normal"><a href="#__codelineno-13-21">21</a></span>
+<span class="normal"><a href="#__codelineno-13-22">22</a></span>
+<span class="normal"><a href="#__codelineno-13-23">23</a></span>
+<span class="normal"><a href="#__codelineno-13-24">24</a></span>
+<span class="normal"><a href="#__codelineno-13-25">25</a></span>
+<span class="normal"><a href="#__codelineno-13-26">26</a></span>
+<span class="normal"><a href="#__codelineno-13-27">27</a></span>
+<span class="normal"><a href="#__codelineno-13-28">28</a></span>
+<span class="normal"><a href="#__codelineno-13-29">29</a></span>
+<span class="normal"><a href="#__codelineno-13-30">30</a></span>
+<span class="normal"><a href="#__codelineno-13-31">31</a></span>
+<span class="normal"><a href="#__codelineno-13-32">32</a></span>
+<span class="normal"><a href="#__codelineno-13-33">33</a></span>
+<span class="normal"><a href="#__codelineno-13-34">34</a></span>
+<span class="normal"><a href="#__codelineno-13-35">35</a></span>
+<span class="normal"><a href="#__codelineno-13-36">36</a></span>
+<span class="normal"><a href="#__codelineno-13-37">37</a></span>
+<span class="normal"><a href="#__codelineno-13-38">38</a></span>
+<span class="normal"><a href="#__codelineno-13-39">39</a></span>
+<span class="normal"><a href="#__codelineno-13-40">40</a></span>
+<span class="normal"><a href="#__codelineno-13-41">41</a></span>
+<span class="normal"><a href="#__codelineno-13-42">42</a></span>
+<span class="normal"><a href="#__codelineno-13-43">43</a></span>
+<span class="normal"><a href="#__codelineno-13-44">44</a></span>
+<span class="normal"><a href="#__codelineno-13-45">45</a></span>
+<span class="normal"><a href="#__codelineno-13-46">46</a></span>
+<span class="normal"><a href="#__codelineno-13-47">47</a></span>
+<span class="normal"><a href="#__codelineno-13-48">48</a></span>
+<span class="normal"><a href="#__codelineno-13-49">49</a></span>
+<span class="normal"><a href="#__codelineno-13-50">50</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="ch">#!/usr/bin/sh</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="c1">#######################################################################</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="c1">#</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="c1">#   使用方法：</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="c1">#   1. 只需要把本脚本放在 cod-lab 目录下，命名为 sim.sh</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="c1">#   2. 命令行输入：  chmod 755 sim.sh  # 赋予脚本执行权限，只用做一次</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="c1">#   3. 然后每次直接使用即可，例如：./sim.sh microbench fib</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="c1">#</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="c1">#######################################################################</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13"></a>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14"></a>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15"></a>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16"></a><span class="c1">#######################################################################</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17"></a><span class="c1">#</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18"></a><span class="c1">#   规则：方便查看</span>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19"></a><span class="c1">#</span>
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20"></a><span class="c1">#   - SIM_SET: basic</span>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21"></a><span class="c1">#     BENCH: [memcpy]</span>
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22"></a><span class="c1">#   - SIM_SET: medium</span>
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23"></a><span class="c1">#     BENCH: [sum,mov-c,fib,add,if-else,pascal,quick-sort,select-sort,max,min3,switch,bubble-sort]</span>
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24"></a><span class="c1">#   - SIM_SET: advanced</span>
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25"></a><span class="c1">#     BENCH: [shuixianhua,sub-longlong,bit,recursion,fact,add-longlong,shift,wanshu,goldbach,leap-year,prime,mul-longlong,load-store,to-lower-case,movsx,matrix-mul,unalign]</span>
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26"></a><span class="c1">#   - SIM_SET: hello</span>
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27"></a><span class="c1">#     BENCH: [hello]</span>
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28"></a><span class="c1">#   - SIM_SET: microbench</span>
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29"></a><span class="c1">#     BENCH: [fib,md5,qsort,queen,sieve,ssort]</span>
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30"></a><span class="c1">#</span>
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31"></a><span class="c1">#######################################################################</span>
+</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32"></a>
+</span><span id="__span-13-33"><a id="__codelineno-13-33" name="__codelineno-13-33"></a>
+</span><span id="__span-13-34"><a id="__codelineno-13-34" name="__codelineno-13-34"></a>
+</span><span id="__span-13-35"><a id="__codelineno-13-35" name="__codelineno-13-35"></a><span class="nv">SIM_SET</span><span class="o">=</span><span class="nv">$1</span>
+</span><span id="__span-13-36"><a id="__codelineno-13-36" name="__codelineno-13-36"></a><span class="nv">BENCH</span><span class="o">=</span><span class="nv">$2</span>
+</span><span id="__span-13-37"><a id="__codelineno-13-37" name="__codelineno-13-37"></a>
+</span><span id="__span-13-38"><a id="__codelineno-13-38" name="__codelineno-13-38"></a><span class="c1"># 删除上次仿真生成的一些可能产生冲突的文件</span>
+</span><span id="__span-13-39"><a id="__codelineno-13-39" name="__codelineno-13-39"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>./fpga/sim_out/custom_cpu<span class="w"> </span>./verilator_include
+</span><span id="__span-13-40"><a id="__codelineno-13-40" name="__codelineno-13-40"></a>
+</span><span id="__span-13-41"><a id="__codelineno-13-41" name="__codelineno-13-41"></a><span class="c1"># 软件编译</span>
+</span><span id="__span-13-42"><a id="__codelineno-13-42" name="__codelineno-13-42"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>phy_os<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>mips<span class="w"> </span>workload
+</span><span id="__span-13-43"><a id="__codelineno-13-43" name="__codelineno-13-43"></a>
+</span><span id="__span-13-44"><a id="__codelineno-13-44" name="__codelineno-13-44"></a><span class="c1"># 行为仿真</span>
+</span><span id="__span-13-45"><a id="__codelineno-13-45" name="__codelineno-13-45"></a>sudo<span class="w"> </span>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-46"><a id="__codelineno-13-46" name="__codelineno-13-46"></a><span class="w">     </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-47"><a id="__codelineno-13-47" name="__codelineno-13-47"></a><span class="w">     </span><span class="nv">SIM_TARGET</span><span class="o">=</span>custom_cpu<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-48"><a id="__codelineno-13-48" name="__codelineno-13-48"></a><span class="w">     </span><span class="nv">SIM_DUT</span><span class="o">=</span>mips:multi_cycle<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-49"><a id="__codelineno-13-49" name="__codelineno-13-49"></a><span class="w">     </span><span class="nv">WORKLOAD</span><span class="o">=</span>simple_test:<span class="nv">$SIM_SET</span>:<span class="nv">$BENCH</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-50"><a id="__codelineno-13-50" name="__codelineno-13-50"></a><span class="w">     </span>bhv_sim_verilator
+</span></code></pre></div></td></tr></table></div>
 
 
 
