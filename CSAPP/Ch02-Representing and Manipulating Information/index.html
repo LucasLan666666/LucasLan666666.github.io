@@ -1,0 +1,825 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../images/cat.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
+    
+    
+      
+        <title>Ch02—Representing and Manipulating Information - Blogs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono+NL:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono NL"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ch02representing-and-manipulating-information" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Blogs" class="md-header__button md-logo" aria-label="Blogs" data-md-component="logo">
+      
+  <img src="../../assets/faye.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Blogs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ch02—Representing and Manipulating Information
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/LucasLan666666/LucasLan666666.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LucasLan666666.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../UCAS/COD-Lab/bhv_sim_env/bhv_sim_env/" class="md-tabs__link">
+          
+  
+  COD-Lab
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Blogs" class="md-nav__button md-logo" aria-label="Blogs" data-md-component="logo">
+      
+  <img src="../../assets/faye.png" alt="logo">
+
+    </a>
+    Blogs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/LucasLan666666/LucasLan666666.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    LucasLan666666.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    COD-Lab
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            COD-Lab
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UCAS/COD-Lab/bhv_sim_env/bhv_sim_env/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bhv_sim_env
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#information-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Information Storage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Information Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-sizes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Sizes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addressing-and-byte-ordering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Addressing and Byte Ordering
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Addressing and Byte Ordering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endian" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endian
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#byte-print-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      Byte Print Program
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integer-arithmetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integer Arithmetic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integer Arithmetic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dividing-by-powers-of-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dividing by Powers of 2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dividing by Powers of 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#biasing" class="md-nav__link">
+    <span class="md-ellipsis">
+      偏置（biasing）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floating-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Floating Point
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Floating Point">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ieee-floating-point-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEEE Floating-Point Representation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IEEE Floating-Point Representation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-floating-point-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Floating-Point Formats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#floating-point-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Floating-Point Type
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Floating-Point Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-1-normalized-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case 1: Normalized Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-2-denormalized-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case 2: Denormalized Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-3-special-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case 3: Special Values
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Numbers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Numbers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8-bit-floating-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      8-bit floating-point
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nonnegative-floating-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      nonnegative floating-point
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rounding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#floating-point-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Floating-Point Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="ch02representing-and-manipulating-information">Ch02—Representing and Manipulating Information</h1>
+<h2 id="information-storage">Information Storage</h2>
+<h3 id="data-sizes">Data Sizes</h3>
+<ol>
+<li>
+<p>每台计算机有一个 <strong>字长（word size）</strong> ，决定了虚拟地址空间的最大值是多少</p>
+</li>
+<li>
+<p>通过修改编译选项，可以生成在不同机器上运行的程序</p>
+</li>
+</ol>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 可以在 32 位机器运行，也可以在 64 位机器运行（向后兼容）</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>linux&gt;<span class="w"> </span>gcc<span class="w"> </span>-m32<span class="w"> </span>prog.c
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># 只能在 32 位机器运行</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>linux&gt;<span class="w"> </span>gcc<span class="w"> </span>-m64<span class="w"> </span>prog.c
+</span></code></pre></div></td></tr></table></div>
+<ol>
+<li>基本数据类型大小</li>
+</ol>
+<p><a class="glightbox" href="../assets/2-3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2-3" src="../assets/2-3.png" /></a></p>
+<h3 id="addressing-and-byte-ordering">Addressing and Byte Ordering</h3>
+<h4 id="endian">Endian</h4>
+<p><a class="glightbox" href="../assets/Endian.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Endian" src="../assets/Endian.png" /></a></p>
+<h4 id="byte-print-program">Byte Print Program</h4>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">byte_pointer</span><span class="p">;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kt">void</span><span class="w"> </span><span class="nf">show_bytes</span><span class="p">(</span><span class="n">byte_pointer</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">len</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot; %.2x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="p">}</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="kt">void</span><span class="w"> </span><span class="nf">show_int</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="n">show_bytes</span><span class="p">((</span><span class="n">byte_pointer</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="p">}</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="kt">void</span><span class="w"> </span><span class="nf">show_float</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">    </span><span class="n">show_bytes</span><span class="p">((</span><span class="n">byte_pointer</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">));</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="p">}</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="kt">void</span><span class="w"> </span><span class="nf">show_pointer</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="n">show_bytes</span><span class="p">((</span><span class="n">byte_pointer</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">));</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="integer-arithmetic">Integer Arithmetic</h2>
+<ul>
+<li>补码最小值的相反数是他自身</li>
+</ul>
+<h3 id="dividing-by-powers-of-2">Dividing by Powers of 2</h3>
+<ul>
+<li>规则：向靠近 0 的方向舍入</li>
+</ul>
+<h4 id="biasing">偏置（biasing）</h4>
+<ul>
+<li>
+<p>对于负数运算，移位会导致结果向下舍入，因此需要在移位前加上偏置量：<span class="arithmatex">\(bias = (1 &lt;&lt; k) - 1\)</span></p>
+</li>
+<li>
+<p>C 语言表示：</p>
+</li>
+</ul>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">k</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>举例（以 -12340 作为被除数）：</li>
+</ul>
+<p><a class="glightbox" href="../assets/2-30.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2-30" src="../assets/2-30.png" /></a></p>
+<h2 id="floating-point">Floating Point</h2>
+<h3 id="ieee-floating-point-representation">IEEE Floating-Point Representation</h3>
+<div class="arithmatex">\[
+V = (-1)^s \times M \times 2^E
+\]</div>
+<ol>
+<li>s(sign)： <strong>符号</strong> 。0 表示正数，1 表示负数</li>
+<li>M(significand)： <strong>尾数</strong> 。一个二进制小数</li>
+<li>E(exponent)： <strong>阶码</strong> 。对浮点数加权</li>
+</ol>
+<h4 id="standard-floating-point-formats">Standard Floating-Point Formats</h4>
+<p><a class="glightbox" href="../assets/2-32.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2-32" src="../assets/2-32.png" /></a></p>
+<h4 id="floating-point-type">Floating-Point Type</h4>
+<p><a class="glightbox" href="../assets/2-33.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2-33" src="../assets/2-33.png" /></a></p>
+<h5 id="case-1-normalized-values">Case 1: Normalized Values</h5>
+<p>用来表示大多数数值</p>
+<p><strong>阶码：<span class="arithmatex">\(E = e - bias\)</span></strong></p>
+<p>其中，<span class="arithmatex">\(bias(float) = 2 ^ {8 - 1} - 1 = 127\)</span> ， <span class="arithmatex">\(bias(double) = 2 ^ {11 - 1} - 1 = 1023\)</span></p>
+<p>因此，可以得到阶码的范围：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">bias</th>
+<th style="text-align: center;"><span class="arithmatex">\(e_{min}\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(e_{max}\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(E_{min}\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(E_{max}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">float</td>
+<td style="text-align: center;">127</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">254</td>
+<td style="text-align: center;">-126</td>
+<td style="text-align: center;">127</td>
+</tr>
+<tr>
+<td style="text-align: center;">double</td>
+<td style="text-align: center;">1023</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2046</td>
+<td style="text-align: center;">-1022</td>
+<td style="text-align: center;">1023</td>
+</tr>
+</tbody>
+</table>
+<p><strong>尾数： <span class="arithmatex">\(M = 1 + f\)</span></strong></p>
+<p>其中，对于 float 类型， <span class="arithmatex">\(f = 0.f_{22}f_{21}\dots f_0\)</span> （double 类型类似）</p>
+<p>对于非零值，总能调整 <span class="arithmatex">\(E\)</span> 使得 <span class="arithmatex">\(M\)</span> 范围在 1 ~ 2 之间，所以首位的 1 不用显示表现出来</p>
+<h5 id="case-2-denormalized-values">Case 2: Denormalized Values</h5>
+<p>用来表示 0 或者很小的数值，<strong>表示 0 时有 +0 和 -0 之分</strong></p>
+<p><strong>阶码：<span class="arithmatex">\(E = 1 - bias\)</span></strong></p>
+<p>注意，这里是 <span class="arithmatex">\(1 - bias\)</span> 而不是 <span class="arithmatex">\(-bias\)</span></p>
+<p>这样做可以实现最大非规格化数到最小规格化数的平滑转变</p>
+<p><strong>尾数： <span class="arithmatex">\(M = f\)</span></strong></p>
+<p>直接用尾数表示</p>
+<h5 id="case-3-special-values">Case 3: Special Values</h5>
+<p>阶码字段全为 1</p>
+<ol>
+<li><span class="arithmatex">\(+\infty\)</span> ：符号位为 0，小数字段全为 0</li>
+<li><span class="arithmatex">\(-\infty\)</span> ：符号位为 1，小数字段全为 0</li>
+<li>NaN：小数字段不为 0</li>
+</ol>
+<h3 id="example-numbers">Example Numbers</h3>
+<h4 id="8-bit-floating-point">8-bit floating-point</h4>
+<p><a class="glightbox" href="../assets/2-35.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2-35" src="../assets/2-35.png" /></a></p>
+<h4 id="nonnegative-floating-point">nonnegative floating-point</h4>
+<p><a class="glightbox" href="../assets/2-36.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2-36" src="../assets/2-36.png" /></a></p>
+<ul>
+<li>$\epsilon $ 表示 <span class="arithmatex">\(2^{-n}\)</span></li>
+</ul>
+<h3 id="rounding">Rounding</h3>
+<p>4 ways</p>
+<p><a class="glightbox" href="../assets/2-37.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2-37" src="../assets/2-37.png" /></a></p>
+<h3 id="floating-point-operations">Floating-Point Operations</h3>
+<ul>
+<li>优点：满足单调性</li>
+<li>缺点：不满足结合性和分配性</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.expand"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/mathjex.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
