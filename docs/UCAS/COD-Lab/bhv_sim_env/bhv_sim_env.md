@@ -58,7 +58,7 @@ sudo make install
 在终端输入以下指令，检查是否安装成功：
 
 ```bash
-verialtor --version
+verilator --version
 ```
 
 !!! success
@@ -91,19 +91,25 @@ mips-gcc --version
     warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     ```
 
-## 成功示例（以 `hello` 为例）
+## 进行软件编译和行为仿真（以 `hello` 为例）
 
 !!! warning
     记得用 `git pull upstream master` 同步框架！！！
 
 ### 软件部分
 
-!!! tip
-    没错它就是这么长
+软件编译输入：
 
-![software_test_1](assets/software_test_1.png)
+```bash
+make FPGA_PRJ=ucas-cod FPGA_BD=nf OS=phy_os ARCH=mips workload
+```
+
+<!-- !!! tip
+    没错它就是这么长 -->
+
+<!-- ![software_test_1](assets/software_test_1.png)
 ![software_test_2](assets/software_test_2.png)
-![software_test_3](assets/software_test_3.png)
+![software_test_3](assets/software_test_3.png) -->
 ![software_test_4](assets/software_test_4.png)
 
 !!! success
@@ -112,10 +118,16 @@ mips-gcc --version
 ### 硬件部分
 
 !!! warning
-    记得先把 `fpga/sim_out/custom_cpu` 和 `verilator_include` 删干净！！！
+    记得每一次仿真前都先把 `fpga/sim_out/custom_cpu` 和 `verilator_include` 删干净！！！
+
+先删掉先前仿真生成的多余文件：
+
+```bash
+sudo rm -rf ./fpga/sim_out/custom_cpu ./verilator_include
+```
 
 !!! warning
-    `make` 前要加 `sudo`
+    记得 `make` 前要加 `sudo`
 
 ![custom_cpu_test_1](assets/custom_cpu_test_1.png)
 
@@ -123,3 +135,61 @@ mips-gcc --version
 
 !!! success
     成功完成行为仿真并在终端显示结果！！！
+
+## 补充
+
+懒人必备（一键仿真脚本）：
+
+```shell
+#!/usr/bin/sh
+
+
+
+#######################################################################
+#
+#   使用方法：
+#   1. 只需要把本脚本放在 cod-lab 目录下，命名为 sim.sh
+#   2. 命令行输入：  chmod 755 sim.sh  # 赋予脚本执行权限，只用做一次
+#   3. 然后每次直接使用即可，例如：./sim.sh microbench fib
+#
+#######################################################################
+
+
+
+#######################################################################
+#
+#   规则：方便查看
+#
+#   - SIM_SET: basic
+#     BENCH: [memcpy]
+#   - SIM_SET: medium
+#     BENCH: [sum,mov-c,fib,add,if-else,pascal,quick-sort,select-sort,max,min3,switch,bubble-sort]
+#   - SIM_SET: advanced
+#     BENCH: [shuixianhua,sub-longlong,bit,recursion,fact,add-longlong,shift,wanshu,goldbach,leap-year,prime,mul-longlong,load-store,to-lower-case,movsx,matrix-mul,unalign]
+#   - SIM_SET: hello
+#     BENCH: [hello]
+#   - SIM_SET: microbench
+#     BENCH: [fib,md5,qsort,queen,sieve,ssort]
+#
+#######################################################################
+
+
+
+SIM_SET=$1
+BENCH=$2
+
+# 删除上次仿真生成的一些可能产生冲突的文件
+sudo rm -rf ./fpga/sim_out/custom_cpu ./verilator_include
+
+# 软件编译
+make FPGA_PRJ=ucas-cod FPGA_BD=nf OS=phy_os ARCH=mips workload
+
+# 行为仿真
+sudo make FPGA_PRJ=ucas-cod \
+     FPGA_BD=nf \
+     SIM_TARGET=custom_cpu \
+     SIM_DUT=mips:multi_cycle \
+     WORKLOAD=simple_test:$SIM_SET:$BENCH \
+     bhv_sim_verilator
+
+```
