@@ -1,4 +1,4 @@
-site_name: Blogs of Lucas Lan
+site_name: Blogs
 
 repo_url: https://github.com/LucasLan666666/LucasLan666666.github.io
 
@@ -16,25 +16,25 @@ extra_css:
   # - https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/lxgwwenkaiscreen.css
 
 nav:
-  - Home: index.md
-  - About: about.md
-  - Experiences:
-    - Markdown: Experiences/Markdown 常用模板.md
-    - Mermaid: Experiences/mermaid/Mermaid 踩坑日记.md
-    - Github-Copilot: Experiences/copilot/Github-Copilot 配置方法.md
-    - Git: Experiences/Git 入坑指南.md
-  - UCAS:
-    - Digital Circuit:
-      - Lab1: UCAS/Digital Circuit/1/1_trip.md
-      - Lab2: UCAS/Digital Circuit/2/2_digital_comparator.md
-      - Lab3: UCAS/Digital Circuit/3/3_FSM.md
-      - Lab4: UCAS/Digital Circuit/4/4_fifo.md
-    - Assembly Language:
-      - LoooooooooongArch: UCAS/Assembly-Language/LoongArch/LoongArch汇编实验环境.md
-      - quicksort: UCAS/Assembly-Language/quicksort/quicksort_group7.md
+  # - Home: index.md
+  # - About: about.md
+  # - Experiences:
+  #   - Markdown: Experiences/Markdown 常用模板.md
+  #   - Mermaid: Experiences/mermaid/Mermaid 踩坑日记.md
+  #   - Github-Copilot: Experiences/copilot/Github-Copilot 配置方法.md
+  #   - Git: Experiences/Git 入坑指南.md
+  # - UCAS:
+  #   - Digital Circuit:
+  #     - Lab1: UCAS/Digital Circuit/1/1_trip.md
+  #     - Lab2: UCAS/Digital Circuit/2/2_digital_comparator.md
+  #     - Lab3: UCAS/Digital Circuit/3/3_FSM.md
+  #     - Lab4: UCAS/Digital Circuit/4/4_fifo.md
+  #   - Assembly Language:
+  #     - LoooooooooongArch: UCAS/Assembly-Language/LoongArch/LoongArch汇编实验环境.md
+  #     - quicksort: UCAS/Assembly-Language/quicksort/quicksort_group7.md
     - COD-Lab:
-      - bhv_sim_env: UCAS/COD-Lab/bhv_sim_env/cod-lab 本地仿真环境配置.md
-          # - prj3: UCAS/COD-Lab/prj3/prj3.md
+      - bhv_sim_env: UCAS/COD-Lab/bhv_sim_env/bhv_sim_env.md
+      # - prj3: UCAS/COD-Lab/prj3/prj3.md
   # - Test:
   #     - Latex: test/Latex test.md
   #     - font: test/font.md
@@ -133,4 +133,4 @@ plugins:
         background: white
         shadow: true
         manual: false
-    - social
+    # - social
