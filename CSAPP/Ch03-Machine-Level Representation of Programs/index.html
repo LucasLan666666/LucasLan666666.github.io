@@ -37,8 +37,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono+NL:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono NL"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
       
     
     
@@ -635,8 +635,8 @@
 <h1 id="ch03machine-level-representation-of-programs">Ch03—Machine-Level Representation of Programs</h1>
 <h2 id="program-encodings">Program Encodings</h2>
 <h3 id="disassembler">Disassembler</h3>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>objdump<span class="w"> </span>-d<span class="w"> </span>mstore.o
-</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>objdump<span class="w"> </span>-d<span class="w"> </span>mstore.o
+</span></code></pre></div>
 <p>关于机器代码及其反汇编的特性：</p>
 <ol>
 <li><code>x86-64</code> 指令长度 1~15 字节不等。常用指令长度短</li>
@@ -694,18 +694,13 @@
 </ul>
 <h4 id="mov">MOV 类</h4>
 <p><a class="glightbox" href="../assets/3-4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="3-4" src="../assets/3-4.png" /></a></p>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span>
-<span class="normal"><a href="#__codelineno-1-4">4</a></span>
-<span class="normal"><a href="#__codelineno-1-5">5</a></span>
-<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a># 五种可能组合，注意没有 Memory--Memory
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>movl $0x4050, %eax       # Immediate--Register, 4 bytes
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>movw %bp, %sp            # Register--Register,  2 bytes
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>movb (%rdi, %rcx), %al   # Memory--Register,    1 byte
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a>movb $-17, (%esp)        # Immediate--Memory,   1 byte
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a>movq %rax, -12(%rbp)     # Register--Memory,    8 bytes
-</span></code></pre></div></td></tr></table></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># 五种可能组合，注意没有 Memory--Memory
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>movl $0x4050, %eax       # Immediate--Register, 4 bytes
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>movw %bp, %sp            # Register--Register,  2 bytes
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>movb (%rdi, %rcx), %al   # Memory--Register,    1 byte
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>movb $-17, (%esp)        # Immediate--Memory,   1 byte
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>movq %rax, -12(%rbp)     # Register--Memory,    8 bytes
+</span></code></pre></div>
 <p><strong>注意：</strong></p>
 <ul>
 <li><code>movl</code> 指令以寄存器作为目的时，它会把该寄存器的高位 4 字节设置为 0</li>
@@ -725,32 +720,28 @@
 <h3 id="pushing-and-popping-stack-data">Pushing and Popping Stack Data</h3>
 <p><a class="glightbox" href="../assets/3-9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="3-9" src="../assets/3-9.png" /></a></p>
 <h4 id="pushq"><code>pushq</code></h4>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>pushq %rbp         # 将寄存器 %rbp 中储存的数据压入栈中，同时栈指针减 8
-</span></code></pre></div></td></tr></table></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pushq %rbp         # 将寄存器 %rbp 中储存的数据压入栈中，同时栈指针减 8
+</span></code></pre></div>
 <p>等价于</p>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>subq $8, %rsp      # Decrement stack pointer
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>movq %rbp, (%rsp)  # Store %rbp on stack
-</span></code></pre></div></td></tr></table></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>subq $8, %rsp      # Decrement stack pointer
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>movq %rbp, (%rsp)  # Store %rbp on stack
+</span></code></pre></div>
 <h4 id="popq"><code>popq</code></h4>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>popq %rax          # 从栈顶位置读出数据，然后将栈指针加 8
-</span></code></pre></div></td></tr></table></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>popq %rax          # 从栈顶位置读出数据，然后将栈指针加 8
+</span></code></pre></div>
 <p>等价于</p>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>movq (%rsp), %rax  # Read %rax from stack
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>addq $8, %rsp      # Increment stack pointer
-</span></code></pre></div></td></tr></table></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>movq (%rsp), %rax  # Read %rax from stack
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>addq $8, %rsp      # Increment stack pointer
+</span></code></pre></div>
 <h2 id="arithmetic-and-logical-operations">Arithmetic and Logical Operations</h2>
 <p><a class="glightbox" href="../assets/3-10.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="3-10" src="../assets/3-10.png" /></a></p>
 <h3 id="load-effective-address">Load Effective Address</h3>
 <h4 id="leaq"><code>leaq</code></h4>
 <p>加载有效地址</p>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>leaq 7(%rdx, %rdx, 4), %rax    # 等价于 5x + 7
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a># 使用格式和 movq 相同，但实际上没有引用内存，只是计算 4 字数据本身
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a># 注意比例因子还是只能取值1、2、4、8
-</span></code></pre></div></td></tr></table></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>leaq 7(%rdx, %rdx, 4), %rax    # 等价于 5x + 7
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a># 使用格式和 movq 相同，但实际上没有引用内存，只是计算 4 字数据本身
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a># 注意比例因子还是只能取值1、2、4、8
+</span></code></pre></div>
 <h3 id="unary-and-binary-operations">Unary and Binary Operations</h3>
 <ul>
 <li>二元操作的第二个操作数不能是立即数</li>

@@ -37,8 +37,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono+NL:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono NL"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
       
     
     
@@ -567,35 +567,35 @@
 <p>在 <a href="https://github.com/verilator/verilator/releases/tag/v4.222">这里</a> 下载 4.222 版本的 <code>verilator</code> 。</p>
 <p><a class="glightbox" href="../assets/verilator.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="verilator" src="../assets/verilator.png" /></a></p>
 <p>找一个目录（不要放到框架里，可以选择 <code>~</code> 主目录）本地解压即可，用以下命令解压：</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>tar<span class="w"> </span>-xvf<span class="w"> </span>verilator-4.222.tar.gz
-</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tar<span class="w"> </span>-xvf<span class="w"> </span>verilator-4.222.tar.gz
+</span></code></pre></div>
 <p>然后移动至解压后的目录：</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>verilator-4.222
-</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>verilator-4.222
+</span></code></pre></div>
 <p>依次执行以下命令:</p>
 <p>首先安装必备的依赖：</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>help2man<span class="w"> </span>perl<span class="w"> </span>python3<span class="w"> </span>make<span class="w"> </span>autoconf<span class="w"> </span>g++<span class="w"> </span>flex<span class="w"> </span>bison<span class="w"> </span>ccache<span class="w"> </span>libgoogle-perftools-dev<span class="w"> </span>numactl<span class="w"> </span>perl-doc
-</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>help2man<span class="w"> </span>perl<span class="w"> </span>python3<span class="w"> </span>make<span class="w"> </span>autoconf<span class="w"> </span>g++<span class="w"> </span>flex<span class="w"> </span>bison<span class="w"> </span>ccache<span class="w"> </span>libgoogle-perftools-dev<span class="w"> </span>numactl<span class="w"> </span>perl-doc
+</span></code></pre></div>
 <p>生成配置脚本：</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>autoconf<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./configure
-</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>autoconf<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./configure
+</span></code></pre></div>
 <p>编译安装：</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>下面这两步会很漫长，如果在 S-IDE 上编译可能会花较长时间（我测试 S-IDE 的时候开了 16 G，也整了快半小时）。</p>
 </div>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>make<span class="w"> </span>-j<span class="w"> </span><span class="sb">`</span>nproc<span class="sb">`</span>
-</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>make<span class="w"> </span>-j<span class="w"> </span><span class="sb">`</span>nproc<span class="sb">`</span>
+</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>最新补充：如果上一条指令不能成功执行，可以直接改用 <code>make</code> ，不加任何参数（后来了解到 <code>-j</code> 参数作用是利用多个处理器核心加速优化，但是在 S-IDE 上反而会出现因内存占用过大被操作系统杀死进程的情况，稳妥起见还是用 <code>make</code> 吧）</p>
 </div>
 <p>最后输入下面指令，即可完成 <code>mips-gcc</code> 的最终安装步骤：</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
-</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
+</span></code></pre></div>
 <p>在终端输入以下指令，检查是否安装成功：</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>verilator<span class="w"> </span>--version
-</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>verilator<span class="w"> </span>--version
+</span></code></pre></div>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>如果终端打印出 <code>Verilator 4.222 2022-05-02 rev UNKNOWN.REV</code> 字样，表示 <code>verilator</code> 本地配置成功。</p>
@@ -606,24 +606,21 @@
 <p>S-IDE 可跳过此部分，因为 S-IDE 的 mips-gcc 就是实验框架的版本，无需重新设置</p>
 </div>
 <p>依次执行以下命令</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rm-hull/barebones-toolchain.git
-</span></code></pre></div></td></tr></table></div>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/barebones-toolchain/cross/x86_64/bin/mips-gcc<span class="w"> </span>/usr/local/bin/mips-gcc
-</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rm-hull/barebones-toolchain.git
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/barebones-toolchain/cross/x86_64/bin/mips-gcc<span class="w"> </span>/usr/local/bin/mips-gcc
+</span></code></pre></div>
 <p>在终端输入以下指令，检查是否安装成功：</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>mips-gcc<span class="w"> </span>--version
-</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>verilator<span class="w"> </span>--version
+</span></code></pre></div>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>如果终端打印出以下类似字样，表示 <code>mips-gcc</code> 本地配置成功。
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
-<span class="normal"><a href="#__codelineno-10-2">2</a></span>
-<span class="normal"><a href="#__codelineno-10-3">3</a></span>
-<span class="normal"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>mips-gcc<span class="w"> </span><span class="o">(</span>GCC<span class="o">)</span><span class="w"> </span><span class="m">6</span>.2.0
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a>Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2016</span><span class="w"> </span>Free<span class="w"> </span>Software<span class="w"> </span>Foundation,<span class="w"> </span>Inc.
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a>This<span class="w"> </span>is<span class="w"> </span>free<span class="w"> </span>software<span class="p">;</span><span class="w"> </span>see<span class="w"> </span>the<span class="w"> </span><span class="nb">source</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>copying<span class="w"> </span>conditions.<span class="w">  </span>There<span class="w"> </span>is<span class="w"> </span>NO
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a>warranty<span class="p">;</span><span class="w"> </span>not<span class="w"> </span>even<span class="w"> </span><span class="k">for</span><span class="w"> </span>MERCHANTABILITY<span class="w"> </span>or<span class="w"> </span>FITNESS<span class="w"> </span>FOR<span class="w"> </span>A<span class="w"> </span>PARTICULAR<span class="w"> </span>PURPOSE.
-</span></code></pre></div></td></tr></table></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>mips-gcc<span class="w"> </span><span class="o">(</span>GCC<span class="o">)</span><span class="w"> </span><span class="m">6</span>.2.0
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2016</span><span class="w"> </span>Free<span class="w"> </span>Software<span class="w"> </span>Foundation,<span class="w"> </span>Inc.
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>This<span class="w"> </span>is<span class="w"> </span>free<span class="w"> </span>software<span class="p">;</span><span class="w"> </span>see<span class="w"> </span>the<span class="w"> </span><span class="nb">source</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>copying<span class="w"> </span>conditions.<span class="w">  </span>There<span class="w"> </span>is<span class="w"> </span>NO
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>warranty<span class="p">;</span><span class="w"> </span>not<span class="w"> </span>even<span class="w"> </span><span class="k">for</span><span class="w"> </span>MERCHANTABILITY<span class="w"> </span>or<span class="w"> </span>FITNESS<span class="w"> </span>FOR<span class="w"> </span>A<span class="w"> </span>PARTICULAR<span class="w"> </span>PURPOSE.
+</span></code></pre></div></p>
 </div>
 <h2 id="hello">进行软件编译和行为仿真（以 <code>hello</code> 为例）</h2>
 <div class="admonition warning">
@@ -632,8 +629,8 @@
 </div>
 <h3 id="_1">软件编译</h3>
 <p>软件编译输入：</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>phy_os<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>mips<span class="w"> </span>workload
-</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>phy_os<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>mips<span class="w"> </span>workload
+</span></code></pre></div>
 <!-- !!! tip
     没错它就是这么长 -->
 
@@ -651,15 +648,15 @@
 <p class="admonition-title">Warning</p>
 <p>记得每一次仿真前都先把 <code>fpga/sim_out/custom_cpu</code> 和 <code>verilator_include</code> 删干净！！！</p>
 </div>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>./fpga/sim_out/custom_cpu<span class="w"> </span>./verilator_include
-</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>./fpga/sim_out/custom_cpu<span class="w"> </span>./verilator_include
+</span></code></pre></div>
 <p>下面输入仿真的命令（以 hello 为例）：</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>记得 <code>make</code> 前要加 <code>sudo</code></p>
 </div>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a>sudo<span class="w"> </span>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">SIM_TARGET</span><span class="o">=</span>custom_cpu<span class="w"> </span><span class="nv">SIM_DUT</span><span class="o">=</span>mips:multi_cycle<span class="w"> </span><span class="nv">WORKLOAD</span><span class="o">=</span>simple_test:hello:hello<span class="w"> </span>bhv_sim_verilator
-</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">SIM_TARGET</span><span class="o">=</span>custom_cpu<span class="w"> </span><span class="nv">SIM_DUT</span><span class="o">=</span>mips:multi_cycle<span class="w"> </span><span class="nv">WORKLOAD</span><span class="o">=</span>simple_test:hello:hello<span class="w"> </span>bhv_sim_verilator
+</span></code></pre></div>
 <p><a class="glightbox" href="../assets/custom_cpu_test_1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="custom_cpu_test_1" src="../assets/custom_cpu_test_1.png" /></a></p>
 <p><a class="glightbox" href="../assets/custom_cpu_test_2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="custom_cpu_test_2" src="../assets/custom_cpu_test_2.png" /></a></p>
 <div class="admonition success">
@@ -668,106 +665,57 @@
 </div>
 <h2 id="_3">补充</h2>
 <p>懒人必备（一键仿真脚本）：</p>
-<div class="language-shell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-14-10">10</a></span>
-<span class="normal"><a href="#__codelineno-14-11">11</a></span>
-<span class="normal"><a href="#__codelineno-14-12">12</a></span>
-<span class="normal"><a href="#__codelineno-14-13">13</a></span>
-<span class="normal"><a href="#__codelineno-14-14">14</a></span>
-<span class="normal"><a href="#__codelineno-14-15">15</a></span>
-<span class="normal"><a href="#__codelineno-14-16">16</a></span>
-<span class="normal"><a href="#__codelineno-14-17">17</a></span>
-<span class="normal"><a href="#__codelineno-14-18">18</a></span>
-<span class="normal"><a href="#__codelineno-14-19">19</a></span>
-<span class="normal"><a href="#__codelineno-14-20">20</a></span>
-<span class="normal"><a href="#__codelineno-14-21">21</a></span>
-<span class="normal"><a href="#__codelineno-14-22">22</a></span>
-<span class="normal"><a href="#__codelineno-14-23">23</a></span>
-<span class="normal"><a href="#__codelineno-14-24">24</a></span>
-<span class="normal"><a href="#__codelineno-14-25">25</a></span>
-<span class="normal"><a href="#__codelineno-14-26">26</a></span>
-<span class="normal"><a href="#__codelineno-14-27">27</a></span>
-<span class="normal"><a href="#__codelineno-14-28">28</a></span>
-<span class="normal"><a href="#__codelineno-14-29">29</a></span>
-<span class="normal"><a href="#__codelineno-14-30">30</a></span>
-<span class="normal"><a href="#__codelineno-14-31">31</a></span>
-<span class="normal"><a href="#__codelineno-14-32">32</a></span>
-<span class="normal"><a href="#__codelineno-14-33">33</a></span>
-<span class="normal"><a href="#__codelineno-14-34">34</a></span>
-<span class="normal"><a href="#__codelineno-14-35">35</a></span>
-<span class="normal"><a href="#__codelineno-14-36">36</a></span>
-<span class="normal"><a href="#__codelineno-14-37">37</a></span>
-<span class="normal"><a href="#__codelineno-14-38">38</a></span>
-<span class="normal"><a href="#__codelineno-14-39">39</a></span>
-<span class="normal"><a href="#__codelineno-14-40">40</a></span>
-<span class="normal"><a href="#__codelineno-14-41">41</a></span>
-<span class="normal"><a href="#__codelineno-14-42">42</a></span>
-<span class="normal"><a href="#__codelineno-14-43">43</a></span>
-<span class="normal"><a href="#__codelineno-14-44">44</a></span>
-<span class="normal"><a href="#__codelineno-14-45">45</a></span>
-<span class="normal"><a href="#__codelineno-14-46">46</a></span>
-<span class="normal"><a href="#__codelineno-14-47">47</a></span>
-<span class="normal"><a href="#__codelineno-14-48">48</a></span>
-<span class="normal"><a href="#__codelineno-14-49">49</a></span>
-<span class="normal"><a href="#__codelineno-14-50">50</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="ch">#!/usr/bin/sh</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="c1"># 注意：仅适用于 custom_cpu ，其他实验项目根据具体情况自行修改即可</span>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4"></a>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="c1">#######################################################################</span>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="c1">#</span>
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="c1">#   使用方法：</span>
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="c1">#   1. 只需要把本脚本放在 cod-lab 目录下，命名为 sim.sh</span>
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="c1">#   2. 命令行输入：  chmod 755 sim.sh  # 赋予脚本执行权限，只用做一次</span>
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="c1">#   3. 然后每次直接使用即可，例如：./sim.sh microbench fib</span>
-</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="c1">#</span>
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="c1">#######################################################################</span>
-</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13"></a>
-</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14"></a>
-</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15"></a>
-</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16"></a><span class="c1">#######################################################################</span>
-</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17"></a><span class="c1">#</span>
-</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18"></a><span class="c1">#   规则：方便查看</span>
-</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19"></a><span class="c1">#</span>
-</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20"></a><span class="c1">#   - SIM_SET: basic</span>
-</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21"></a><span class="c1">#     BENCH: [memcpy]</span>
-</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22"></a><span class="c1">#   - SIM_SET: medium</span>
-</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23"></a><span class="c1">#     BENCH: [sum,mov-c,fib,add,if-else,pascal,quick-sort,select-sort,max,min3,switch,bubble-sort]</span>
-</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24"></a><span class="c1">#   - SIM_SET: advanced</span>
-</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25"></a><span class="c1">#     BENCH: [shuixianhua,sub-longlong,bit,recursion,fact,add-longlong,shift,wanshu,goldbach,leap-year,prime,mul-longlong,load-store,to-lower-case,movsx,matrix-mul,unalign]</span>
-</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26"></a><span class="c1">#   - SIM_SET: hello</span>
-</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27"></a><span class="c1">#     BENCH: [hello]</span>
-</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28"></a><span class="c1">#   - SIM_SET: microbench</span>
-</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29"></a><span class="c1">#     BENCH: [fib,md5,qsort,queen,sieve,ssort]</span>
-</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30"></a><span class="c1">#</span>
-</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31"></a><span class="c1">#######################################################################</span>
-</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32"></a>
-</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33"></a>
-</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34"></a>
-</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35"></a><span class="nv">SIM_SET</span><span class="o">=</span><span class="nv">$1</span>
-</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36"></a><span class="nv">BENCH</span><span class="o">=</span><span class="nv">$2</span>
-</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37"></a>
-</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38"></a><span class="c1"># 删除上次仿真生成的一些可能产生冲突的文件</span>
-</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>./fpga/sim_out/custom_cpu<span class="w"> </span>./verilator_include
-</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40"></a>
-</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41"></a><span class="c1"># 软件编译</span>
-</span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>phy_os<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>mips<span class="w"> </span>workload
-</span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43"></a>
-</span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44"></a><span class="c1"># 行为仿真</span>
-</span><span id="__span-14-45"><a id="__codelineno-14-45" name="__codelineno-14-45"></a>sudo<span class="w"> </span>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-46"><a id="__codelineno-14-46" name="__codelineno-14-46"></a><span class="w">     </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-47"><a id="__codelineno-14-47" name="__codelineno-14-47"></a><span class="w">     </span><span class="nv">SIM_TARGET</span><span class="o">=</span>custom_cpu<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-48"><a id="__codelineno-14-48" name="__codelineno-14-48"></a><span class="w">     </span><span class="nv">SIM_DUT</span><span class="o">=</span>mips:multi_cycle<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-49"><a id="__codelineno-14-49" name="__codelineno-14-49"></a><span class="w">     </span><span class="nv">WORKLOAD</span><span class="o">=</span>simple_test:<span class="nv">$SIM_SET</span>:<span class="nv">$BENCH</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-50"><a id="__codelineno-14-50" name="__codelineno-14-50"></a><span class="w">     </span>bhv_sim_verilator
-</span></code></pre></div></td></tr></table></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="ch">#!/usr/bin/sh</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># 注意：仅适用于 prj3 ，其他实验项目根据具体情况自行修改即可</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1">#######################################################################</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="c1">#</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1">#   使用方法：</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="c1">#   1. 只需要把本脚本放在 cod-lab 目录下，命名为 sim.sh</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="c1">#   2. 命令行输入：  chmod 755 sim.sh  # 赋予脚本执行权限，只用做一次</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="c1">#   3. 然后每次直接使用即可，例如：./sim.sh microbench fib</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="c1">#</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="c1">#######################################################################</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="c1">#######################################################################</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="c1">#</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="c1">#   规则：方便查看</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="c1">#</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="c1">#   - SIM_SET: basic</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="c1">#     BENCH: [memcpy]</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="c1">#   - SIM_SET: medium</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="c1">#     BENCH: [sum,mov-c,fib,add,if-else,pascal,quick-sort,select-sort,max,min3,switch,bubble-sort]</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="c1">#   - SIM_SET: advanced</span>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="c1">#     BENCH: [shuixianhua,sub-longlong,bit,recursion,fact,add-longlong,shift,wanshu,goldbach,leap-year,prime,mul-longlong,load-store,to-lower-case,movsx,matrix-mul,unalign]</span>
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a><span class="c1">#   - SIM_SET: hello</span>
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a><span class="c1">#     BENCH: [hello]</span>
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a><span class="c1">#   - SIM_SET: microbench</span>
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a><span class="c1">#     BENCH: [fib,md5,qsort,queen,sieve,ssort]</span>
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a><span class="c1">#</span>
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a><span class="c1">#######################################################################</span>
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a>
+</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a>
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a>
+</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a><span class="nv">SIM_SET</span><span class="o">=</span><span class="nv">$1</span>
+</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a><span class="nv">BENCH</span><span class="o">=</span><span class="nv">$2</span>
+</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a>
+</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a><span class="c1"># 删除上次仿真生成的一些可能产生冲突的文件</span>
+</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>./fpga/sim_out/custom_cpu<span class="w"> </span>./verilator_include
+</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a>
+</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a><span class="c1"># 软件编译</span>
+</span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>phy_os<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>mips<span class="w"> </span>workload
+</span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a>
+</span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a><span class="c1"># 行为仿真</span>
+</span><span id="__span-14-45"><a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a>sudo<span class="w"> </span>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-46"><a id="__codelineno-14-46" name="__codelineno-14-46" href="#__codelineno-14-46"></a><span class="w">     </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-47"><a id="__codelineno-14-47" name="__codelineno-14-47" href="#__codelineno-14-47"></a><span class="w">     </span><span class="nv">SIM_TARGET</span><span class="o">=</span>custom_cpu<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-48"><a id="__codelineno-14-48" name="__codelineno-14-48" href="#__codelineno-14-48"></a><span class="w">     </span><span class="nv">SIM_DUT</span><span class="o">=</span>mips:multi_cycle<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-49"><a id="__codelineno-14-49" name="__codelineno-14-49" href="#__codelineno-14-49"></a><span class="w">     </span><span class="nv">WORKLOAD</span><span class="o">=</span>simple_test:<span class="nv">$SIM_SET</span>:<span class="nv">$BENCH</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-50"><a id="__codelineno-14-50" name="__codelineno-14-50" href="#__codelineno-14-50"></a><span class="w">     </span>bhv_sim_verilator
+</span></code></pre></div>
 
 
 
