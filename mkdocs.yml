@@ -51,7 +51,7 @@ theme:
         # text: Noto Serif SC
         # text: Zen Old Mincho
         # text: LXGW WenKai Screen
-        code: JetBrains Mono NL
+        code: JetBrains Mono
     palette:
         # Palette toggle for light mode
         - scheme: default
@@ -96,7 +96,7 @@ markdown_extensions:
   #     permalink: true # 固定标题位置为当前位置
   - pymdownx.highlight: # 代码块高亮
       anchor_linenums: true
-      linenums: true # 显示行号
+      # linenums: true # 显示行号
       # auto_title: true # 显示编程语言名称
       line_spans: __span
       pygments_lang_class: true
@@ -114,7 +114,7 @@ markdown_extensions:
   - meta # 支持Markdown文件上方自定义标题标签等
 
 plugins:
-    # - search:
+    - search:
     #     separator: '[\s\u200b\-]'
     #     lang: ja
     - glightbox:

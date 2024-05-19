@@ -66,6 +66,9 @@ verilator --version
 
 ## mips-gcc
 
+!!! note
+    S-IDE 可跳过此部分，因为 S-IDE 的 mips-gcc 就是实验框架的版本，无需重新设置
+
 依次执行以下命令
 
 ```bash
@@ -79,7 +82,7 @@ sudo ln -s ~/barebones-toolchain/cross/x86_64/bin/mips-gcc /usr/local/bin/mips-g
 在终端输入以下指令，检查是否安装成功：
 
 ```bash
-mips-gcc --version
+verilator --version
 ```
 
 !!! success
@@ -96,7 +99,7 @@ mips-gcc --version
 !!! warning
     记得用 `git pull upstream master` 同步框架！！！
 
-### 软件部分
+### 软件编译
 
 软件编译输入：
 
@@ -115,19 +118,25 @@ make FPGA_PRJ=ucas-cod FPGA_BD=nf OS=phy_os ARCH=mips workload
 !!! success
     成功编译软件！！！
 
-### 硬件部分
+### 硬件行为仿真
+
+先删掉先前仿真生成的多余文件：
 
 !!! warning
     记得每一次仿真前都先把 `fpga/sim_out/custom_cpu` 和 `verilator_include` 删干净！！！
-
-先删掉先前仿真生成的多余文件：
 
 ```bash
 sudo rm -rf ./fpga/sim_out/custom_cpu ./verilator_include
 ```
 
+下面输入仿真的命令（以 hello 为例）：
+
 !!! warning
     记得 `make` 前要加 `sudo`
+
+```bash
+sudo make FPGA_PRJ=ucas-cod FPGA_BD=nf SIM_TARGET=custom_cpu SIM_DUT=mips:multi_cycle WORKLOAD=simple_test:hello:hello bhv_sim_verilator
+```
 
 ![custom_cpu_test_1](assets/custom_cpu_test_1.png)
 
@@ -143,22 +152,24 @@ sudo rm -rf ./fpga/sim_out/custom_cpu ./verilator_include
 ```shell
 #!/usr/bin/sh
 
+# 注意：仅适用于 prj3 ，其他实验项目可根据具体情况适当调整
 
-
-#######################################################################
+# =====================================================================
 #
 #   使用方法：
-#   1. 只需要把本脚本放在 cod-lab 目录下，命名为 sim.sh
+#
+#   1. 把本脚本放在 cod-lab 目录下，命名为 sim.sh
 #   2. 命令行输入：  chmod 755 sim.sh  # 赋予脚本执行权限，只用做一次
-#   3. 然后每次直接使用即可，例如：./sim.sh microbench fib
+#   3. 之后仿真时直接运行（注意加上sudo），例如：sudo ./sim.sh microbench fib
 #
-#######################################################################
+# =====================================================================
 
 
 
-#######################################################################
+
+# =====================================================================
 #
-#   规则：方便查看
+#   规则：方便查看（来自 .gitlab-ci.yml ）
 #
 #   - SIM_SET: basic
 #     BENCH: [memcpy]
@@ -171,25 +182,118 @@ sudo rm -rf ./fpga/sim_out/custom_cpu ./verilator_include
 #   - SIM_SET: microbench
 #     BENCH: [fib,md5,qsort,queen,sieve,ssort]
 #
-#######################################################################
+# =====================================================================
+
+
+
 
 
 
 SIM_SET=$1
 BENCH=$2
 
+TARGET_DESIGN="custom_cpu"
+CPU_ISA="mips"
+SIM_DUT_TYPE="multi_cycle"
+
+
+
+
+
+
+
+
+# {====================================================================
+# 确保参数合法
+# =====================================================================
+
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 [SIM_SET] [BENCH]"
+    exit 1
+fi
+
+
+check_basic() {
+    if [ $BENCH != "memcpy" ]; then
+        echo "Error: [$BENCH] is not in the [$SIM_SET]"
+        exit 1
+    fi
+}
+
+check_medium() {
+    case "$BENCH" in
+    "sum"|"mov-c"|"fib"|"add"|"if-else"|"pascal"|"quick-sort"|"select-sort"|"max"|"min3"|"switch"|"bubble-sort")
+        ;;
+    *)
+        echo "Error: [$BENCH] is not in the [$SIM_SET]"
+        exit 1
+        ;;
+    esac
+}
+
+check_advanced() {
+    case "$BENCH" in
+    "shuixianhua"|"sub-longlong"|"bit"|"recursion"|"fact"|"add-longlong"|"shift"|"wanshu"|"goldbach"|"leap-year"|"prime"|"mul-longlong"|"load-store"|"to-lower-case"|"movsx"|"matrix-mul"|"unalign")
+        ;;
+    *)
+        echo "Error: [$BENCH] is not in the [$SIM_SET]"
+        exit 1
+        ;;
+    esac
+}
+
+check_hello() {
+    if [ $BENCH != "hello" ]; then
+        echo "Error: [$BENCH] is not in the [$SIM_SET]"
+        exit 1
+    fi
+}
+
+check_microbench() {
+    case "$BENCH" in
+    "fib"|"md5"|"qsort"|"queen"|"sieve"|"ssort")
+        ;;
+    *)
+        echo "Error: [$BENCH] is not in the [$SIM_SET]"
+        exit 1
+        ;;
+    esac
+}
+
+
+case "$SIM_SET" in
+"basic")
+    check_basic
+    ;;
+"medium")
+    check_medium
+    ;;
+"advanced")
+    check_advanced
+    ;;
+"hello")
+    check_hello
+    ;;
+"microbench")
+    check_microbench
+    ;;
+esac
+
+# }====================================================================
+
+
+
 # 删除上次仿真生成的一些可能产生冲突的文件
-sudo rm -rf ./fpga/sim_out/custom_cpu ./verilator_include
+rm -rf ./fpga/sim_out/$TARGET_DESIGN ./verilator_include
 
 # 软件编译
 make FPGA_PRJ=ucas-cod FPGA_BD=nf OS=phy_os ARCH=mips workload
 
 # 行为仿真
-sudo make FPGA_PRJ=ucas-cod \
+make FPGA_PRJ=ucas-cod \
      FPGA_BD=nf \
-     SIM_TARGET=custom_cpu \
-     SIM_DUT=mips:multi_cycle \
+     SIM_TARGET=$TARGET_DESIGN \
+     SIM_DUT=$CPU_ISA:$SIM_DUT_TYPE \
      WORKLOAD=simple_test:$SIM_SET:$BENCH \
      bhv_sim_verilator
-
 ```
