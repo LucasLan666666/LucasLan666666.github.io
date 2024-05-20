@@ -558,7 +558,7 @@
 
 
 <h1 id="cod-lab">cod-lab 本地仿真环境配置</h1>
-<p>经过亲身实践，本方法可以在 S-IDE 和 Ubuntu 22.04.4 LTS on Windows 10 x86_64 环境下成功进行软件编译和行为仿真。（其他 Linux 版本应该也可以......吧）</p>
+<p>经过实践测试，本方法可以在 S-IDE 和 Ubuntu 22.04.4 LTS on Windows 10 x86_64 环境下成功进行软件编译和行为仿真。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>如果是在一个新环境下从零开始配置，需要重新设置好 git 的用户名和邮箱，配置 ssh key（不然没法拉取和上传自己仓库）并添加好实验框架的远程仓库（就是那个 <code>upstream</code> ），以及 IDE 的插件（详情参考张思老师的文档 <a href="https://gitlab.agileserve.org.cn:8001/zhangsi/hello-serve">hello SERVE</a> ）</p>
@@ -582,19 +582,22 @@
 <p>编译安装：</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>下面这两步会很漫长，如果在 S-IDE 上编译可能会花较长时间（我测试 S-IDE 的时候开了 16 G，也整了快半小时）。</p>
+<p>下面这步会很漫长，如果在 S-IDE 上编译可能会花较长时间。</p>
 </div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>make<span class="w"> </span>-j<span class="w"> </span><span class="sb">`</span>nproc<span class="sb">`</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>make
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>最新补充：如果上一条指令不能成功执行，可以直接改用 <code>make</code> ，不加任何参数（后来了解到 <code>-j</code> 参数作用是利用多个处理器核心加速优化，但是在 S-IDE 上反而会出现因内存占用过大被操作系统杀死进程的情况，稳妥起见还是用 <code>make</code> 吧）</p>
+<p>补充：为了提高编译速度，可以选择开启 <code>make</code> 的优化选项来代替 <code>make</code> ：
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>make<span class="w"> </span>-j<span class="w"> </span><span class="sb">`</span>nproc<span class="sb">`</span>
+</span></code></pre></div>
+（后来了解到 <code>-j</code> 参数作用是利用多个处理器核心加速优化，但是在 S-IDE 上反而会出现因内存占用过大被操作系统杀死进程的情况，稳妥起见还是用 <code>make</code> 吧）</p>
 </div>
-<p>最后输入下面指令，即可完成 <code>mips-gcc</code> 的最终安装步骤：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
+<p>最后输入下面指令，即可完成 <code>verilator</code> 的最终安装步骤：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
 </span></code></pre></div>
 <p>在终端输入以下指令，检查是否安装成功：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>verilator<span class="w"> </span>--version
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>verilator<span class="w"> </span>--version
 </span></code></pre></div>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
@@ -606,20 +609,20 @@
 <p>S-IDE 可跳过此部分，因为 S-IDE 的 mips-gcc 就是实验框架的版本，无需重新设置</p>
 </div>
 <p>依次执行以下命令</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rm-hull/barebones-toolchain.git
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rm-hull/barebones-toolchain.git
 </span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/barebones-toolchain/cross/x86_64/bin/mips-gcc<span class="w"> </span>/usr/local/bin/mips-gcc
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=~/barebones-toolchain/cross/x86_64/bin:$PATH&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
 </span></code></pre></div>
-<p>在终端输入以下指令，检查是否安装成功：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>verilator<span class="w"> </span>--version
+<p>在终端输入以下命令，检查是否安装成功：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>mips-gcc<span class="w"> </span>--version
 </span></code></pre></div>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
-<p>如果终端打印出以下类似字样，表示 <code>mips-gcc</code> 本地配置成功。
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>mips-gcc<span class="w"> </span><span class="o">(</span>GCC<span class="o">)</span><span class="w"> </span><span class="m">6</span>.2.0
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2016</span><span class="w"> </span>Free<span class="w"> </span>Software<span class="w"> </span>Foundation,<span class="w"> </span>Inc.
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>This<span class="w"> </span>is<span class="w"> </span>free<span class="w"> </span>software<span class="p">;</span><span class="w"> </span>see<span class="w"> </span>the<span class="w"> </span><span class="nb">source</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>copying<span class="w"> </span>conditions.<span class="w">  </span>There<span class="w"> </span>is<span class="w"> </span>NO
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>warranty<span class="p">;</span><span class="w"> </span>not<span class="w"> </span>even<span class="w"> </span><span class="k">for</span><span class="w"> </span>MERCHANTABILITY<span class="w"> </span>or<span class="w"> </span>FITNESS<span class="w"> </span>FOR<span class="w"> </span>A<span class="w"> </span>PARTICULAR<span class="w"> </span>PURPOSE.
+<p>如果终端打印出以下字样，表示 <code>mips-gcc</code> 本地配置成功。
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mips-gcc<span class="w"> </span><span class="o">(</span>GCC<span class="o">)</span><span class="w"> </span><span class="m">6</span>.2.0
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2016</span><span class="w"> </span>Free<span class="w"> </span>Software<span class="w"> </span>Foundation,<span class="w"> </span>Inc.
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>This<span class="w"> </span>is<span class="w"> </span>free<span class="w"> </span>software<span class="p">;</span><span class="w"> </span>see<span class="w"> </span>the<span class="w"> </span><span class="nb">source</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>copying<span class="w"> </span>conditions.<span class="w">  </span>There<span class="w"> </span>is<span class="w"> </span>NO
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>warranty<span class="p">;</span><span class="w"> </span>not<span class="w"> </span>even<span class="w"> </span><span class="k">for</span><span class="w"> </span>MERCHANTABILITY<span class="w"> </span>or<span class="w"> </span>FITNESS<span class="w"> </span>FOR<span class="w"> </span>A<span class="w"> </span>PARTICULAR<span class="w"> </span>PURPOSE.
 </span></code></pre></div></p>
 </div>
 <h2 id="hello">进行软件编译和行为仿真（以 <code>hello</code> 为例）</h2>
@@ -628,8 +631,8 @@
 <p>记得用 <code>git pull upstream master</code> 同步框架！！！</p>
 </div>
 <h3 id="_1">软件编译</h3>
-<p>软件编译输入：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>phy_os<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>mips<span class="w"> </span>workload
+<p>软件编译，输入：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>phy_os<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>mips<span class="w"> </span>workload
 </span></code></pre></div>
 <!-- !!! tip
     没错它就是这么长 -->
@@ -646,16 +649,16 @@
 <p>先删掉先前仿真生成的多余文件：</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>记得每一次仿真前都先把 <code>fpga/sim_out/custom_cpu</code> 和 <code>verilator_include</code> 删干净！！！</p>
+<p>每一次仿真前都先把 <code>fpga/sim_out/custom_cpu</code> 和 <code>verilator_include</code> 删干净！！！</p>
 </div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>./fpga/sim_out/custom_cpu<span class="w"> </span>./verilator_include
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>./fpga/sim_out/custom_cpu<span class="w"> </span>./verilator_include
 </span></code></pre></div>
 <p>下面输入仿真的命令（以 hello 为例）：</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>记得 <code>make</code> 前要加 <code>sudo</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>make</code> 前要加 <code>sudo</code></p>
 </div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">SIM_TARGET</span><span class="o">=</span>custom_cpu<span class="w"> </span><span class="nv">SIM_DUT</span><span class="o">=</span>mips:multi_cycle<span class="w"> </span><span class="nv">WORKLOAD</span><span class="o">=</span>simple_test:hello:hello<span class="w"> </span>bhv_sim_verilator
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo<span class="w"> </span>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">SIM_TARGET</span><span class="o">=</span>custom_cpu<span class="w"> </span><span class="nv">SIM_DUT</span><span class="o">=</span>mips:multi_cycle<span class="w"> </span><span class="nv">WORKLOAD</span><span class="o">=</span>simple_test:hello:hello<span class="w"> </span>bhv_sim_verilator
 </span></code></pre></div>
 <p><a class="glightbox" href="../assets/custom_cpu_test_1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="custom_cpu_test_1" src="../assets/custom_cpu_test_1.png" /></a></p>
 <p><a class="glightbox" href="../assets/custom_cpu_test_2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="custom_cpu_test_2" src="../assets/custom_cpu_test_2.png" /></a></p>
@@ -665,152 +668,152 @@
 </div>
 <h2 id="_3">补充</h2>
 <p>懒人必备（一键仿真脚本）：</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="ch">#!/usr/bin/sh</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># 注意：仅适用于 prj3 ，其他实验项目可根据具体情况适当调整</span>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1"># =====================================================================</span>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="c1">#</span>
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1">#   使用方法：</span>
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="c1">#</span>
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="c1">#   1. 把本脚本放在 cod-lab 目录下，命名为 sim.sh</span>
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="c1">#   2. 命令行输入：  chmod 755 sim.sh  # 赋予脚本执行权限，只用做一次</span>
-</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="c1">#   3. 之后仿真时直接运行（注意加上sudo），例如：sudo ./sim.sh microbench fib</span>
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="c1">#</span>
-</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="c1"># =====================================================================</span>
-</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
-</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>
-</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>
-</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>
-</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="c1"># =====================================================================</span>
-</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="c1">#</span>
-</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="c1">#   规则：方便查看（来自 .gitlab-ci.yml ）</span>
-</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="c1">#</span>
-</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="c1">#   - SIM_SET: basic</span>
-</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="c1">#     BENCH: [memcpy]</span>
-</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="c1">#   - SIM_SET: medium</span>
-</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="c1">#     BENCH: [sum,mov-c,fib,add,if-else,pascal,quick-sort,select-sort,max,min3,switch,bubble-sort]</span>
-</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a><span class="c1">#   - SIM_SET: advanced</span>
-</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a><span class="c1">#     BENCH: [shuixianhua,sub-longlong,bit,recursion,fact,add-longlong,shift,wanshu,goldbach,leap-year,prime,mul-longlong,load-store,to-lower-case,movsx,matrix-mul,unalign]</span>
-</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a><span class="c1">#   - SIM_SET: hello</span>
-</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a><span class="c1">#     BENCH: [hello]</span>
-</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a><span class="c1">#   - SIM_SET: microbench</span>
-</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a><span class="c1">#     BENCH: [fib,md5,qsort,queen,sieve,ssort]</span>
-</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a><span class="c1">#</span>
-</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a><span class="c1"># =====================================================================</span>
-</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a>
-</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a>
-</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a>
-</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a>
-</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a>
-</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a>
-</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a><span class="nv">SIM_SET</span><span class="o">=</span><span class="nv">$1</span>
-</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a><span class="nv">BENCH</span><span class="o">=</span><span class="nv">$2</span>
-</span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a>
-</span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a><span class="nv">TARGET_DESIGN</span><span class="o">=</span><span class="s2">&quot;custom_cpu&quot;</span>
-</span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a><span class="nv">CPU_ISA</span><span class="o">=</span><span class="s2">&quot;mips&quot;</span>
-</span><span id="__span-14-45"><a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a><span class="nv">SIM_DUT_TYPE</span><span class="o">=</span><span class="s2">&quot;multi_cycle&quot;</span>
-</span><span id="__span-14-46"><a id="__codelineno-14-46" name="__codelineno-14-46" href="#__codelineno-14-46"></a>
-</span><span id="__span-14-47"><a id="__codelineno-14-47" name="__codelineno-14-47" href="#__codelineno-14-47"></a>
-</span><span id="__span-14-48"><a id="__codelineno-14-48" name="__codelineno-14-48" href="#__codelineno-14-48"></a>
-</span><span id="__span-14-49"><a id="__codelineno-14-49" name="__codelineno-14-49" href="#__codelineno-14-49"></a>
-</span><span id="__span-14-50"><a id="__codelineno-14-50" name="__codelineno-14-50" href="#__codelineno-14-50"></a>
-</span><span id="__span-14-51"><a id="__codelineno-14-51" name="__codelineno-14-51" href="#__codelineno-14-51"></a>
-</span><span id="__span-14-52"><a id="__codelineno-14-52" name="__codelineno-14-52" href="#__codelineno-14-52"></a>
-</span><span id="__span-14-53"><a id="__codelineno-14-53" name="__codelineno-14-53" href="#__codelineno-14-53"></a>
-</span><span id="__span-14-54"><a id="__codelineno-14-54" name="__codelineno-14-54" href="#__codelineno-14-54"></a><span class="c1"># {====================================================================</span>
-</span><span id="__span-14-55"><a id="__codelineno-14-55" name="__codelineno-14-55" href="#__codelineno-14-55"></a><span class="c1"># 确保参数合法</span>
-</span><span id="__span-14-56"><a id="__codelineno-14-56" name="__codelineno-14-56" href="#__codelineno-14-56"></a><span class="c1"># =====================================================================</span>
-</span><span id="__span-14-57"><a id="__codelineno-14-57" name="__codelineno-14-57" href="#__codelineno-14-57"></a>
-</span><span id="__span-14-58"><a id="__codelineno-14-58" name="__codelineno-14-58" href="#__codelineno-14-58"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-14-59"><a id="__codelineno-14-59" name="__codelineno-14-59" href="#__codelineno-14-59"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> [SIM_SET] [BENCH]&quot;</span>
-</span><span id="__span-14-60"><a id="__codelineno-14-60" name="__codelineno-14-60" href="#__codelineno-14-60"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-</span><span id="__span-14-61"><a id="__codelineno-14-61" name="__codelineno-14-61" href="#__codelineno-14-61"></a><span class="k">fi</span>
-</span><span id="__span-14-62"><a id="__codelineno-14-62" name="__codelineno-14-62" href="#__codelineno-14-62"></a>
-</span><span id="__span-14-63"><a id="__codelineno-14-63" name="__codelineno-14-63" href="#__codelineno-14-63"></a>
-</span><span id="__span-14-64"><a id="__codelineno-14-64" name="__codelineno-14-64" href="#__codelineno-14-64"></a>check_basic<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-</span><span id="__span-14-65"><a id="__codelineno-14-65" name="__codelineno-14-65" href="#__codelineno-14-65"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$BENCH</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;memcpy&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-14-66"><a id="__codelineno-14-66" name="__codelineno-14-66" href="#__codelineno-14-66"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: [</span><span class="nv">$BENCH</span><span class="s2">] is not in the [</span><span class="nv">$SIM_SET</span><span class="s2">]&quot;</span>
-</span><span id="__span-14-67"><a id="__codelineno-14-67" name="__codelineno-14-67" href="#__codelineno-14-67"></a><span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-</span><span id="__span-14-68"><a id="__codelineno-14-68" name="__codelineno-14-68" href="#__codelineno-14-68"></a><span class="w">    </span><span class="k">fi</span>
-</span><span id="__span-14-69"><a id="__codelineno-14-69" name="__codelineno-14-69" href="#__codelineno-14-69"></a><span class="o">}</span>
-</span><span id="__span-14-70"><a id="__codelineno-14-70" name="__codelineno-14-70" href="#__codelineno-14-70"></a>
-</span><span id="__span-14-71"><a id="__codelineno-14-71" name="__codelineno-14-71" href="#__codelineno-14-71"></a>check_medium<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-</span><span id="__span-14-72"><a id="__codelineno-14-72" name="__codelineno-14-72" href="#__codelineno-14-72"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$BENCH</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
-</span><span id="__span-14-73"><a id="__codelineno-14-73" name="__codelineno-14-73" href="#__codelineno-14-73"></a><span class="w">    </span><span class="s2">&quot;sum&quot;</span><span class="p">|</span><span class="s2">&quot;mov-c&quot;</span><span class="p">|</span><span class="s2">&quot;fib&quot;</span><span class="p">|</span><span class="s2">&quot;add&quot;</span><span class="p">|</span><span class="s2">&quot;if-else&quot;</span><span class="p">|</span><span class="s2">&quot;pascal&quot;</span><span class="p">|</span><span class="s2">&quot;quick-sort&quot;</span><span class="p">|</span><span class="s2">&quot;select-sort&quot;</span><span class="p">|</span><span class="s2">&quot;max&quot;</span><span class="p">|</span><span class="s2">&quot;min3&quot;</span><span class="p">|</span><span class="s2">&quot;switch&quot;</span><span class="p">|</span><span class="s2">&quot;bubble-sort&quot;</span><span class="o">)</span>
-</span><span id="__span-14-74"><a id="__codelineno-14-74" name="__codelineno-14-74" href="#__codelineno-14-74"></a><span class="w">        </span><span class="p">;;</span>
-</span><span id="__span-14-75"><a id="__codelineno-14-75" name="__codelineno-14-75" href="#__codelineno-14-75"></a><span class="w">    </span>*<span class="o">)</span>
-</span><span id="__span-14-76"><a id="__codelineno-14-76" name="__codelineno-14-76" href="#__codelineno-14-76"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: [</span><span class="nv">$BENCH</span><span class="s2">] is not in the [</span><span class="nv">$SIM_SET</span><span class="s2">]&quot;</span>
-</span><span id="__span-14-77"><a id="__codelineno-14-77" name="__codelineno-14-77" href="#__codelineno-14-77"></a><span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-</span><span id="__span-14-78"><a id="__codelineno-14-78" name="__codelineno-14-78" href="#__codelineno-14-78"></a><span class="w">        </span><span class="p">;;</span>
-</span><span id="__span-14-79"><a id="__codelineno-14-79" name="__codelineno-14-79" href="#__codelineno-14-79"></a><span class="w">    </span><span class="k">esac</span>
-</span><span id="__span-14-80"><a id="__codelineno-14-80" name="__codelineno-14-80" href="#__codelineno-14-80"></a><span class="o">}</span>
-</span><span id="__span-14-81"><a id="__codelineno-14-81" name="__codelineno-14-81" href="#__codelineno-14-81"></a>
-</span><span id="__span-14-82"><a id="__codelineno-14-82" name="__codelineno-14-82" href="#__codelineno-14-82"></a>check_advanced<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-</span><span id="__span-14-83"><a id="__codelineno-14-83" name="__codelineno-14-83" href="#__codelineno-14-83"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$BENCH</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
-</span><span id="__span-14-84"><a id="__codelineno-14-84" name="__codelineno-14-84" href="#__codelineno-14-84"></a><span class="w">    </span><span class="s2">&quot;shuixianhua&quot;</span><span class="p">|</span><span class="s2">&quot;sub-longlong&quot;</span><span class="p">|</span><span class="s2">&quot;bit&quot;</span><span class="p">|</span><span class="s2">&quot;recursion&quot;</span><span class="p">|</span><span class="s2">&quot;fact&quot;</span><span class="p">|</span><span class="s2">&quot;add-longlong&quot;</span><span class="p">|</span><span class="s2">&quot;shift&quot;</span><span class="p">|</span><span class="s2">&quot;wanshu&quot;</span><span class="p">|</span><span class="s2">&quot;goldbach&quot;</span><span class="p">|</span><span class="s2">&quot;leap-year&quot;</span><span class="p">|</span><span class="s2">&quot;prime&quot;</span><span class="p">|</span><span class="s2">&quot;mul-longlong&quot;</span><span class="p">|</span><span class="s2">&quot;load-store&quot;</span><span class="p">|</span><span class="s2">&quot;to-lower-case&quot;</span><span class="p">|</span><span class="s2">&quot;movsx&quot;</span><span class="p">|</span><span class="s2">&quot;matrix-mul&quot;</span><span class="p">|</span><span class="s2">&quot;unalign&quot;</span><span class="o">)</span>
-</span><span id="__span-14-85"><a id="__codelineno-14-85" name="__codelineno-14-85" href="#__codelineno-14-85"></a><span class="w">        </span><span class="p">;;</span>
-</span><span id="__span-14-86"><a id="__codelineno-14-86" name="__codelineno-14-86" href="#__codelineno-14-86"></a><span class="w">    </span>*<span class="o">)</span>
-</span><span id="__span-14-87"><a id="__codelineno-14-87" name="__codelineno-14-87" href="#__codelineno-14-87"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: [</span><span class="nv">$BENCH</span><span class="s2">] is not in the [</span><span class="nv">$SIM_SET</span><span class="s2">]&quot;</span>
-</span><span id="__span-14-88"><a id="__codelineno-14-88" name="__codelineno-14-88" href="#__codelineno-14-88"></a><span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-</span><span id="__span-14-89"><a id="__codelineno-14-89" name="__codelineno-14-89" href="#__codelineno-14-89"></a><span class="w">        </span><span class="p">;;</span>
-</span><span id="__span-14-90"><a id="__codelineno-14-90" name="__codelineno-14-90" href="#__codelineno-14-90"></a><span class="w">    </span><span class="k">esac</span>
-</span><span id="__span-14-91"><a id="__codelineno-14-91" name="__codelineno-14-91" href="#__codelineno-14-91"></a><span class="o">}</span>
-</span><span id="__span-14-92"><a id="__codelineno-14-92" name="__codelineno-14-92" href="#__codelineno-14-92"></a>
-</span><span id="__span-14-93"><a id="__codelineno-14-93" name="__codelineno-14-93" href="#__codelineno-14-93"></a>check_hello<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-</span><span id="__span-14-94"><a id="__codelineno-14-94" name="__codelineno-14-94" href="#__codelineno-14-94"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$BENCH</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-14-95"><a id="__codelineno-14-95" name="__codelineno-14-95" href="#__codelineno-14-95"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: [</span><span class="nv">$BENCH</span><span class="s2">] is not in the [</span><span class="nv">$SIM_SET</span><span class="s2">]&quot;</span>
-</span><span id="__span-14-96"><a id="__codelineno-14-96" name="__codelineno-14-96" href="#__codelineno-14-96"></a><span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-</span><span id="__span-14-97"><a id="__codelineno-14-97" name="__codelineno-14-97" href="#__codelineno-14-97"></a><span class="w">    </span><span class="k">fi</span>
-</span><span id="__span-14-98"><a id="__codelineno-14-98" name="__codelineno-14-98" href="#__codelineno-14-98"></a><span class="o">}</span>
-</span><span id="__span-14-99"><a id="__codelineno-14-99" name="__codelineno-14-99" href="#__codelineno-14-99"></a>
-</span><span id="__span-14-100"><a id="__codelineno-14-100" name="__codelineno-14-100" href="#__codelineno-14-100"></a>check_microbench<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-</span><span id="__span-14-101"><a id="__codelineno-14-101" name="__codelineno-14-101" href="#__codelineno-14-101"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$BENCH</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
-</span><span id="__span-14-102"><a id="__codelineno-14-102" name="__codelineno-14-102" href="#__codelineno-14-102"></a><span class="w">    </span><span class="s2">&quot;fib&quot;</span><span class="p">|</span><span class="s2">&quot;md5&quot;</span><span class="p">|</span><span class="s2">&quot;qsort&quot;</span><span class="p">|</span><span class="s2">&quot;queen&quot;</span><span class="p">|</span><span class="s2">&quot;sieve&quot;</span><span class="p">|</span><span class="s2">&quot;ssort&quot;</span><span class="o">)</span>
-</span><span id="__span-14-103"><a id="__codelineno-14-103" name="__codelineno-14-103" href="#__codelineno-14-103"></a><span class="w">        </span><span class="p">;;</span>
-</span><span id="__span-14-104"><a id="__codelineno-14-104" name="__codelineno-14-104" href="#__codelineno-14-104"></a><span class="w">    </span>*<span class="o">)</span>
-</span><span id="__span-14-105"><a id="__codelineno-14-105" name="__codelineno-14-105" href="#__codelineno-14-105"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: [</span><span class="nv">$BENCH</span><span class="s2">] is not in the [</span><span class="nv">$SIM_SET</span><span class="s2">]&quot;</span>
-</span><span id="__span-14-106"><a id="__codelineno-14-106" name="__codelineno-14-106" href="#__codelineno-14-106"></a><span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-</span><span id="__span-14-107"><a id="__codelineno-14-107" name="__codelineno-14-107" href="#__codelineno-14-107"></a><span class="w">        </span><span class="p">;;</span>
-</span><span id="__span-14-108"><a id="__codelineno-14-108" name="__codelineno-14-108" href="#__codelineno-14-108"></a><span class="w">    </span><span class="k">esac</span>
-</span><span id="__span-14-109"><a id="__codelineno-14-109" name="__codelineno-14-109" href="#__codelineno-14-109"></a><span class="o">}</span>
-</span><span id="__span-14-110"><a id="__codelineno-14-110" name="__codelineno-14-110" href="#__codelineno-14-110"></a>
-</span><span id="__span-14-111"><a id="__codelineno-14-111" name="__codelineno-14-111" href="#__codelineno-14-111"></a>
-</span><span id="__span-14-112"><a id="__codelineno-14-112" name="__codelineno-14-112" href="#__codelineno-14-112"></a><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SIM_SET</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
-</span><span id="__span-14-113"><a id="__codelineno-14-113" name="__codelineno-14-113" href="#__codelineno-14-113"></a><span class="s2">&quot;basic&quot;</span><span class="o">)</span>
-</span><span id="__span-14-114"><a id="__codelineno-14-114" name="__codelineno-14-114" href="#__codelineno-14-114"></a><span class="w">    </span>check_basic
-</span><span id="__span-14-115"><a id="__codelineno-14-115" name="__codelineno-14-115" href="#__codelineno-14-115"></a><span class="w">    </span><span class="p">;;</span>
-</span><span id="__span-14-116"><a id="__codelineno-14-116" name="__codelineno-14-116" href="#__codelineno-14-116"></a><span class="s2">&quot;medium&quot;</span><span class="o">)</span>
-</span><span id="__span-14-117"><a id="__codelineno-14-117" name="__codelineno-14-117" href="#__codelineno-14-117"></a><span class="w">    </span>check_medium
-</span><span id="__span-14-118"><a id="__codelineno-14-118" name="__codelineno-14-118" href="#__codelineno-14-118"></a><span class="w">    </span><span class="p">;;</span>
-</span><span id="__span-14-119"><a id="__codelineno-14-119" name="__codelineno-14-119" href="#__codelineno-14-119"></a><span class="s2">&quot;advanced&quot;</span><span class="o">)</span>
-</span><span id="__span-14-120"><a id="__codelineno-14-120" name="__codelineno-14-120" href="#__codelineno-14-120"></a><span class="w">    </span>check_advanced
-</span><span id="__span-14-121"><a id="__codelineno-14-121" name="__codelineno-14-121" href="#__codelineno-14-121"></a><span class="w">    </span><span class="p">;;</span>
-</span><span id="__span-14-122"><a id="__codelineno-14-122" name="__codelineno-14-122" href="#__codelineno-14-122"></a><span class="s2">&quot;hello&quot;</span><span class="o">)</span>
-</span><span id="__span-14-123"><a id="__codelineno-14-123" name="__codelineno-14-123" href="#__codelineno-14-123"></a><span class="w">    </span>check_hello
-</span><span id="__span-14-124"><a id="__codelineno-14-124" name="__codelineno-14-124" href="#__codelineno-14-124"></a><span class="w">    </span><span class="p">;;</span>
-</span><span id="__span-14-125"><a id="__codelineno-14-125" name="__codelineno-14-125" href="#__codelineno-14-125"></a><span class="s2">&quot;microbench&quot;</span><span class="o">)</span>
-</span><span id="__span-14-126"><a id="__codelineno-14-126" name="__codelineno-14-126" href="#__codelineno-14-126"></a><span class="w">    </span>check_microbench
-</span><span id="__span-14-127"><a id="__codelineno-14-127" name="__codelineno-14-127" href="#__codelineno-14-127"></a><span class="w">    </span><span class="p">;;</span>
-</span><span id="__span-14-128"><a id="__codelineno-14-128" name="__codelineno-14-128" href="#__codelineno-14-128"></a><span class="k">esac</span>
-</span><span id="__span-14-129"><a id="__codelineno-14-129" name="__codelineno-14-129" href="#__codelineno-14-129"></a>
-</span><span id="__span-14-130"><a id="__codelineno-14-130" name="__codelineno-14-130" href="#__codelineno-14-130"></a><span class="c1"># }====================================================================</span>
-</span><span id="__span-14-131"><a id="__codelineno-14-131" name="__codelineno-14-131" href="#__codelineno-14-131"></a>
-</span><span id="__span-14-132"><a id="__codelineno-14-132" name="__codelineno-14-132" href="#__codelineno-14-132"></a>
-</span><span id="__span-14-133"><a id="__codelineno-14-133" name="__codelineno-14-133" href="#__codelineno-14-133"></a>
-</span><span id="__span-14-134"><a id="__codelineno-14-134" name="__codelineno-14-134" href="#__codelineno-14-134"></a><span class="c1"># 删除上次仿真生成的一些可能产生冲突的文件</span>
-</span><span id="__span-14-135"><a id="__codelineno-14-135" name="__codelineno-14-135" href="#__codelineno-14-135"></a>rm<span class="w"> </span>-rf<span class="w"> </span>./fpga/sim_out/<span class="nv">$TARGET_DESIGN</span><span class="w"> </span>./verilator_include
-</span><span id="__span-14-136"><a id="__codelineno-14-136" name="__codelineno-14-136" href="#__codelineno-14-136"></a>
-</span><span id="__span-14-137"><a id="__codelineno-14-137" name="__codelineno-14-137" href="#__codelineno-14-137"></a><span class="c1"># 软件编译</span>
-</span><span id="__span-14-138"><a id="__codelineno-14-138" name="__codelineno-14-138" href="#__codelineno-14-138"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>phy_os<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>mips<span class="w"> </span>workload
-</span><span id="__span-14-139"><a id="__codelineno-14-139" name="__codelineno-14-139" href="#__codelineno-14-139"></a>
-</span><span id="__span-14-140"><a id="__codelineno-14-140" name="__codelineno-14-140" href="#__codelineno-14-140"></a><span class="c1"># 行为仿真</span>
-</span><span id="__span-14-141"><a id="__codelineno-14-141" name="__codelineno-14-141" href="#__codelineno-14-141"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-142"><a id="__codelineno-14-142" name="__codelineno-14-142" href="#__codelineno-14-142"></a><span class="w">     </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-143"><a id="__codelineno-14-143" name="__codelineno-14-143" href="#__codelineno-14-143"></a><span class="w">     </span><span class="nv">SIM_TARGET</span><span class="o">=</span><span class="nv">$TARGET_DESIGN</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-144"><a id="__codelineno-14-144" name="__codelineno-14-144" href="#__codelineno-14-144"></a><span class="w">     </span><span class="nv">SIM_DUT</span><span class="o">=</span><span class="nv">$CPU_ISA</span>:<span class="nv">$SIM_DUT_TYPE</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-145"><a id="__codelineno-14-145" name="__codelineno-14-145" href="#__codelineno-14-145"></a><span class="w">     </span><span class="nv">WORKLOAD</span><span class="o">=</span>simple_test:<span class="nv">$SIM_SET</span>:<span class="nv">$BENCH</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-146"><a id="__codelineno-14-146" name="__codelineno-14-146" href="#__codelineno-14-146"></a><span class="w">     </span>bhv_sim_verilator
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="ch">#!/usr/bin/sh</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1"># 注意：仅适用于 prj3 ，其他实验项目可根据具体情况适当调整</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1"># =====================================================================</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="c1">#</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1">#   使用方法：</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="c1">#</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="c1">#   1. 把本脚本放在 cod-lab 目录下，命名为 sim.sh</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="c1">#   2. 命令行输入：  chmod 755 sim.sh  # 赋予脚本执行权限，只用做一次</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="c1">#   3. 之后仿真时直接运行即可，例如：./sim.sh microbench fib</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="c1">#</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="c1"># =====================================================================</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="c1"># =====================================================================</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="c1">#</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="c1">#   规则：方便查看（来自 .gitlab-ci.yml ）</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="c1">#</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="c1">#   - SIM_SET: basic</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="c1">#     BENCH: [memcpy]</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="c1">#   - SIM_SET: medium</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="c1">#     BENCH: [sum,mov-c,fib,add,if-else,pascal,quick-sort,select-sort,max,min3,switch,bubble-sort]</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="c1">#   - SIM_SET: advanced</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="c1">#     BENCH: [shuixianhua,sub-longlong,bit,recursion,fact,add-longlong,shift,wanshu,goldbach,leap-year,prime,mul-longlong,load-store,to-lower-case,movsx,matrix-mul,unalign]</span>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="c1">#   - SIM_SET: hello</span>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="c1">#     BENCH: [hello]</span>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="c1">#   - SIM_SET: microbench</span>
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a><span class="c1">#     BENCH: [fib,md5,qsort,queen,sieve,ssort]</span>
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a><span class="c1">#</span>
+</span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a><span class="c1"># =====================================================================</span>
+</span><span id="__span-15-34"><a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a>
+</span><span id="__span-15-35"><a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a>
+</span><span id="__span-15-36"><a id="__codelineno-15-36" name="__codelineno-15-36" href="#__codelineno-15-36"></a>
+</span><span id="__span-15-37"><a id="__codelineno-15-37" name="__codelineno-15-37" href="#__codelineno-15-37"></a>
+</span><span id="__span-15-38"><a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a>
+</span><span id="__span-15-39"><a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a>
+</span><span id="__span-15-40"><a id="__codelineno-15-40" name="__codelineno-15-40" href="#__codelineno-15-40"></a><span class="nv">SIM_SET</span><span class="o">=</span><span class="nv">$1</span>
+</span><span id="__span-15-41"><a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a><span class="nv">BENCH</span><span class="o">=</span><span class="nv">$2</span>
+</span><span id="__span-15-42"><a id="__codelineno-15-42" name="__codelineno-15-42" href="#__codelineno-15-42"></a>
+</span><span id="__span-15-43"><a id="__codelineno-15-43" name="__codelineno-15-43" href="#__codelineno-15-43"></a><span class="nv">TARGET_DESIGN</span><span class="o">=</span><span class="s2">&quot;custom_cpu&quot;</span>
+</span><span id="__span-15-44"><a id="__codelineno-15-44" name="__codelineno-15-44" href="#__codelineno-15-44"></a><span class="nv">CPU_ISA</span><span class="o">=</span><span class="s2">&quot;mips&quot;</span>
+</span><span id="__span-15-45"><a id="__codelineno-15-45" name="__codelineno-15-45" href="#__codelineno-15-45"></a><span class="nv">SIM_DUT_TYPE</span><span class="o">=</span><span class="s2">&quot;multi_cycle&quot;</span>
+</span><span id="__span-15-46"><a id="__codelineno-15-46" name="__codelineno-15-46" href="#__codelineno-15-46"></a>
+</span><span id="__span-15-47"><a id="__codelineno-15-47" name="__codelineno-15-47" href="#__codelineno-15-47"></a>
+</span><span id="__span-15-48"><a id="__codelineno-15-48" name="__codelineno-15-48" href="#__codelineno-15-48"></a>
+</span><span id="__span-15-49"><a id="__codelineno-15-49" name="__codelineno-15-49" href="#__codelineno-15-49"></a>
+</span><span id="__span-15-50"><a id="__codelineno-15-50" name="__codelineno-15-50" href="#__codelineno-15-50"></a>
+</span><span id="__span-15-51"><a id="__codelineno-15-51" name="__codelineno-15-51" href="#__codelineno-15-51"></a>
+</span><span id="__span-15-52"><a id="__codelineno-15-52" name="__codelineno-15-52" href="#__codelineno-15-52"></a>
+</span><span id="__span-15-53"><a id="__codelineno-15-53" name="__codelineno-15-53" href="#__codelineno-15-53"></a>
+</span><span id="__span-15-54"><a id="__codelineno-15-54" name="__codelineno-15-54" href="#__codelineno-15-54"></a><span class="c1"># {====================================================================</span>
+</span><span id="__span-15-55"><a id="__codelineno-15-55" name="__codelineno-15-55" href="#__codelineno-15-55"></a><span class="c1"># 确保参数合法</span>
+</span><span id="__span-15-56"><a id="__codelineno-15-56" name="__codelineno-15-56" href="#__codelineno-15-56"></a><span class="c1"># =====================================================================</span>
+</span><span id="__span-15-57"><a id="__codelineno-15-57" name="__codelineno-15-57" href="#__codelineno-15-57"></a>
+</span><span id="__span-15-58"><a id="__codelineno-15-58" name="__codelineno-15-58" href="#__codelineno-15-58"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-15-59"><a id="__codelineno-15-59" name="__codelineno-15-59" href="#__codelineno-15-59"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> [SIM_SET] [BENCH]&quot;</span>
+</span><span id="__span-15-60"><a id="__codelineno-15-60" name="__codelineno-15-60" href="#__codelineno-15-60"></a><span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-15-61"><a id="__codelineno-15-61" name="__codelineno-15-61" href="#__codelineno-15-61"></a><span class="k">fi</span>
+</span><span id="__span-15-62"><a id="__codelineno-15-62" name="__codelineno-15-62" href="#__codelineno-15-62"></a>
+</span><span id="__span-15-63"><a id="__codelineno-15-63" name="__codelineno-15-63" href="#__codelineno-15-63"></a>
+</span><span id="__span-15-64"><a id="__codelineno-15-64" name="__codelineno-15-64" href="#__codelineno-15-64"></a>check_basic<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-15-65"><a id="__codelineno-15-65" name="__codelineno-15-65" href="#__codelineno-15-65"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$BENCH</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;memcpy&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-15-66"><a id="__codelineno-15-66" name="__codelineno-15-66" href="#__codelineno-15-66"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: [</span><span class="nv">$BENCH</span><span class="s2">] is not in the [</span><span class="nv">$SIM_SET</span><span class="s2">]&quot;</span>
+</span><span id="__span-15-67"><a id="__codelineno-15-67" name="__codelineno-15-67" href="#__codelineno-15-67"></a><span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-15-68"><a id="__codelineno-15-68" name="__codelineno-15-68" href="#__codelineno-15-68"></a><span class="w">    </span><span class="k">fi</span>
+</span><span id="__span-15-69"><a id="__codelineno-15-69" name="__codelineno-15-69" href="#__codelineno-15-69"></a><span class="o">}</span>
+</span><span id="__span-15-70"><a id="__codelineno-15-70" name="__codelineno-15-70" href="#__codelineno-15-70"></a>
+</span><span id="__span-15-71"><a id="__codelineno-15-71" name="__codelineno-15-71" href="#__codelineno-15-71"></a>check_medium<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-15-72"><a id="__codelineno-15-72" name="__codelineno-15-72" href="#__codelineno-15-72"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$BENCH</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+</span><span id="__span-15-73"><a id="__codelineno-15-73" name="__codelineno-15-73" href="#__codelineno-15-73"></a><span class="w">    </span><span class="s2">&quot;sum&quot;</span><span class="p">|</span><span class="s2">&quot;mov-c&quot;</span><span class="p">|</span><span class="s2">&quot;fib&quot;</span><span class="p">|</span><span class="s2">&quot;add&quot;</span><span class="p">|</span><span class="s2">&quot;if-else&quot;</span><span class="p">|</span><span class="s2">&quot;pascal&quot;</span><span class="p">|</span><span class="s2">&quot;quick-sort&quot;</span><span class="p">|</span><span class="s2">&quot;select-sort&quot;</span><span class="p">|</span><span class="s2">&quot;max&quot;</span><span class="p">|</span><span class="s2">&quot;min3&quot;</span><span class="p">|</span><span class="s2">&quot;switch&quot;</span><span class="p">|</span><span class="s2">&quot;bubble-sort&quot;</span><span class="o">)</span>
+</span><span id="__span-15-74"><a id="__codelineno-15-74" name="__codelineno-15-74" href="#__codelineno-15-74"></a><span class="w">        </span><span class="p">;;</span>
+</span><span id="__span-15-75"><a id="__codelineno-15-75" name="__codelineno-15-75" href="#__codelineno-15-75"></a><span class="w">    </span>*<span class="o">)</span>
+</span><span id="__span-15-76"><a id="__codelineno-15-76" name="__codelineno-15-76" href="#__codelineno-15-76"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: [</span><span class="nv">$BENCH</span><span class="s2">] is not in the [</span><span class="nv">$SIM_SET</span><span class="s2">]&quot;</span>
+</span><span id="__span-15-77"><a id="__codelineno-15-77" name="__codelineno-15-77" href="#__codelineno-15-77"></a><span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-15-78"><a id="__codelineno-15-78" name="__codelineno-15-78" href="#__codelineno-15-78"></a><span class="w">        </span><span class="p">;;</span>
+</span><span id="__span-15-79"><a id="__codelineno-15-79" name="__codelineno-15-79" href="#__codelineno-15-79"></a><span class="w">    </span><span class="k">esac</span>
+</span><span id="__span-15-80"><a id="__codelineno-15-80" name="__codelineno-15-80" href="#__codelineno-15-80"></a><span class="o">}</span>
+</span><span id="__span-15-81"><a id="__codelineno-15-81" name="__codelineno-15-81" href="#__codelineno-15-81"></a>
+</span><span id="__span-15-82"><a id="__codelineno-15-82" name="__codelineno-15-82" href="#__codelineno-15-82"></a>check_advanced<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-15-83"><a id="__codelineno-15-83" name="__codelineno-15-83" href="#__codelineno-15-83"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$BENCH</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+</span><span id="__span-15-84"><a id="__codelineno-15-84" name="__codelineno-15-84" href="#__codelineno-15-84"></a><span class="w">    </span><span class="s2">&quot;shuixianhua&quot;</span><span class="p">|</span><span class="s2">&quot;sub-longlong&quot;</span><span class="p">|</span><span class="s2">&quot;bit&quot;</span><span class="p">|</span><span class="s2">&quot;recursion&quot;</span><span class="p">|</span><span class="s2">&quot;fact&quot;</span><span class="p">|</span><span class="s2">&quot;add-longlong&quot;</span><span class="p">|</span><span class="s2">&quot;shift&quot;</span><span class="p">|</span><span class="s2">&quot;wanshu&quot;</span><span class="p">|</span><span class="s2">&quot;goldbach&quot;</span><span class="p">|</span><span class="s2">&quot;leap-year&quot;</span><span class="p">|</span><span class="s2">&quot;prime&quot;</span><span class="p">|</span><span class="s2">&quot;mul-longlong&quot;</span><span class="p">|</span><span class="s2">&quot;load-store&quot;</span><span class="p">|</span><span class="s2">&quot;to-lower-case&quot;</span><span class="p">|</span><span class="s2">&quot;movsx&quot;</span><span class="p">|</span><span class="s2">&quot;matrix-mul&quot;</span><span class="p">|</span><span class="s2">&quot;unalign&quot;</span><span class="o">)</span>
+</span><span id="__span-15-85"><a id="__codelineno-15-85" name="__codelineno-15-85" href="#__codelineno-15-85"></a><span class="w">        </span><span class="p">;;</span>
+</span><span id="__span-15-86"><a id="__codelineno-15-86" name="__codelineno-15-86" href="#__codelineno-15-86"></a><span class="w">    </span>*<span class="o">)</span>
+</span><span id="__span-15-87"><a id="__codelineno-15-87" name="__codelineno-15-87" href="#__codelineno-15-87"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: [</span><span class="nv">$BENCH</span><span class="s2">] is not in the [</span><span class="nv">$SIM_SET</span><span class="s2">]&quot;</span>
+</span><span id="__span-15-88"><a id="__codelineno-15-88" name="__codelineno-15-88" href="#__codelineno-15-88"></a><span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-15-89"><a id="__codelineno-15-89" name="__codelineno-15-89" href="#__codelineno-15-89"></a><span class="w">        </span><span class="p">;;</span>
+</span><span id="__span-15-90"><a id="__codelineno-15-90" name="__codelineno-15-90" href="#__codelineno-15-90"></a><span class="w">    </span><span class="k">esac</span>
+</span><span id="__span-15-91"><a id="__codelineno-15-91" name="__codelineno-15-91" href="#__codelineno-15-91"></a><span class="o">}</span>
+</span><span id="__span-15-92"><a id="__codelineno-15-92" name="__codelineno-15-92" href="#__codelineno-15-92"></a>
+</span><span id="__span-15-93"><a id="__codelineno-15-93" name="__codelineno-15-93" href="#__codelineno-15-93"></a>check_hello<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-15-94"><a id="__codelineno-15-94" name="__codelineno-15-94" href="#__codelineno-15-94"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$BENCH</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-15-95"><a id="__codelineno-15-95" name="__codelineno-15-95" href="#__codelineno-15-95"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: [</span><span class="nv">$BENCH</span><span class="s2">] is not in the [</span><span class="nv">$SIM_SET</span><span class="s2">]&quot;</span>
+</span><span id="__span-15-96"><a id="__codelineno-15-96" name="__codelineno-15-96" href="#__codelineno-15-96"></a><span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-15-97"><a id="__codelineno-15-97" name="__codelineno-15-97" href="#__codelineno-15-97"></a><span class="w">    </span><span class="k">fi</span>
+</span><span id="__span-15-98"><a id="__codelineno-15-98" name="__codelineno-15-98" href="#__codelineno-15-98"></a><span class="o">}</span>
+</span><span id="__span-15-99"><a id="__codelineno-15-99" name="__codelineno-15-99" href="#__codelineno-15-99"></a>
+</span><span id="__span-15-100"><a id="__codelineno-15-100" name="__codelineno-15-100" href="#__codelineno-15-100"></a>check_microbench<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-15-101"><a id="__codelineno-15-101" name="__codelineno-15-101" href="#__codelineno-15-101"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$BENCH</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+</span><span id="__span-15-102"><a id="__codelineno-15-102" name="__codelineno-15-102" href="#__codelineno-15-102"></a><span class="w">    </span><span class="s2">&quot;fib&quot;</span><span class="p">|</span><span class="s2">&quot;md5&quot;</span><span class="p">|</span><span class="s2">&quot;qsort&quot;</span><span class="p">|</span><span class="s2">&quot;queen&quot;</span><span class="p">|</span><span class="s2">&quot;sieve&quot;</span><span class="p">|</span><span class="s2">&quot;ssort&quot;</span><span class="o">)</span>
+</span><span id="__span-15-103"><a id="__codelineno-15-103" name="__codelineno-15-103" href="#__codelineno-15-103"></a><span class="w">        </span><span class="p">;;</span>
+</span><span id="__span-15-104"><a id="__codelineno-15-104" name="__codelineno-15-104" href="#__codelineno-15-104"></a><span class="w">    </span>*<span class="o">)</span>
+</span><span id="__span-15-105"><a id="__codelineno-15-105" name="__codelineno-15-105" href="#__codelineno-15-105"></a><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Error: [</span><span class="nv">$BENCH</span><span class="s2">] is not in the [</span><span class="nv">$SIM_SET</span><span class="s2">]&quot;</span>
+</span><span id="__span-15-106"><a id="__codelineno-15-106" name="__codelineno-15-106" href="#__codelineno-15-106"></a><span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-15-107"><a id="__codelineno-15-107" name="__codelineno-15-107" href="#__codelineno-15-107"></a><span class="w">        </span><span class="p">;;</span>
+</span><span id="__span-15-108"><a id="__codelineno-15-108" name="__codelineno-15-108" href="#__codelineno-15-108"></a><span class="w">    </span><span class="k">esac</span>
+</span><span id="__span-15-109"><a id="__codelineno-15-109" name="__codelineno-15-109" href="#__codelineno-15-109"></a><span class="o">}</span>
+</span><span id="__span-15-110"><a id="__codelineno-15-110" name="__codelineno-15-110" href="#__codelineno-15-110"></a>
+</span><span id="__span-15-111"><a id="__codelineno-15-111" name="__codelineno-15-111" href="#__codelineno-15-111"></a>
+</span><span id="__span-15-112"><a id="__codelineno-15-112" name="__codelineno-15-112" href="#__codelineno-15-112"></a><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SIM_SET</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+</span><span id="__span-15-113"><a id="__codelineno-15-113" name="__codelineno-15-113" href="#__codelineno-15-113"></a><span class="s2">&quot;basic&quot;</span><span class="o">)</span>
+</span><span id="__span-15-114"><a id="__codelineno-15-114" name="__codelineno-15-114" href="#__codelineno-15-114"></a><span class="w">    </span>check_basic
+</span><span id="__span-15-115"><a id="__codelineno-15-115" name="__codelineno-15-115" href="#__codelineno-15-115"></a><span class="w">    </span><span class="p">;;</span>
+</span><span id="__span-15-116"><a id="__codelineno-15-116" name="__codelineno-15-116" href="#__codelineno-15-116"></a><span class="s2">&quot;medium&quot;</span><span class="o">)</span>
+</span><span id="__span-15-117"><a id="__codelineno-15-117" name="__codelineno-15-117" href="#__codelineno-15-117"></a><span class="w">    </span>check_medium
+</span><span id="__span-15-118"><a id="__codelineno-15-118" name="__codelineno-15-118" href="#__codelineno-15-118"></a><span class="w">    </span><span class="p">;;</span>
+</span><span id="__span-15-119"><a id="__codelineno-15-119" name="__codelineno-15-119" href="#__codelineno-15-119"></a><span class="s2">&quot;advanced&quot;</span><span class="o">)</span>
+</span><span id="__span-15-120"><a id="__codelineno-15-120" name="__codelineno-15-120" href="#__codelineno-15-120"></a><span class="w">    </span>check_advanced
+</span><span id="__span-15-121"><a id="__codelineno-15-121" name="__codelineno-15-121" href="#__codelineno-15-121"></a><span class="w">    </span><span class="p">;;</span>
+</span><span id="__span-15-122"><a id="__codelineno-15-122" name="__codelineno-15-122" href="#__codelineno-15-122"></a><span class="s2">&quot;hello&quot;</span><span class="o">)</span>
+</span><span id="__span-15-123"><a id="__codelineno-15-123" name="__codelineno-15-123" href="#__codelineno-15-123"></a><span class="w">    </span>check_hello
+</span><span id="__span-15-124"><a id="__codelineno-15-124" name="__codelineno-15-124" href="#__codelineno-15-124"></a><span class="w">    </span><span class="p">;;</span>
+</span><span id="__span-15-125"><a id="__codelineno-15-125" name="__codelineno-15-125" href="#__codelineno-15-125"></a><span class="s2">&quot;microbench&quot;</span><span class="o">)</span>
+</span><span id="__span-15-126"><a id="__codelineno-15-126" name="__codelineno-15-126" href="#__codelineno-15-126"></a><span class="w">    </span>check_microbench
+</span><span id="__span-15-127"><a id="__codelineno-15-127" name="__codelineno-15-127" href="#__codelineno-15-127"></a><span class="w">    </span><span class="p">;;</span>
+</span><span id="__span-15-128"><a id="__codelineno-15-128" name="__codelineno-15-128" href="#__codelineno-15-128"></a><span class="k">esac</span>
+</span><span id="__span-15-129"><a id="__codelineno-15-129" name="__codelineno-15-129" href="#__codelineno-15-129"></a>
+</span><span id="__span-15-130"><a id="__codelineno-15-130" name="__codelineno-15-130" href="#__codelineno-15-130"></a><span class="c1"># }====================================================================</span>
+</span><span id="__span-15-131"><a id="__codelineno-15-131" name="__codelineno-15-131" href="#__codelineno-15-131"></a>
+</span><span id="__span-15-132"><a id="__codelineno-15-132" name="__codelineno-15-132" href="#__codelineno-15-132"></a>
+</span><span id="__span-15-133"><a id="__codelineno-15-133" name="__codelineno-15-133" href="#__codelineno-15-133"></a>
+</span><span id="__span-15-134"><a id="__codelineno-15-134" name="__codelineno-15-134" href="#__codelineno-15-134"></a><span class="c1"># 删除上次仿真生成的一些可能产生冲突的文件</span>
+</span><span id="__span-15-135"><a id="__codelineno-15-135" name="__codelineno-15-135" href="#__codelineno-15-135"></a>rm<span class="w"> </span>-rf<span class="w"> </span>./fpga/sim_out/<span class="nv">$TARGET_DESIGN</span><span class="w"> </span>./verilator_include
+</span><span id="__span-15-136"><a id="__codelineno-15-136" name="__codelineno-15-136" href="#__codelineno-15-136"></a>
+</span><span id="__span-15-137"><a id="__codelineno-15-137" name="__codelineno-15-137" href="#__codelineno-15-137"></a><span class="c1"># 软件编译</span>
+</span><span id="__span-15-138"><a id="__codelineno-15-138" name="__codelineno-15-138" href="#__codelineno-15-138"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>phy_os<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>mips<span class="w"> </span>workload<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-15-139"><a id="__codelineno-15-139" name="__codelineno-15-139" href="#__codelineno-15-139"></a>
+</span><span id="__span-15-140"><a id="__codelineno-15-140" name="__codelineno-15-140" href="#__codelineno-15-140"></a><span class="c1"># 行为仿真</span>
+</span><span id="__span-15-141"><a id="__codelineno-15-141" name="__codelineno-15-141" href="#__codelineno-15-141"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-142"><a id="__codelineno-15-142" name="__codelineno-15-142" href="#__codelineno-15-142"></a><span class="w">     </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-143"><a id="__codelineno-15-143" name="__codelineno-15-143" href="#__codelineno-15-143"></a><span class="w">     </span><span class="nv">SIM_TARGET</span><span class="o">=</span><span class="nv">$TARGET_DESIGN</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-144"><a id="__codelineno-15-144" name="__codelineno-15-144" href="#__codelineno-15-144"></a><span class="w">     </span><span class="nv">SIM_DUT</span><span class="o">=</span><span class="nv">$CPU_ISA</span>:<span class="nv">$SIM_DUT_TYPE</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-145"><a id="__codelineno-15-145" name="__codelineno-15-145" href="#__codelineno-15-145"></a><span class="w">     </span><span class="nv">WORKLOAD</span><span class="o">=</span>simple_test:<span class="nv">$SIM_SET</span>:<span class="nv">$BENCH</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-15-146"><a id="__codelineno-15-146" name="__codelineno-15-146" href="#__codelineno-15-146"></a><span class="w">     </span>bhv_sim_verilator
 </span></code></pre></div>
 
 
