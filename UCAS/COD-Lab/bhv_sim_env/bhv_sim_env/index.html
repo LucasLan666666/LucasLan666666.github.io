@@ -387,9 +387,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mips-gcc" class="md-nav__link">
+  <a href="#mips" class="md-nav__link">
     <span class="md-ellipsis">
-      mips-gcc
+      mips 工具链
     </span>
   </a>
   
@@ -489,9 +489,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mips-gcc" class="md-nav__link">
+  <a href="#mips" class="md-nav__link">
     <span class="md-ellipsis">
-      mips-gcc
+      mips 工具链
     </span>
   </a>
   
@@ -603,17 +603,17 @@
 <p class="admonition-title">Success</p>
 <p>如果终端打印出 <code>Verilator 4.222 2022-05-02 rev UNKNOWN.REV</code> 字样，表示 <code>verilator</code> 本地配置成功。</p>
 </div>
-<h2 id="mips-gcc">mips-gcc</h2>
+<h2 id="mips">mips 工具链</h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>S-IDE 可跳过此部分，因为 S-IDE 的 mips-gcc 就是实验框架的版本，无需重新设置</p>
+<p>S-IDE 可跳过此部分，因为 S-IDE 的工具链就是实验框架的版本，无需重新设置</p>
 </div>
 <p>依次执行以下命令</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rm-hull/barebones-toolchain.git
 </span></code></pre></div>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=~/barebones-toolchain/cross/x86_64/bin:$PATH&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
 </span></code></pre></div>
-<p>在终端输入以下命令，检查是否安装成功：</p>
+<p>以 <code>mips-gcc</code> 为例，在终端输入以下命令，检查是否安装成功：</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>mips-gcc<span class="w"> </span>--version
 </span></code></pre></div>
 <div class="admonition success">
