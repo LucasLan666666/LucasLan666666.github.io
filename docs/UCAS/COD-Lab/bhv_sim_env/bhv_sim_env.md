@@ -28,7 +28,7 @@ tar -xvf verilator-4.222.tar.gz
 首先安装必备的依赖：
 
 ```bash
-sudo apt-get install git help2man perl python3 make autoconf g++ flex bison ccache libgoogle-perftools-dev numactl perl-doc
+sudo apt-get install git help2man perl python3 make autoconf g++ flex bison ccache libgoogle-perftools-dev numactl perl-doc zlib1g-dev
 ```
 
 生成配置脚本：

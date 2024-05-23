@@ -114,7 +114,7 @@ markdown_extensions:
   - meta # 支持Markdown文件上方自定义标题标签等
 
 plugins:
-    - search:
+    # - search:
     #     separator: '[\s\u200b\-]'
     #     lang: ja
     - glightbox:
