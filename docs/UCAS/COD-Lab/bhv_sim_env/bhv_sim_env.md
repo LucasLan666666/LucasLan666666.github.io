@@ -40,16 +40,20 @@ autoconf && ./configure
 编译安装：
 
 !!! warning
-    下面这两步会很漫长，如果在 S-IDE 上编译可能会花较长时间（我测试 S-IDE 的时候开了 16 G，也整了快半小时）。
+    下面这步会很漫长，如果在 S-IDE 上编译可能会花较长时间（我测试 S-IDE 的时候开了 16 G，也整了快半小时）。
 
 ```bash
-make -j `nproc`
+make
 ```
 
 !!! note
-    最新补充：如果上一条指令不能成功执行，可以直接改用 `make` ，不加任何参数（后来了解到 `-j` 参数作用是利用多个处理器核心加速优化，但是在 S-IDE 上反而会出现因内存占用过大被操作系统杀死进程的情况，稳妥起见还是用 `make` 吧）
+    为了提高编译速度， `make` 可以改成
+    ```bash
+    make -j `proc`
+    ```
+    了解到 `-j` 参数作用是利用多个处理器核心加速优化，但是在 S-IDE 上反而会出现因内存占用过大被操作系统杀死进程的情况，所以不保证成功。稳妥起见还是用 `make` 吧）
 
-最后输入下面指令，即可完成 `mips-gcc` 的最终安装步骤：
+最后输入下面指令，即可完成 `verilator` 的最终安装步骤：
 
 ```bash
 sudo make install
@@ -64,10 +68,10 @@ verilator --version
 !!! success
     如果终端打印出 `Verilator 4.222 2022-05-02 rev UNKNOWN.REV` 字样，表示 `verilator` 本地配置成功。
 
-## mips-gcc
+## mips 工具链
 
 !!! note
-    S-IDE 可跳过此部分，因为 S-IDE 的 mips-gcc 就是实验框架的版本，无需重新设置
+    S-IDE 可跳过此部分，因为 S-IDE 的 mips 工具链已经安装好，无需重新设置
 
 依次执行以下命令
 
@@ -83,7 +87,7 @@ source ~/.bashrc
 在终端输入以下指令，检查是否安装成功：
 
 ```bash
-verilator --version
+mips-gcc --version
 ```
 
 !!! success
