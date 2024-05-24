@@ -76,7 +76,8 @@ cd && git clone https://github.com/rm-hull/barebones-toolchain.git
 ```
 
 ```bash
-sudo ln -s ~/barebones-toolchain/cross/x86_64/bin/mips-gcc /usr/local/bin/mips-gcc
+echo 'export PATH=$PATH:~/barebones-toolchain/cross/x86_64/bin' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 在终端输入以下指令，检查是否安装成功：
