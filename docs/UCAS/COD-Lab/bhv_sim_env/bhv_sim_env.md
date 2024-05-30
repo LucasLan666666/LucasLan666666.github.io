@@ -1,6 +1,9 @@
 # cod-lab 本地仿真环境配置
 
-经过亲身实践，本方法可以在 S-IDE 和 Ubuntu 22.04.4 LTS on Windows 10 x86_64 环境下成功进行软件编译和行为仿真。（其他 Linux 版本应该也可以......吧）
+!!! note
+    S-IDE 现在不用配环境了，直接用 `make` 命令仿真即可。因为最新框架下已经支持更高版本的 `verilator` 行为仿真，并且自带 `mips` 工具链。
+
+本方法可以在 S-IDE 和 Ubuntu 22.04.4 LTS on Windows 10 x86_64 环境下成功进行软件编译和行为仿真。（其他 Linux 版本应该也可以......吧）
 
 !!! note
     如果是在一个新环境下从零开始配置，需要重新设置好 git 的用户名和邮箱，配置 ssh key（不然没法拉取和上传自己仓库）并添加好实验框架的远程仓库（就是那个 `upstream` ），以及 IDE 的插件（详情参考张思老师的文档 [hello SERVE](https://gitlab.agileserve.org.cn:8001/zhangsi/hello-serve) ）
@@ -70,9 +73,6 @@ verilator --version
 
 ## mips 工具链
 
-!!! note
-    S-IDE 可跳过此部分，因为 S-IDE 的 mips 工具链已经安装好，无需重新设置
-
 依次执行以下命令
 
 ```bash
@@ -106,7 +106,7 @@ mips-gcc --version
 
 ### 软件编译
 
-软件编译输入：
+软件编译输入（如果是 `riscv32` 则将 `mips` 改为 `riscv32` ）：
 
 ```bash
 make FPGA_PRJ=ucas-cod FPGA_BD=nf OS=phy_os ARCH=mips workload
@@ -128,10 +128,10 @@ make FPGA_PRJ=ucas-cod FPGA_BD=nf OS=phy_os ARCH=mips workload
 先删掉先前仿真生成的多余文件：
 
 !!! warning
-    记得每一次仿真前都先把 `fpga/sim_out/custom_cpu` 和 `verilator_include` 删干净！！！
+    记得每一次仿真前都先把 `fpga/sim_out/custom_cpu` 删干净！！！
 
 ```bash
-sudo rm -rf ./fpga/sim_out/custom_cpu ./verilator_include
+sudo rm -rf ./fpga/sim_out/custom_cpu
 ```
 
 下面输入仿真的命令（以 hello 为例）：
@@ -185,7 +185,7 @@ sudo make FPGA_PRJ=ucas-cod FPGA_BD=nf SIM_TARGET=custom_cpu SIM_DUT=mips:multi_
 #   - SIM_SET: hello
 #     BENCH: [hello]
 #   - SIM_SET: microbench
-#     BENCH: [fib,md5,qsort,queen,sieve,ssort]
+#     BENCH: [fib,md5,qsort,queen,sieve,ssort,15pz,bf,dinic]
 #
 # =====================================================================
 
@@ -198,8 +198,8 @@ SIM_SET=$1
 BENCH=$2
 
 TARGET_DESIGN="custom_cpu"
-CPU_ISA="mips"
-SIM_DUT_TYPE="multi_cycle"
+CPU_ISA="mips" # "mips", "riscv32"
+SIM_DUT_TYPE="multi_cycle" # "single_cycle", "multi_cycle", "turbo"
 
 
 
@@ -289,10 +289,10 @@ esac
 
 
 # 删除上次仿真生成的一些可能产生冲突的文件
-rm -rf ./fpga/sim_out/$TARGET_DESIGN ./verilator_include
+rm -rf ./fpga/sim_out/$TARGET_DESIGN
 
 # 软件编译
-make FPGA_PRJ=ucas-cod FPGA_BD=nf OS=phy_os ARCH=mips workload
+make FPGA_PRJ=ucas-cod FPGA_BD=nf OS=phy_os ARCH=$CPU_ISA workload
 
 # 行为仿真
 make FPGA_PRJ=ucas-cod \
