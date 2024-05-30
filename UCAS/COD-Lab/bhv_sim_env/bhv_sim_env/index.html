@@ -521,10 +521,7 @@
 
 
 <h1 id="cod-lab">cod-lab 本地仿真环境配置</h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>S-IDE 现在不用配环境了，直接用 <code>make</code> 命令仿真即可。因为最新框架下已经支持更高版本的 <code>verilator</code> 行为仿真，并且自带 <code>mips</code> 工具链。</p>
-</div>
+<p><em>注意：S-IDE 现在不用配环境了，直接用 <code>make</code> 命令仿真即可。因为最新框架下已经支持更高版本的 <code>verilator</code> 行为仿真，并且自带 <code>mips</code> 工具链。</em></p>
 <p>本方法可以在 S-IDE 和 Ubuntu 22.04.4 LTS on Windows 10 x86_64 环境下成功进行软件编译和行为仿真。（其他 Linux 版本应该也可以......吧）</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -595,7 +592,7 @@
 <p>记得用 <code>git pull upstream master</code> 同步框架！！！</p>
 </div>
 <h3 id="_1">软件编译</h3>
-<p>软件编译输入（如果是 <code>riscv32</code> 则将 <code>mips</code> 改为 <code>riscv32</code> ）：</p>
+<p>软件编译输入：</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>phy_os<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>mips<span class="w"> </span>workload
 </span></code></pre></div>
 <!-- !!! tip
