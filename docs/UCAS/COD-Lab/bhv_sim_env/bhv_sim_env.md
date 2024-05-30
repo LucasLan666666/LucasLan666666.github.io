@@ -1,7 +1,6 @@
 # cod-lab 本地仿真环境配置
 
-!!! note
-    S-IDE 现在不用配环境了，直接用 `make` 命令仿真即可。因为最新框架下已经支持更高版本的 `verilator` 行为仿真，并且自带 `mips` 工具链。
+S-IDE 现在不用配环境了，直接用 `make` 命令仿真即可。因为最新框架下已经支持更高版本的 `verilator` 行为仿真，并且自带 `mips` 工具链。
 
 本方法可以在 S-IDE 和 Ubuntu 22.04.4 LTS on Windows 10 x86_64 环境下成功进行软件编译和行为仿真。（其他 Linux 版本应该也可以......吧）
 
@@ -106,7 +105,7 @@ mips-gcc --version
 
 ### 软件编译
 
-软件编译输入（如果是 `riscv32` 则将 `mips` 改为 `riscv32` ）：
+软件编译输入：
 
 ```bash
 make FPGA_PRJ=ucas-cod FPGA_BD=nf OS=phy_os ARCH=mips workload
