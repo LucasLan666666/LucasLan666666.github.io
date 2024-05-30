@@ -521,7 +521,11 @@
 
 
 <h1 id="cod-lab">cod-lab 本地仿真环境配置</h1>
-<p>经过亲身实践，本方法可以在 S-IDE 和 Ubuntu 22.04.4 LTS on Windows 10 x86_64 环境下成功进行软件编译和行为仿真。（其他 Linux 版本应该也可以......吧）</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>S-IDE 现在不用配环境了，直接用 <code>make</code> 命令仿真即可。因为最新框架下已经支持更高版本的 <code>verilator</code> 行为仿真，并且自带 <code>mips</code> 工具链。</p>
+</div>
+<p>本方法可以在 S-IDE 和 Ubuntu 22.04.4 LTS on Windows 10 x86_64 环境下成功进行软件编译和行为仿真。（其他 Linux 版本应该也可以......吧）</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>如果是在一个新环境下从零开始配置，需要重新设置好 git 的用户名和邮箱，配置 ssh key（不然没法拉取和上传自己仓库）并添加好实验框架的远程仓库（就是那个 <code>upstream</code> ），以及 IDE 的插件（详情参考张思老师的文档 <a href="https://gitlab.agileserve.org.cn:8001/zhangsi/hello-serve">hello SERVE</a> ）</p>
@@ -567,10 +571,6 @@
 <p>如果终端打印出 <code>Verilator 4.222 2022-05-02 rev UNKNOWN.REV</code> 字样，表示 <code>verilator</code> 本地配置成功。</p>
 </div>
 <h2 id="mips">mips 工具链</h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>S-IDE 可跳过此部分，因为 S-IDE 的 mips 工具链已经安装好，无需重新设置</p>
-</div>
 <p>依次执行以下命令</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rm-hull/barebones-toolchain.git
 </span></code></pre></div>
@@ -595,7 +595,7 @@
 <p>记得用 <code>git pull upstream master</code> 同步框架！！！</p>
 </div>
 <h3 id="_1">软件编译</h3>
-<p>软件编译输入：</p>
+<p>软件编译输入（如果是 <code>riscv32</code> 则将 <code>mips</code> 改为 <code>riscv32</code> ）：</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>phy_os<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>mips<span class="w"> </span>workload
 </span></code></pre></div>
 <!-- !!! tip
@@ -613,9 +613,9 @@
 <p>先删掉先前仿真生成的多余文件：</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>记得每一次仿真前都先把 <code>fpga/sim_out/custom_cpu</code> 和 <code>verilator_include</code> 删干净！！！</p>
+<p>记得每一次仿真前都先把 <code>fpga/sim_out/custom_cpu</code> 删干净！！！</p>
 </div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>./fpga/sim_out/custom_cpu<span class="w"> </span>./verilator_include
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>./fpga/sim_out/custom_cpu
 </span></code></pre></div>
 <p>下面输入仿真的命令（以 hello 为例）：</p>
 <div class="admonition warning">
@@ -662,7 +662,7 @@
 </span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="c1">#   - SIM_SET: hello</span>
 </span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="c1">#     BENCH: [hello]</span>
 </span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="c1">#   - SIM_SET: microbench</span>
-</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a><span class="c1">#     BENCH: [fib,md5,qsort,queen,sieve,ssort]</span>
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a><span class="c1">#     BENCH: [fib,md5,qsort,queen,sieve,ssort,15pz,bf,dinic]</span>
 </span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a><span class="c1">#</span>
 </span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a><span class="c1"># =====================================================================</span>
 </span><span id="__span-15-34"><a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a>
@@ -675,8 +675,8 @@
 </span><span id="__span-15-41"><a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a><span class="nv">BENCH</span><span class="o">=</span><span class="nv">$2</span>
 </span><span id="__span-15-42"><a id="__codelineno-15-42" name="__codelineno-15-42" href="#__codelineno-15-42"></a>
 </span><span id="__span-15-43"><a id="__codelineno-15-43" name="__codelineno-15-43" href="#__codelineno-15-43"></a><span class="nv">TARGET_DESIGN</span><span class="o">=</span><span class="s2">&quot;custom_cpu&quot;</span>
-</span><span id="__span-15-44"><a id="__codelineno-15-44" name="__codelineno-15-44" href="#__codelineno-15-44"></a><span class="nv">CPU_ISA</span><span class="o">=</span><span class="s2">&quot;mips&quot;</span>
-</span><span id="__span-15-45"><a id="__codelineno-15-45" name="__codelineno-15-45" href="#__codelineno-15-45"></a><span class="nv">SIM_DUT_TYPE</span><span class="o">=</span><span class="s2">&quot;multi_cycle&quot;</span>
+</span><span id="__span-15-44"><a id="__codelineno-15-44" name="__codelineno-15-44" href="#__codelineno-15-44"></a><span class="nv">CPU_ISA</span><span class="o">=</span><span class="s2">&quot;mips&quot;</span><span class="w"> </span><span class="c1"># &quot;mips&quot;, &quot;riscv32&quot;</span>
+</span><span id="__span-15-45"><a id="__codelineno-15-45" name="__codelineno-15-45" href="#__codelineno-15-45"></a><span class="nv">SIM_DUT_TYPE</span><span class="o">=</span><span class="s2">&quot;multi_cycle&quot;</span><span class="w"> </span><span class="c1"># &quot;single_cycle&quot;, &quot;multi_cycle&quot;, &quot;turbo&quot;</span>
 </span><span id="__span-15-46"><a id="__codelineno-15-46" name="__codelineno-15-46" href="#__codelineno-15-46"></a>
 </span><span id="__span-15-47"><a id="__codelineno-15-47" name="__codelineno-15-47" href="#__codelineno-15-47"></a>
 </span><span id="__span-15-48"><a id="__codelineno-15-48" name="__codelineno-15-48" href="#__codelineno-15-48"></a>
@@ -766,10 +766,10 @@
 </span><span id="__span-15-132"><a id="__codelineno-15-132" name="__codelineno-15-132" href="#__codelineno-15-132"></a>
 </span><span id="__span-15-133"><a id="__codelineno-15-133" name="__codelineno-15-133" href="#__codelineno-15-133"></a>
 </span><span id="__span-15-134"><a id="__codelineno-15-134" name="__codelineno-15-134" href="#__codelineno-15-134"></a><span class="c1"># 删除上次仿真生成的一些可能产生冲突的文件</span>
-</span><span id="__span-15-135"><a id="__codelineno-15-135" name="__codelineno-15-135" href="#__codelineno-15-135"></a>rm<span class="w"> </span>-rf<span class="w"> </span>./fpga/sim_out/<span class="nv">$TARGET_DESIGN</span><span class="w"> </span>./verilator_include
+</span><span id="__span-15-135"><a id="__codelineno-15-135" name="__codelineno-15-135" href="#__codelineno-15-135"></a>rm<span class="w"> </span>-rf<span class="w"> </span>./fpga/sim_out/<span class="nv">$TARGET_DESIGN</span>
 </span><span id="__span-15-136"><a id="__codelineno-15-136" name="__codelineno-15-136" href="#__codelineno-15-136"></a>
 </span><span id="__span-15-137"><a id="__codelineno-15-137" name="__codelineno-15-137" href="#__codelineno-15-137"></a><span class="c1"># 软件编译</span>
-</span><span id="__span-15-138"><a id="__codelineno-15-138" name="__codelineno-15-138" href="#__codelineno-15-138"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>phy_os<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>mips<span class="w"> </span>workload
+</span><span id="__span-15-138"><a id="__codelineno-15-138" name="__codelineno-15-138" href="#__codelineno-15-138"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="nv">FPGA_BD</span><span class="o">=</span>nf<span class="w"> </span><span class="nv">OS</span><span class="o">=</span>phy_os<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span><span class="nv">$CPU_ISA</span><span class="w"> </span>workload
 </span><span id="__span-15-139"><a id="__codelineno-15-139" name="__codelineno-15-139" href="#__codelineno-15-139"></a>
 </span><span id="__span-15-140"><a id="__codelineno-15-140" name="__codelineno-15-140" href="#__codelineno-15-140"></a><span class="c1"># 行为仿真</span>
 </span><span id="__span-15-141"><a id="__codelineno-15-141" name="__codelineno-15-141" href="#__codelineno-15-141"></a>make<span class="w"> </span><span class="nv">FPGA_PRJ</span><span class="o">=</span>ucas-cod<span class="w"> </span><span class="se">\</span>
