@@ -16,25 +16,25 @@ extra_css:
   # - https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/lxgwwenkaiscreen.css
 
 nav:
-  # - Home: index.md
-  # - About: about.md
-  # - Experiences:
+  - Home: index.md
+  - About: about.md
+  - Experiences:
   #   - Markdown: Experiences/Markdown 常用模板.md
   #   - Mermaid: Experiences/mermaid/Mermaid 踩坑日记.md
-  #   - Github-Copilot: Experiences/copilot/Github-Copilot 配置方法.md
+    - Github-Copilot: Experiences/copilot/main.md
   #   - Git: Experiences/Git 入坑指南.md
-  # - UCAS:
-  #   - Digital Circuit:
-  #     - Lab1: UCAS/Digital Circuit/1/1_trip.md
-  #     - Lab2: UCAS/Digital Circuit/2/2_digital_comparator.md
-  #     - Lab3: UCAS/Digital Circuit/3/3_FSM.md
-  #     - Lab4: UCAS/Digital Circuit/4/4_fifo.md
-  #   - Assembly Language:
-  #     - LoooooooooongArch: UCAS/Assembly-Language/LoongArch/LoongArch汇编实验环境.md
-  #     - quicksort: UCAS/Assembly-Language/quicksort/quicksort_group7.md
+  - UCAS:
+    - Digital Circuit:
+      - Lab1: UCAS/Digital-Circuit/1/main.md
+      - Lab2: UCAS/Digital-Circuit/2/main.md
+      - Lab3: UCAS/Digital-Circuit/3/main.md
+      - Lab4: UCAS/Digital-Circuit/4/main.md
+    - Assembly Language:
+      - LoooooooooongArch: UCAS/Assembly-Language/LoongArch/main.md
+      - quicksort: UCAS/Assembly-Language/quicksort/main.md
     - COD-Lab:
-      - bhv_sim_env: UCAS/COD-Lab/bhv_sim_env/bhv_sim_env.md
-      # - prj3: UCAS/COD-Lab/prj3/prj3.md
+      - bhv_sim_env: UCAS/COD-Lab/bhv_sim_env/main.md
+      - prj3: UCAS/COD-Lab/prj3/main.md
   # - Test:
   #     - Latex: test/Latex test.md
   #     - font: test/font.md
@@ -73,11 +73,11 @@ theme:
       - navigation.tabs.sticky  #启用粘性选项卡后，导航选项卡将锁定在标题下方，并在向下滚动时始终保持可见
       - navigation.sections #启用部分后，顶级部分在边栏中呈现为1220px以上视口的组，但在移动设备上保持原样
       - navigation.top # 返回顶部的按钮 在上滑时出现
-      # - search.suggest # 搜索输入一些字母时推荐补全整个单词
-      # - search.highlight # 搜索出的文章关键词加入高亮
-      # - search.share #搜索分享按钮
+      - search.suggest # 搜索输入一些字母时推荐补全整个单词
+      - search.highlight # 搜索出的文章关键词加入高亮
+      - search.share #搜索分享按钮
       - navigation.expand # 打开Tab时左侧目录全部展开
-      #- navigation.indexes #启用节索引页后，可以将文档直接附加到节
+      - navigation.indexes #启用节索引页后，可以将文档直接附加到节
     # language: zh # 一些提示性的文字会变成中文
 
 markdown_extensions:
