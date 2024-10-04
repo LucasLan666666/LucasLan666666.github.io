@@ -9,23 +9,21 @@
       
       
       
-        <link rel="prev" href="../../bhv_sim_env/main/">
       
       
-      
-      <link rel="icon" href="../../../../images/cat.ico">
+      <link rel="icon" href="../../../images/cat.ico">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.39">
     
     
       
-        <title>prj3 - Blogs</title>
+        <title>2024春汇编语言小组作业1——快速排序的汇编实现 - Blogs</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,16 +42,16 @@
       
     
     
-      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -62,7 +60,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -81,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#3-mips" class="md-skip">
+        <a href="#20241" class="md-skip">
           Skip to content
         </a>
       
@@ -97,9 +95,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Blogs" class="md-header__button md-logo" aria-label="Blogs" data-md-component="logo">
+    <a href="../../.." title="Blogs" class="md-header__button md-logo" aria-label="Blogs" data-md-component="logo">
       
-  <img src="../../../../assets/faye.png" alt="logo">
+  <img src="../../../assets/faye.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -116,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              prj3
+              2024春汇编语言小组作业1——快速排序的汇编实现
             
           </span>
         </div>
@@ -224,7 +222,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -241,7 +239,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../about/" class="md-tabs__link">
+      <a href="../../../about/" class="md-tabs__link">
         
   
     
@@ -260,7 +258,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../Experiences/copilot/main/" class="md-tabs__link">
+        <a href="../../../Experiences/copilot/main/" class="md-tabs__link">
           
   
     
@@ -276,21 +274,17 @@
         
   
   
-    
-  
   
     
     
       
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../Digital-Circuit/1/main/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../Digital-Circuit/1/main/" class="md-tabs__link">
           
   
     
@@ -334,9 +328,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Blogs" class="md-nav__button md-logo" aria-label="Blogs" data-md-component="logo">
+    <a href="../../.." title="Blogs" class="md-nav__button md-logo" aria-label="Blogs" data-md-component="logo">
       
-  <img src="../../../../assets/faye.png" alt="logo">
+  <img src="../../../assets/faye.png" alt="logo">
 
     </a>
     Blogs
@@ -363,7 +357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -383,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -449,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../Experiences/copilot/main/" class="md-nav__link">
+      <a href="../../../Experiences/copilot/main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -474,10 +468,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -490,22 +482,21 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -516,7 +507,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             UCAS
@@ -545,13 +536,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -560,7 +548,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -585,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Digital-Circuit/1/main/" class="md-nav__link">
+      <a href="../../Digital-Circuit/1/main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -606,7 +594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Digital-Circuit/2/main/" class="md-nav__link">
+      <a href="../../Digital-Circuit/2/main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -627,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Digital-Circuit/3/main/" class="md-nav__link">
+      <a href="../../Digital-Circuit/3/main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -648,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Digital-Circuit/4/main/" class="md-nav__link">
+      <a href="../../Digital-Circuit/4/main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -688,13 +676,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -703,7 +688,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -728,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Assembly-Language/LoongArch/main/" class="md-nav__link">
+      <a href="../LoongArch/main/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -749,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Assembly-Language/quicksort/main/" class="md-nav__link">
+      <a href="main.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -775,10 +760,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -790,21 +773,20 @@
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
         
           
-          
         
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -815,7 +797,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             COD-Lab
@@ -829,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bhv_sim_env/main/" class="md-nav__link">
+      <a href="../../COD-Lab/bhv_sim_env/main.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -847,30 +829,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    prj3
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../COD-Lab/prj3/main.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -879,92 +841,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      对讲义中思考题的理解和回答
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="对讲义中思考题的理解和回答">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      关键字定义
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      关键字作用
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#puts-volatile-fpga" class="md-nav__link">
-    <span class="md-ellipsis">
-      通过 puts 函数探究 volatile 具体是怎样影响到 FPGA 结果的
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="通过 puts 函数探究 volatile 具体是怎样影响到 FPGA 结果的">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#while" class="md-nav__link">
-    <span class="md-ellipsis">
-      区别一：while 的条件判断是否每次都访存
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      区别二：程序执行顺序是否符合预期
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1014,54 +890,71 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      对讲义中思考题的理解和回答
+      实验环境
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="对讲义中思考题的理解和回答">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      关键字定义
+      实验准备
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      关键字作用
+      实验内容
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#puts-volatile-fpga" class="md-nav__link">
-    <span class="md-ellipsis">
-      通过 puts 函数探究 volatile 具体是怎样影响到 FPGA 结果的
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="通过 puts 函数探究 volatile 具体是怎样影响到 FPGA 结果的">
+    <nav class="md-nav" aria-label="实验内容">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#while" class="md-nav__link">
-    <span class="md-ellipsis">
-      区别一：while 的条件判断是否每次都访存
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      区别二：程序执行顺序是否符合预期
+      测试脚本改写
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partition_asm" class="md-nav__link">
+    <span class="md-ellipsis">
+      编写 partition_asm 函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quicksort_asm" class="md-nav__link">
+    <span class="md-ellipsis">
+      编写 quicksort_asm 函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      调试中遇到的问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      最终结果
     </span>
   </a>
   
@@ -1071,9 +964,13 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      收获与反思
+    </span>
+  </a>
   
 </li>
       
@@ -1095,87 +992,55 @@
   
 
 
-<h1 id="3-mips">实验项目 3 —— 定制 MIPS 功能型处理器设计</h1>
-<h2 id="_1">对讲义中思考题的理解和回答</h2>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>思考题：图中 <code>volatile</code> 关键字的作用是什么？如果去掉会出现什么后果？
-<a class="glightbox" href="../fig/thinking_question.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="fig/thinking_question" src="../fig/thinking_question.jpg" /></a></p>
-</div>
-<h3 id="_2">关键字定义</h3>
-<p>首先，为了了解 <code>volatile</code> 关键字含义，我查询了 C11 标准的官方手册，其中这样写道：</p>
-<blockquote>
-<p>An object that has volatile-qualified type may be modified in ways unknown to the implementation or have other unknown side effects. Therefore any expression referring to such an object shall be evaluated strictly according to the rules of the abstract machine.</p>
-</blockquote>
-<p>翻译为中文就是说：“具有 <code>volatile</code> 限定类型的对象可能以实现未知的方式被修改，或具有其他未知的副作用。因此，任何引用此类对象的表达式都必须严格按照抽象机器的规则进行评估。”</p>
-<h3 id="_3">关键字作用</h3>
-<p>结合 UART 的描述，我们可以得知，发送队列状态寄存器的值是会实时变化的，而这种变化与程序的行为无关。因此，当我们想要将欲打印的字符写入发送队列时，必须要检查发送队列状态寄存器的实时值，这个值映射到内存的特定地址，所以每当写入一个字符之前，我们要通过访存操作获取 UART_STATUS 的当前值。</p>
-<p>关键点是，我们使用 C 语言来撰写驱动程序，而程序的具体行为和编译器密切相关。我们写 C 代码时，需要向编译器传达这样一个信息：“这个 UART_STATUS ，每次判断的时候你必须要老老实实地的去访问内存（即使这样会很慢）。可千万不能为了偷懒只访问一次就草草了事哦”。</p>
-<p>正因如此， <code>volatile</code> 关键字在这里发挥了至关重要的作用。它告诉编译器：“这个对象变化多端，深不可测。即使多花一些精力也没有关系，必须严格遵守要求，谨慎对待”。</p>
-<p>下图给出了在使用和不使用 <code>volatile</code> 关键字时， <code>hello</code> 样例在 FPGA_eval 中的不同表现，显然，不使用 <code>volatile</code> 关键字（图右）的结果是错误的。</p>
-<p><a class="glightbox" href="../fig/fpga_puts_cmp.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="fpga_puts_cmp" src="../fig/fpga_puts_cmp.jpg" /></a></p>
-<h3 id="puts-volatile-fpga">通过 <code>puts</code> 函数探究 <code>volatile</code> 具体是怎样影响到 FPGA 结果的</h3>
-<p>为了搞清楚 <code>volatile</code> 具体是怎么影响到结果的，我自己又专门写了两个独立的 C 文件，如下图所示。左侧是用 <code>volatile</code> 定义的变量，而右侧没有，除此之外二者没有任何区别。</p>
-<p><a class="glightbox" href="../fig/puts_c.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="puts_c" src="../fig/puts_c.jpg" /></a></p>
-<p>下面，我在自己电脑上用 <code>mips-gcc</code> 交叉编译得到了两个函数的汇编代码，这里我的操作系统环境是 <code>Ubuntu 22.04.4 LTS on Windows 10 x86_64</code> ， <code>mips-gcc</code> 版本是 10.3.0，为了体现 <code>volatile</code> 对编译器的影响，有意使用了  <code>-O2</code> 优化。二者的汇编代码展示如图所示:</p>
-<p><a class="glightbox" href="../fig/puts_as.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="puts_as" src="../fig/puts_as.jpg" /></a></p>
-<p>为了方便阅读，我删去了无关信息，并添加注释来描述每一条汇编指令的具体行为:</p>
-<p><a class="glightbox" href="../fig/puts_as_mod.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="puts_as_mod" src="../fig/puts_as_mod.jpg" /></a></p>
-<p>通过二者对比，我们不难发现两个重要区别：</p>
-<h4 id="while">区别一：while 的条件判断是否每次都访存</h4>
-<p><a class="glightbox" href="../fig/diff_1.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="diff_1" src="../fig/diff_1.jpg" /></a></p>
+<h1 id="20241">2024春汇编语言小组作业1——快速排序的汇编实现</h1>
+<h2 id="_1">实验环境</h2>
 <ul>
-<li>
-<p>在 C 语言中，我们通过检查 STAT_REG 第 3 比特 的值来判断发送队列是否已满。因此，我们需要访问 uart_status 地址处的数据来进行判断。</p>
-</li>
-<li>
-<p>如果使用了 <code>volatile</code> ，<code>while</code> 循环在每一次循环时都会重新从内存读取数据，然后放到寄存器中和 0 进行比较，这是我们所期望的。</p>
-</li>
-<li>
-<p>如果不使用 <code>volatile</code> ，编译器在优化时为了提高效率，只会进行一次访存操作，放到寄存器中。这样每次循环的时候，都会反复读取那个寄存器的值，而不管内存是否变化，这会导致两种后果：</p>
-<ol>
-<li>第一次判断时队列为空，那么之后写入时不会再检查队列是否满（具体原因区别 2 中分析）</li>
-<li>第一次判断时队列为满，则陷入死循环</li>
-</ol>
-</li>
+<li>操作系统：<code>Ubuntu 22.04.4 LTS on Windows 10 x86_64</code></li>
+<li>汇编语言：<code>x86-32</code> 架构， <code>AT&amp;T</code> 语法</li>
 </ul>
-<h4 id="_4">区别二：程序执行顺序是否符合预期</h4>
-<p><a class="glightbox" href="../fig/diff_2.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="diff_2" src="../fig/diff_2.jpg" /></a></p>
-<ul>
-<li>
-<p>如果不使用 <code>volatile</code> ，编译器打乱了程序的执行顺序，区别如下：</p>
+<h2 id="_2">实验准备</h2>
+<p>从 <a href="https://github.com/tyssjhx/quicksort">quicksort</a> 克隆代码框架到本地，按照 <code>README.md</code> 文件说明，编写 <code>partition_asm</code> 和 <code>quicksort_asm</code> 函数，并利用脚本进行检测。</p>
+<h2 id="_3">实验内容</h2>
+<h3 id="_4">测试脚本改写</h3>
+<p>因为编译过程会生成可执行文件和可重定向文件，为了方便管理，我们改写了 <code>quicksort.sh</code> 脚本。通过以下 <code>Makefile</code> 文件实现一键编译和清理功能：</p>
+<p><a class="glightbox" href="../assets/makefile.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="makefile" src="../assets/makefile.png" /></a></p>
+<h3 id="partition_asm">编写 <code>partition_asm</code> 函数</h3>
+<p><code>partition_asm</code> 函数接受三个参数：一个数组的指针和两个整数，分别表示数组的低索引和高索引。</p>
+<p>在每个函数的开头，我们首先要对 <code>%edi</code> 、 <code>%esi</code> 和 <code>%ebx</code> 这三个寄存器进行压栈操作，因为这三个是被调用者保存寄存器。</p>
+<p>然后，它从栈中获取参数，并将它们移动到寄存器中。 <code>%eax</code> 存储数组的地址， <code>%ebx</code> 存储低索引， <code>%ecx</code> 存储高索引。 <code>%edx</code> 存储基准值，即数组的低索引处的值。</p>
+<p>接下来通过三个跳转类指令实现一个大循环套三个小循环， <code>cmp</code> 指令设置状态码，然后通过跳转类指令完成跳转，确定是否跳出循环。</p>
+<p>具体步骤及含义详见下图代码和注释：</p>
+<p><a class="glightbox" href="../assets/partition.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="partition" src="../assets/partition.png" /></a></p>
+<h3 id="quicksort_asm">编写 <code>quicksort_asm</code> 函数</h3>
+<p>关于函数的传参以及被调用者寄存器的压栈操作见上一部分。</p>
+<p>这里只有一个条件判断语句，所以我划分了两个标签 <code>sort</code> 和 <code>end</code> ，如果满足 <code>low &lt; high</code> ，就执行 <code>sort</code> 中的内容。</p>
+<p>快速排序涉及到三次函数调用，一次 <code>partition_asm</code> 和两次自身递归调用。因此在调用前需要手动压栈传递参数，并在调用结束时通过 <code>addl $12, %esp</code> 使栈指针回到正常位置（因为两个参数来自内存，一个参数来自被调用者保存寄存器，因此不需要 <code>pop</code> 来恢复数据）。</p>
+<p>在计算 <code>pivot + 1</code> 和 <code>pivot - 1</code> 时，我们没有使用常见的 <code>add</code> 和 <code>sub</code> 指令，而是利用 <code>leal</code> （加载有效地址） 和 <code>dec</code> 指令，减少了计算所需要的步骤。</p>
+<p>具体步骤及含义详见下图代码和注释：</p>
+<p><a class="glightbox" href="../assets/quicksort.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="quicksort" src="../assets/quicksort.png" /></a></p>
+<h3 id="_5">调试中遇到的问题</h3>
+<p>在调试 <code>quicksort_asm</code> 函数过程中，出现了无限死循环的情况，起初以为是递归调用出现了问题，后来通过 <code>gdb</code> 打印内存地址，才发现 <code>quicksort_asm</code> 的返回地址并没有减少（如果递归调用不停止，按理说栈指针的值应该不断减少，因为栈向下增长）。</p>
+<p>最终找到问题在 <code>jl</code> 上。因为 <code>sort</code> 部分执行完后没有返回，按顺序又进行了一次 <code>low &lt; high</code> 的判断。相当于 <code>if</code> 语句变成了 <code>while</code> 语句，且条件始终为真或假。</p>
+<p><a class="glightbox" href="../assets/problem.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="problem" src="../assets/problem.png" /></a></p>
+<h3 id="_6">最终结果</h3>
+<p>成功通过测试：</p>
+<p><a class="glightbox" href="../assets/result.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="result" src="../assets/result.png" /></a></p>
+<h2 id="_7">收获与反思</h2>
+<p>通过本次实验，我们也收获到了很多：</p>
 <ol>
-<li>如果使用了 <code>volatile</code> ，<code>bne</code> 跳转到 <code>L3</code></li>
-<li>如果不使用 <code>volatile</code> ，<code>bne</code> 跳转到 <code>L8</code></li>
+<li>
+<p>对快速排序算法的原理和实现细节有了更深入的理解。</p>
+</li>
+<li>
+<p>让我们熟悉了 <code>x86-32</code> 汇编语言的语法和指令集。一方面对于数据传输指令、跳转指令等有了更深刻的认识，另一方面也加深了我们对计算机系统的认知。不仅巩固了我们对不同寄存器特定功能的理解，也让我们学会了如何利用栈在函数调用中传递参数，这与高级语言有很大的差别。与此同时，在不断的试错中，我们逐渐积累了将 C 语言代码转化为汇编代码的相关经验（尤其是条件、循环等语句的实现）。</p>
+</li>
+<li>
+<p>在代码的编写、汇编、链接和调试等过程中，我们也熟悉了新工具的使用方法。例如，用 <code>as --32</code> 和 <code>ld -m elf_i386</code> 编译出 32 位系统上的可执行文件。此外，我们还使用 <code>Makefile</code> 脚本工具便捷地实现多文件项目的管理。最后在调试过程中，我们也学会了 <code>gdb</code> 的新使用方法，比如用 <code>info registers</code> 查看寄存器的值，以及用 <code>x</code> 打印内存，受益匪浅。</p>
+</li>
+<li>
+<p>由于汇编代码可读性较差，因此我们也养成了多写注释的好习惯。</p>
+</li>
 </ol>
-</li>
-<li>
-<p>注意到，原本 C 代码结构是 <code>for</code> 循环嵌套 <code>while</code> 循环：</p>
-<div class="language-C highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">uart_status</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">UART_TX_FIFO_FULL</span><span class="p">)</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="p">;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="o">*</span><span class="n">uart_tx_fifo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
-</span></code></pre></div>
-</li>
-<li>
-<p>如果不使用 <code>volatile</code> ，函数的执行顺序相当于变成了这样：</p>
-<div class="language-C highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">uart_status</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">UART_TX_FIFO_FULL</span><span class="p">)</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="p">;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="o">*</span><span class="n">uart_tx_fifo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">i</span><span class="o">++</span><span class="p">;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="o">*</span><span class="n">uart_tx_fifo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span></code></pre></div>
-</li>
-<li>
-<p>因为 <code>for</code> 循环中并没有对地址 <code>uart_status</code> 处的值进行修改，在非嵌入式环境的情况下我们有理由认为 <code>*uart_status</code> 并没有发生变化，既然这样，就没有必要重复判断了。所以编译器也看似“理所应当”地改变了程序执行的顺序：<code>for</code> 循环自从第一次判断结束后，跳转时直接从 <code>*uart_tx_fifo = (unsigned int)s[i]</code> 开始执行。</p>
-</li>
-<li>
-<p>UART 的 STAT_REG 实际上是会变的，但是因为没有使用 <code>volatile</code> 关键字，编译器不知道这一特性，从而在 <code>-O2</code> 的过度优化下最终造成了意料之外的结果。</p>
-</li>
-</ul>
 
 
 
@@ -1228,14 +1093,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.expand", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.expand", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
       
-        <script src="../../../../javascripts/extra.js"></script>
+        <script src="../../../javascripts/extra.js"></script>
       
-        <script src="../../../../javascripts/mathjex.js"></script>
+        <script src="../../../javascripts/mathjex.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
