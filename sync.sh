@@ -4,6 +4,6 @@ source ~/venv/bin/activate
 
 rm -rf ./site/*
 
-mkdocs gh-deploy
+mkdocs build
 
-sudo cp -r ./site/* /srv/http/
+cp -r ./site/* /srv/http/
