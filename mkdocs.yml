@@ -17,7 +17,6 @@ extra_css:
 
 nav:
   - Home: index.md
-  - About: about.md
   - Experiences:
   #   - Markdown: Experiences/Markdown 常用模板.md
   #   - Mermaid: Experiences/mermaid/Mermaid 踩坑日记.md
