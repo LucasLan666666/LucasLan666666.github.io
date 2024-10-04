@@ -30,11 +30,13 @@ nav:
       - Lab3: UCAS/Digital-Circuit/3/main.md
       - Lab4: UCAS/Digital-Circuit/4/main.md
     - Assembly Language:
-      - LoooooooooongArch: UCAS/Assembly-Language/LoongArch/main.md
-      - quicksort: UCAS/Assembly-Language/quicksort/main.md
+      - LoooooooooongArch: UCAS/Assembly-Language/LoongArch.md
+      - quicksort: UCAS/Assembly-Language/quicksort.md
     - COD-Lab:
-      - bhv_sim_env: UCAS/COD-Lab/bhv_sim_env/main.md
-      - prj3: UCAS/COD-Lab/prj3/main.md
+      - bhv_sim_env: UCAS/COD-Lab/bhv_sim_env.md
+      - prj3: UCAS/COD-Lab/prj3.md
+    - Tools:
+      - personal: personal.md
   # - Test:
   #     - Latex: test/Latex test.md
   #     - font: test/font.md

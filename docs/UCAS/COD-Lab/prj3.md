@@ -4,7 +4,7 @@
 
 !!! question
     思考题：图中 `volatile` 关键字的作用是什么？如果去掉会出现什么后果？
-    ![fig/thinking_question](fig/thinking_question.jpg)
+    ![assets/thinking_question](assets/thinking_question.jpg)
 
 ### 关键字定义
 
@@ -24,27 +24,27 @@
 
 下图给出了在使用和不使用 `volatile` 关键字时， `hello` 样例在 FPGA_eval 中的不同表现，显然，不使用 `volatile` 关键字（图右）的结果是错误的。
 
-![fpga_puts_cmp](fig/fpga_puts_cmp.jpg)
+![fpga_puts_cmp](assets/fpga_puts_cmp.jpg)
 
 ### 通过 `puts` 函数探究 `volatile` 具体是怎样影响到 FPGA 结果的
 
 为了搞清楚 `volatile` 具体是怎么影响到结果的，我自己又专门写了两个独立的 C 文件，如下图所示。左侧是用 `volatile` 定义的变量，而右侧没有，除此之外二者没有任何区别。
 
-![puts_c](fig/puts_c.jpg)
+![puts_c](assets/puts_c.jpg)
 
 下面，我在自己电脑上用 `mips-gcc` 交叉编译得到了两个函数的汇编代码，这里我的操作系统环境是 `Ubuntu 22.04.4 LTS on Windows 10 x86_64` ， `mips-gcc` 版本是 10.3.0，为了体现 `volatile` 对编译器的影响，有意使用了  `-O2` 优化。二者的汇编代码展示如图所示:
 
-![puts_as](fig/puts_as.jpg)
+![puts_as](assets/puts_as.jpg)
 
 为了方便阅读，我删去了无关信息，并添加注释来描述每一条汇编指令的具体行为:
 
-![puts_as_mod](fig/puts_as_mod.jpg)
+![puts_as_mod](assets/puts_as_mod.jpg)
 
 通过二者对比，我们不难发现两个重要区别：
 
 #### 区别一：while 的条件判断是否每次都访存
 
-![diff_1](fig/diff_1.jpg)
+![diff_1](assets/diff_1.jpg)
 
 - 在 C 语言中，我们通过检查 STAT_REG 第 3 比特 的值来判断发送队列是否已满。因此，我们需要访问 uart_status 地址处的数据来进行判断。
 
@@ -56,7 +56,7 @@
 
 #### 区别二：程序执行顺序是否符合预期
 
-![diff_2](fig/diff_2.jpg)
+![diff_2](assets/diff_2.jpg)
 
 - 如果不使用 `volatile` ，编译器打乱了程序的执行顺序，区别如下：
     1. 如果使用了 `volatile` ，`bne` 跳转到 `L3`
