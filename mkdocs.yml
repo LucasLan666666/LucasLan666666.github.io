@@ -29,9 +29,11 @@ nav:
       - Lab3: UCAS/Digital-Circuit/3.md
       - Lab4: UCAS/Digital-Circuit/4.md
     - Assembly Language:
+      - index: UCAS/Assembly-Language/index.md
       - LoooooooooongArch: UCAS/Assembly-Language/LoongArch.md
       - quicksort: UCAS/Assembly-Language/quicksort.md
     - COD-Lab:
+      - index: UCAS/COD-Lab/index.md
       - bhv_sim_env: UCAS/COD-Lab/bhv_sim_env.md
       - prj3: UCAS/COD-Lab/prj3.md
   - Tools: tools.md
