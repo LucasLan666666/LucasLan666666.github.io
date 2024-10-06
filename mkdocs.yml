@@ -138,4 +138,10 @@ plugins:
         background: white
         shadow: true
         manual: false
+    - git-revision-date-localized:
+        enabled: true
+        type: timeago
+        fallback_to_build_date: true
+        locale: en
+        timezone: Asia/Shanghai
     # - social
