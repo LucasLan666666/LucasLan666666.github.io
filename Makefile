@@ -5,7 +5,7 @@ VENV_PATH = ~/venv/bin/activate
 SITE_DIR = site
 DEST_DIR = /srv/http/
 
-all: env gh sync
+all: host gh sync
 
 env:
 	@echo "Activating virtual environment..."
