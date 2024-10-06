@@ -25,6 +25,5 @@ I major in Computer Science. Here is my [Github Profile](https://github.com/Luca
 
 无固定更新频率，取决我什么时候想起本网站的存在。
 
-- 主要地址（部署在个人电脑，关机即失效:stuck_out_tongue:）：[https://lucaslan666.space](https://lucaslan666.space)
-
-- 备用地址（部署在 Github Pages，但访问速度较慢:cry:）：[https://lucaslan666666.github.io](https://lucaslan666666.github.io)
+- [主要地址](https://lucaslan666.space)（部署在个人电脑，关机即失效:stuck_out_tongue:）：
+- [备用地址](https://lucaslan666666.github.io)（部署在 Github Pages，但访问速度较慢:cry:）：[https://lucaslan666666.github.io]
