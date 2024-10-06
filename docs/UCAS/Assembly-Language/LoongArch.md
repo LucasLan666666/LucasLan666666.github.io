@@ -139,15 +139,15 @@
 
     ![image-20240319202915420](assets/image-20240319202915420.png)
 
-4. 建立符号链接到 `usr/bin/` 目录下，方便以后使用
+4. 将交叉工具链所在路径添加到环境变量`PATH`，方便以后使用（这里默认使用的`shell`为`bash`，所以选择`~/.bashrc`）
 
     ```bash
-    sudo ln -s ~/LoongArch/cross-tools/bin/loongarch64-unknown-linux-gnu-gcc /usr/bin/loongarch64-unknown-linux-gnu-gcc
+    echo 'export PATH=~/LoongArch/cross-tools/bin:$PATH' >> ~/.bashrc
     ```
 
-    如下图
+    <!-- 如下图 -->
 
-    ![image-20240319203806693](assets/image-20240319203806693.png)
+    <!-- ![image-20240319203806693](assets/image-20240319203806693.png) -->
 
 ## 编写测试（用任何编辑器即可，可以创建在任意目录下）
 
@@ -207,7 +207,7 @@ qemu-loongarch64 ./hello_loongarch
 
 ## 参考资料
 
-* LongArch指令集手册[https://github.com/loongson/LoongArch-Documentation/releases/latest/download/LoongArch-Vol1-v1.10-CN.pdf](https://github.com/loongson/LoongArch-Documentation/releases/latest/download/LoongArch-Vol1-v1.10-CN.pdf)
-* LoongArch ABI[https://loongson.github.io/LoongArch-Documentation/LoongArch-ELF-ABI-CN.html](https://loongson.github.io/LoongArch-Documentation/LoongArch-ELF-ABI-CN.html)
-* LoongArch 汇编参考[https://github.com/loongson/la-asm-manual/releases/download/draft/la-asm-manual.pdf](https://github.com/loongson/la-asm-manual/releases/download/draft/la-asm-manual.pdf)
-* QEMU[https://www.qemu.org/](https://www.qemu.org/)
+* LongArch指令集手册：[https://github.com/loongson/LoongArch-Documentation/releases/latest/download/LoongArch-Vol1-v1.10-CN.pdf](https://github.com/loongson/LoongArch-Documentation/releases/latest/download/LoongArch-Vol1-v1.10-CN.pdf)
+* LoongArch ABI：[https://loongson.github.io/LoongArch-Documentation/LoongArch-ELF-ABI-CN.html](https://loongson.github.io/LoongArch-Documentation/LoongArch-ELF-ABI-CN.html)
+* LoongArch 汇编参考：[https://github.com/loongson/la-asm-manual/releases/download/draft/la-asm-manual.pdf](https://github.com/loongson/la-asm-manual/releases/download/draft/la-asm-manual.pdf)
+* QEMU：[https://www.qemu.org/](https://www.qemu.org/)
