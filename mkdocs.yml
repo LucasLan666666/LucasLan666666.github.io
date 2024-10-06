@@ -18,11 +18,13 @@ extra_css:
 nav:
   - Home: index.md
   - Experiences:
+    - index: Experiences/index.md
     - Markdown: Experiences/markdown.md
     - Mermaid: Experiences/mermaid.md
     - Github-Copilot: Experiences/copilot.md
     - Git: Experiences/git.md
   - UCAS:
+    - index: UCAS/index.md
     - Digital Circuit:
       - index: UCAS/Digital-Circuit/index.md
       - Lab1: UCAS/Digital-Circuit/1.md
