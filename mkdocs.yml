@@ -24,6 +24,7 @@ nav:
     - Git: Experiences/git.md
   - UCAS:
     - Digital Circuit:
+      - index: UCAS/Digital-Circuit/index.md
       - Lab1: UCAS/Digital-Circuit/1.md
       - Lab2: UCAS/Digital-Circuit/2.md
       - Lab3: UCAS/Digital-Circuit/3.md
