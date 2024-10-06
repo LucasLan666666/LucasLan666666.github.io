@@ -144,5 +144,4 @@ plugins:
         fallback_to_build_date: true
         locale: zh
         timezone: Asia/Shanghai
-        custom_template: '最近更新时间：{date}'
     # - social
