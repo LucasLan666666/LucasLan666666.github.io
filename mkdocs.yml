@@ -18,16 +18,16 @@ extra_css:
 nav:
   - Home: index.md
   - Experiences:
-  #   - Markdown: Experiences/Markdown 常用模板.md
-  #   - Mermaid: Experiences/mermaid/Mermaid 踩坑日记.md
-    - Github-Copilot: Experiences/copilot/main.md
-  #   - Git: Experiences/Git 入坑指南.md
+    - Markdown: Experiences/markdown.md
+    - Mermaid: Experiences/mermaid.md
+    - Github-Copilot: Experiences/copilot.md
+    - Git: Experiences/git.md
   - UCAS:
     - Digital Circuit:
-      - Lab1: UCAS/Digital-Circuit/1/main.md
-      - Lab2: UCAS/Digital-Circuit/2/main.md
-      - Lab3: UCAS/Digital-Circuit/3/main.md
-      - Lab4: UCAS/Digital-Circuit/4/main.md
+      - Lab1: UCAS/Digital-Circuit/1.md
+      - Lab2: UCAS/Digital-Circuit/2.md
+      - Lab3: UCAS/Digital-Circuit/3.md
+      - Lab4: UCAS/Digital-Circuit/4.md
     - Assembly Language:
       - LoooooooooongArch: UCAS/Assembly-Language/LoongArch.md
       - quicksort: UCAS/Assembly-Language/quicksort.md

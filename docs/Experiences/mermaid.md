@@ -1,4 +1,4 @@
-# Mermaid踩坑日记
+# Mermaid 踩坑日记
 
 ## 缘起
 
