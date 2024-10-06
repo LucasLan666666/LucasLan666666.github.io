@@ -34,8 +34,7 @@ nav:
     - COD-Lab:
       - bhv_sim_env: UCAS/COD-Lab/bhv_sim_env.md
       - prj3: UCAS/COD-Lab/prj3.md
-  - Tools:
-    - personal: personal.md
+  - Tools: tools.md
   # - Test:
   #     - Latex: test/Latex test.md
   #     - font: test/font.md
