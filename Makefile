@@ -7,6 +7,10 @@ DEST_DIR = /srv/http/
 
 all: host gh sync
 
+req:
+	@echo "Installing dependencies..."
+	@pip install -r requirements.txt
+
 env:
 	@echo "Activating virtual environment..."
 	@source $(VENV_PATH)
