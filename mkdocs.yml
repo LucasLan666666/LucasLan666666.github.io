@@ -85,6 +85,9 @@ theme:
       - navigation.indexes #启用节索引页后，可以将文档直接附加到节
     # language: zh # 一些提示性的文字会变成中文
 
+extra:
+  motto: "网络无限宽广"
+
 markdown_extensions:
   - abbr
   - admonition
@@ -144,4 +147,5 @@ plugins:
         fallback_to_build_date: true
         locale: zh
         timezone: Asia/Shanghai
+    - macros
     # - social
