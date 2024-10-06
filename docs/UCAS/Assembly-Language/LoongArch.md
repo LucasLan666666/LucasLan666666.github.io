@@ -145,10 +145,6 @@
     echo 'export PATH=~/LoongArch/cross-tools/bin:$PATH' >> ~/.bashrc
     ```
 
-    <!-- 如下图 -->
-
-    <!-- ![image-20240319203806693](assets/image-20240319203806693.png) -->
-
 ## 编写测试（用任何编辑器即可，可以创建在任意目录下）
 
 编写 hello_loongarch.S
