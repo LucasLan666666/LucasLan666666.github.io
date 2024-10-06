@@ -1245,11 +1245,11 @@
 <p><a class="glightbox" href="../assets/image-20240319202915420.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20240319202915420" src="../assets/image-20240319202915420.png" /></a></p>
 </li>
 <li>
-<p>建立符号链接到 <code>usr/bin/</code> 目录下，方便以后使用</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>~/LoongArch/cross-tools/bin/loongarch64-unknown-linux-gnu-gcc<span class="w"> </span>/usr/bin/loongarch64-unknown-linux-gnu-gcc
+<p>将交叉工具链所在路径添加到环境变量<code>PATH</code>，方便以后使用（这里默认使用的<code>shell</code>为<code>bash</code>，所以选择<code>~/.bashrc</code>）</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=~/LoongArch/cross-tools/bin:$PATH&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
 </span></code></pre></div>
-<p>如下图</p>
-<p><a class="glightbox" href="../assets/image-20240319203806693.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20240319203806693" src="../assets/image-20240319203806693.png" /></a></p>
+<!-- 如下图 -->
+<!-- <a class="glightbox" href="assets/image-20240319203806693.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20240319203806693" src="assets/image-20240319203806693.png" /></a> -->
 </li>
 </ol>
 <h2 id="_2">编写测试（用任何编辑器即可，可以创建在任意目录下）</h2>
@@ -1296,10 +1296,10 @@
 <p><a class="glightbox" href="../assets/image-20240319204127631.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-20240319204127631" src="../assets/image-20240319204127631.png" /></a></p>
 <h2 id="_5">参考资料</h2>
 <ul>
-<li>LongArch指令集手册<a href="https://github.com/loongson/LoongArch-Documentation/releases/latest/download/LoongArch-Vol1-v1.10-CN.pdf">https://github.com/loongson/LoongArch-Documentation/releases/latest/download/LoongArch-Vol1-v1.10-CN.pdf</a></li>
-<li>LoongArch ABI<a href="https://loongson.github.io/LoongArch-Documentation/LoongArch-ELF-ABI-CN.html">https://loongson.github.io/LoongArch-Documentation/LoongArch-ELF-ABI-CN.html</a></li>
-<li>LoongArch 汇编参考<a href="https://github.com/loongson/la-asm-manual/releases/download/draft/la-asm-manual.pdf">https://github.com/loongson/la-asm-manual/releases/download/draft/la-asm-manual.pdf</a></li>
-<li>QEMU<a href="https://www.qemu.org/">https://www.qemu.org/</a></li>
+<li>LongArch指令集手册：<a href="https://github.com/loongson/LoongArch-Documentation/releases/latest/download/LoongArch-Vol1-v1.10-CN.pdf">https://github.com/loongson/LoongArch-Documentation/releases/latest/download/LoongArch-Vol1-v1.10-CN.pdf</a></li>
+<li>LoongArch ABI：<a href="https://loongson.github.io/LoongArch-Documentation/LoongArch-ELF-ABI-CN.html">https://loongson.github.io/LoongArch-Documentation/LoongArch-ELF-ABI-CN.html</a></li>
+<li>LoongArch 汇编参考：<a href="https://github.com/loongson/la-asm-manual/releases/download/draft/la-asm-manual.pdf">https://github.com/loongson/la-asm-manual/releases/download/draft/la-asm-manual.pdf</a></li>
+<li>QEMU：<a href="https://www.qemu.org/">https://www.qemu.org/</a></li>
 </ul>
 
 
