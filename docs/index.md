@@ -23,7 +23,7 @@ I major in Computer Science. Here is my [Github Profile](https://github.com/Luca
 
 这是一时兴起建立的网站，啥都往里丢...
 
-无固定更新频率，取决我什么时候想起本网站的存在。:sweat_smile:
+无固定更新频率，取决我什么时候想起本网站的存在。
 
 - 主要地址（部署在个人电脑，关机即失效:stuck_out_tongue:）：[https://lucaslan666.space](https://lucaslan666.space)
 
