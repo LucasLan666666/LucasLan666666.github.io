@@ -142,6 +142,6 @@ plugins:
         enabled: true
         type: timeago
         fallback_to_build_date: true
-        locale: en
+        locale: zh
         timezone: Asia/Shanghai
     # - social
