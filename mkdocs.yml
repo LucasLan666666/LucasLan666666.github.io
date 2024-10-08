@@ -86,7 +86,7 @@ theme:
     # language: zh # 一些提示性的文字会变成中文
 
 extra:
-  motto: "网络无限宽广 =-草薙素子"
+  motto: "网络无限宽广   --草薙素子"
 
 markdown_extensions:
   - abbr
