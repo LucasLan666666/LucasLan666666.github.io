@@ -5,7 +5,7 @@ VENV_PATH = ~/venv/bin/activate
 SITE_DIR = site
 DEST_DIR = /srv/http/
 
-all: host gh sync
+all: gh sync
 
 req:
 	@echo "Installing dependencies..."
@@ -15,11 +15,11 @@ env:
 	@echo "Activating virtual environment..."
 	@source $(VENV_PATH)
 
-host: env
-	@echo "Building site with MkDocs..."
-	@source $(VENV_PATH) && mkdocs build
-	@echo "Copying site files to destination..."
-	@cp -r $(SITE_DIR)/* $(DEST_DIR)
+# host: env
+# 	@echo "Building site with MkDocs..."
+# 	@source $(VENV_PATH) && mkdocs build
+# 	@echo "Copying site files to destination..."
+# 	@cp -r $(SITE_DIR)/* $(DEST_DIR)
 
 gh: env
 	@echo "Deploying site to GitHub Pages..."
