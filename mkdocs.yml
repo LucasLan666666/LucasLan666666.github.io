@@ -43,6 +43,7 @@ nav:
       - index: UCAS/OOP/index.md
       - chap 0: UCAS/OOP/0.md
       - chap 1: UCAS/OOP/1.md
+      - chap 2: UCAS/OOP/2.md
   # - Test:
   #     - Latex: test/Latex test.md
   #     - font: test/font.md
