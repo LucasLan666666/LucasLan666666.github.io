@@ -990,6 +990,8 @@
       
         
       
+        
+      
     
     
       
@@ -1190,6 +1192,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    chap 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1301,6 +1324,12 @@
 
 
 <h1 id="go">第一章：Go 语言基础</h1>
+<p>frp 工具采用 Go 语言开发。一方面 Go 语言语法简单，易于学习；另一方面，得益于<code>goroutine</code>机制，
+Go 程序会智能地将<code>goroutine</code>中的任务合理地分配给每个 CPU，轻易实现<strong>高效的并发编程</strong>。对于
+Java/C++，不仅需要开发者维护线程池，包装一个个的任务，还需要自己去调度线程执行任务并进行上下
+文切换。Go 语言之所以被称为现代化的编程语言，就是因为它在语言层面已经内置了调度和上下文切换的
+机制。</p>
+<p>本章中，我们将从面向对象编程的角度出发，介绍 Go 语言的基础知识。</p>
 <h2 id="go_1">Go 语言简介</h2>
 <p>Go(又称 Golang)是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。</p>
 <h2 id="go_2">Go 语言中的面向对象</h2>
@@ -1324,7 +1353,7 @@ hierarchy，
 即“Go被认为是一种面向对象的语言，即使它缺少类型层次结构”。</p>
 <p>尽管 Go 语言没有类和继承的概念，但是通过<strong>结构体</strong>和<strong>接口</strong>的组合，依然以自己的方式实现了
 面向对象编程中<strong>封装</strong>、<strong>继承</strong>和<strong>多态</strong>的特性。</p>
-<h3 id="_1">封装</h3>
+<h3 id="_1"><strong>封装</strong></h3>
 <p>Go 语言中没有<code>class</code>类型，但是可以通过<code>struct</code>类型实现封装，
 同时，我们也可以为<code>struct</code>类型定义方法(method)。</p>
 <p>下面例子中定义了一个名为<code>Point</code>的<code>struct</code>类型，它拥有两个字段<code>x</code>和<code>y</code>，以及一个导出
@@ -1349,8 +1378,8 @@ hierarchy，
 </span></code></pre></div>
 <p>与经典面向对象语言声明类的方法不同，Go 方法声明并不需要放在声明<code>struct</code>型的大括号中。
 <code>Length()</code>方法与<code>Point</code>类型建立联系的纽带是一个被称为<code>receiver</code>参数的语法元素。</p>
-<h3 id="_2">继承</h3>
-<p>Go 语言中没有继承，但是可以通过类型嵌入(<code>type embedding</code>)实现类似继承的功能。</p>
+<h3 id="_2"><strong>继承</strong></h3>
+<p>Go 语言中没有继承，但是可以通过<strong>类型嵌入</strong>(<code>type embedding</code>)实现类似继承的功能。</p>
 <p>下面例子中定义了一个名为<code>ColoredPoint</code>的<code>struct</code>类型，它嵌入了<code>Point</code>类型：</p>
 <div class="language-go highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
@@ -1391,7 +1420,7 @@ hierarchy，
 <p>通过这种方式，<code>ColoredPoint</code>结构体可以使用<code>Point</code>结构体的所有字段和方法，实现了类似继承的功能。</p>
 <p>不过实际 Go 中的这种“继承”机制并非经典面向对象语言中的继承，而是一种<strong>组合</strong>的方式。
 因为<code>ColoredPoint</code>类型并不是<code>Point</code>类型的子类型，它只是包含了<code>Point</code>类型的字段和方法。</p>
-<h3 id="_3">多态</h3>
+<h3 id="_3"><strong>多态</strong></h3>
 <p>经典面向对象的多态实现依托的是类型的层次关系。Go 使用<strong>接口</strong>(<code>interface</code>)来解锁多态。</p>
 <p>下面例子中定义了一个名为<code>Shape</code>的接口，它包含一个<code>Area()</code>方法：</p>
 <div class="language-go highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
