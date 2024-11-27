@@ -1242,7 +1242,7 @@
 <p>虽然就遇到一次，但是这种情况很可能会再次发生。更何况，将电脑直接暴露在公网上也是非常不安全的，尤其是 ssh 服务，一旦真的被黑客入侵，后果不堪设想<img alt="😨" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f628.svg" title=":fearful:" />。因此，笔者决定暂时抛弃 IPV6，回归到传统的内网穿透。于是又开始寻找一种更加安全、稳定的内网穿透工具，最终找到了 frp。frp 不仅支持多种协议，还提供了安全的访问认证功能，有效保护了内网服务的安全，非常符合笔者的需求。</p>
 <h2 id="_3"><strong>选题</strong></h2>
 <p>在《面向对象程序设计》课程中，笔者立刻想到了 frp。这本来就是一个优秀的开源项目，代码量不算太大，而且 Go 语言上手也相对简单，非常适合作为源码分析的对象。因此，笔者选择了 frp 作为本次大作业的选题。</p>
-<p>这也是本人第一次认真阅读开源项目的源码（<del>除了 xv6，那个不够面向对象</del>），虽然是自己不太熟悉的编程语言，但得益于大模型以及<code>goplantuml</code>和<code>Sequence Diagram</code>等工具的神助，笔者源码分析的过程并没有预想中困难。希望本次源码分析能为读者提供一些帮助，没有帮助也不要紧，反正 frp 真的蛮好用的<img alt="😋" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f60b.svg" title=":yum:" />。有任何问题欢迎通过邮箱<a href="mailto:lanyuzhou22@mails.ucas.ac.cn">lanyuzhou22@mails.ucas.ac.cn</a>联系笔者。</p>
+<p>这是本人第一次认真阅读开源项目的源码（<del>除了 xv6，那个不够面向对象</del>），虽然是自己不太熟悉的编程语言，但得益于大模型以及<code>goplantuml</code>和<code>Sequence Diagram</code>等工具的神助，笔者源码分析的过程并没有预想中困难。此外，由于笔者这学期并未选修《计算机网络》课程，所以与网络相关的部分难免有所疏漏，敬请谅解。希望本次源码分析能为读者提供一些帮助，没有帮助也不要紧，反正 frp 真的蛮好用的<img alt="😋" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f60b.svg" title=":yum:" />。有任何问题欢迎通过邮箱<a href="mailto:lanyuzhou22@mails.ucas.ac.cn">lanyuzhou22@mails.ucas.ac.cn</a>联系笔者。</p>
 <p>P.S. 关于笔者最终如何通过 frp 实现内网穿透的细节这里不展开叙述，以免有打广告嫌疑(玩 MC 的同学应该能猜到用的是什么)</p>
 
 
@@ -1264,7 +1264,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-11-27T13:56:04+08:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-27</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-11-27T14:10:16+08:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-27</span>
   </span>
 
     

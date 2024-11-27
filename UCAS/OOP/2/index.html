@@ -1473,7 +1473,7 @@
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>...
 </span></code></pre></div>
-<p>可以看到，最关键的是<code>build</code>步骤：<code>build</code>规则会分别编译<code>cmd/frps</code>和<code>cmd/frpc</code>这目录下的源文件。编译后的二进制文件生成在<code>bin</code>目录下，这就是最终的可执行文件。</p>
+<p>可以看到，最关键的是<code>build</code>步骤：<code>build</code>规则会分别编译<code>cmd/frps</code>和<code>cmd/frpc</code>这两个目录下的源文件。编译后的二进制文件生成在<code>bin</code>目录下，这就是最终的可执行文件。</p>
 <h3 id="_4"><strong>项目目录结构</strong></h3>
 <p>通过<code>Makefile</code>文件的分析，我们可以得知项目的构建是从<code>cmd</code>目录下的<code>frps</code>和<code>frpc</code>开始的。那么，我们就可以用<code>tree</code>工具进一步查看<code>cmd</code>目录的结构：</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cmd
@@ -1567,7 +1567,7 @@
 </ol>
 <p>这样，我们就成功实现了内网穿透的功能，可以通过公网 IP 访问内网的服务了。</p>
 <h3 id="_8"><strong>实操演示</strong></h3>
-<p>因为本人资源有限，既没有公网服务器，也没有两台机器。所以个人在局域网环境下利用虚拟机搭建了一个简单的 frp 服务。下面是具体的操作步骤：</p>
+<p>因为本人资源有限，没有具备公网 IP 的服务器。所以个人在局域网环境下利用虚拟机搭建了一个简单的 frp 服务。下面是具体的操作步骤：</p>
 <p>首先，将本人物理机(操作系统为 Arch Linux)作为<strong>服务器</strong>，用来运行<code>frps</code>服务。配置<code>frps.toml</code>文件如下：</p>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># frps.toml</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">bindPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7000</span><span class="w"> </span><span class="c1"># 与 frpc 通信的端口</span>
@@ -1597,11 +1597,11 @@
 <p>这样，我们就成功搭建了一个简单的 frp 服务，如图所示：</p>
 <p><a class="glightbox" href="../assets/ex.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="ex" src="../assets/ex.png" /></a></p>
 <p>为了验证 ssh 的服务成功从虚拟机中穿透出去，笔者将安卓手机(相当于<strong>用户</strong>)和宿主机连接在同一个校园网 WIFI 下。一方面，安卓手机可以直接访问同一局域网下的宿主机；另一方面，安卓手机对虚拟机而言是外部网络，所以并不能直接访问虚拟机。</p>
-<p>因此，如果安卓手机能通过宿主机间接向虚拟机发起 ssh 请求，并且被虚拟机响应，那么就说明 frp 服务成功穿透了内网。</p>
+<p>如果安卓手机能通过宿主机向虚拟机发起 ssh 请求并且被响应，那么就说明 frp 服务成功实现了内网穿透。</p>
 <p>在手机上使用 JuiceSSH 软件连接到宿主机<code>10.204.53.85</code>的<code>6000</code>端口，结果如下图：</p>
 <p><a class="glightbox" href="../assets/juice1.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Juice 1" src="../assets/juice1.jpg" style="height: 400px;" /></a>
 <a class="glightbox" href="../assets/juice2.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Juice 2" src="../assets/juice2.jpg" style="height: 400px;" /></a></p>
-<p>笔者的手机登录到虚拟机的 ssh 服务，虚拟机中的 ssh 服务成功通过 frp 穿透了内网。</p>
+<p>可见，笔者的手机登录到虚拟机的 ssh 服务，虚拟机中的 ssh 服务成功通过 frp 穿透了内网。</p>
 <h2 id="_9"><strong>调试环境</strong></h2>
 <p>本人推荐使用 VSCode 作为代码编辑器，可以直接通过官方的 Go 插件进行跟踪调试。</p>
 <p><a class="glightbox" href="../assets/debug.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="debug" src="../assets/debug.png" /></a></p>
@@ -1629,7 +1629,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-11-27T13:56:04+08:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-27</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-11-27T14:10:16+08:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-27</span>
   </span>
 
     
