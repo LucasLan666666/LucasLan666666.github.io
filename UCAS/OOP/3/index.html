@@ -12,13 +12,15 @@
         <link rel="prev" href="../2/">
       
       
+        <link rel="next" href="../4/">
+      
       
       <link rel="icon" href="../../../images/cat.ico">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.39">
     
     
       
-        <title>第三章：核心流程分析 - Lucas Lan</title>
+        <title>第三章：主要功能分析与建模 - Lucas Lan</title>
       
     
     
@@ -118,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第三章：核心流程分析
+              第三章：主要功能分析与建模
             
           </span>
         </div>
@@ -990,6 +992,8 @@
       
         
       
+        
+      
     
     
       
@@ -1014,7 +1018,7 @@
               
   
   <span class="md-ellipsis">
-    OOP
+    面向对象程序设计 —— frp 源码分析
   </span>
   
 
@@ -1030,7 +1034,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_5">
             <span class="md-nav__icon md-icon"></span>
-            OOP
+            面向对象程序设计 —— frp 源码分析
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1047,7 +1051,7 @@
         
   
   <span class="md-ellipsis">
-    第零章：frp 项目简介
+    第零章：导言
   </span>
   
 
@@ -1089,7 +1093,7 @@
         
   
   <span class="md-ellipsis">
-    第二章：主要功能分析与建模
+    第二章：基本环境配置
   </span>
   
 
@@ -1115,79 +1119,37 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    第三章：核心流程分析
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    第三章：核心流程分析
+    第三章：主要功能分析与建模
   </span>
   
 
       </a>
       
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+              
+            
+              
+                
   
   
   
-    
   
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      工作流程简述
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="工作流程简述">
-      <ul class="md-nav__list">
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
         
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      配置与启动
-    </span>
-  </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      连接与数据传输
-    </span>
-  </a>
+  <span class="md-ellipsis">
+    第四章：核心流程分析
+  </span>
   
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
+
+      </a>
     </li>
   
 
@@ -1228,47 +1190,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      工作流程简述
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="工作流程简述">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      配置与启动
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      连接与数据传输
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1285,54 +1206,7 @@
   
 
 
-<h1 id="_1">第三章：核心流程分析</h1>
-<p>在 frp 服务的工作流程中，服务端和客户端各自承担不同的角色，通过协作完成内网穿透的功能。</p>
-<h2 id="_2">工作流程简述</h2>
-<p>下面通过文字与配图简要介绍 frp 的整体工作流程：</p>
-<h3 id="_3">配置与启动</h3>
-<ol>
-<li>
-<p><strong>配置服务器端(frps)</strong>：</p>
-<ul>
-<li>在公网服务器上部署并运行<code>frps</code>，配置 <code>frps.ini</code> 文件，设置端口、token、通信加密等参数。</li>
-<li><code>frps</code>会监听指定端口，等待来自<code>frpc</code>客户端的连接请求。</li>
-</ul>
-</li>
-<li>
-<p><strong>配置客户端(frpc)</strong>：</p>
-<ul>
-<li>在内网机器上部署并运行<code>frpc</code>，配置 <code>frpc.ini</code> 文件，指定连接的服务器地址、端口、token
-等信息。</li>
-<li><code>frpc</code>会连接<code>frps</code>服务器，并注册自己的服务信息，这样可以让<code>frps</code>保存自己的服务信息。</li>
-</ul>
-</li>
-<li>
-<p><strong>服务映射</strong>：</p>
-<ul>
-<li>在<code>frpc</code>配置文件中设置需要映射到公网的服务端口，如将内网的 80 端口映射到公网的 6000 端口。</li>
-<li>当有公网用户访问<code>frps</code>服务器的 6000 端口时，请求会被转发到内网机器的 80 端口。</li>
-</ul>
-</li>
-</ol>
-<h3 id="_4">连接与数据传输</h3>
-<p><a class="glightbox" href="../assets/workflow.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="workflow" src="../assets/workflow.png" /></a></p>
-<ol>
-<li>
-<p><strong>建立连接</strong>：</p>
-<ul>
-<li><code>frpc</code>会定时向<code>frps</code>发送<strong>心跳包</strong>以保持连接。</li>
-<li>当有外部请求到达<code>frps</code>，<code>frps</code>将请求转发给合适的<code>frpc</code>客户端，再由<code>frpc</code>将请求转发到
-内网的目标服务。</li>
-</ul>
-</li>
-<li>
-<p><strong>数据传输</strong>：</p>
-<ul>
-<li>通过 frp 的转发，外部用户就能访问内网的服务，实现内网穿透的效果。</li>
-<li>此外，经过 frp 传输的数据都通过了加密处理，以保证传输安全。</li>
-</ul>
-</li>
-</ol>
+<h1 id="_1"><strong>第三章：主要功能分析与建模</strong></h1>
 
 
 

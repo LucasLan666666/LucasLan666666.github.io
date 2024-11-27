@@ -992,6 +992,8 @@
       
         
       
+        
+      
     
     
       
@@ -1016,7 +1018,7 @@
               
   
   <span class="md-ellipsis">
-    OOP
+    面向对象程序设计 —— frp 源码分析
   </span>
   
 
@@ -1032,7 +1034,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_5">
             <span class="md-nav__icon md-icon"></span>
-            OOP
+            面向对象程序设计 —— frp 源码分析
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1049,7 +1051,7 @@
         
   
   <span class="md-ellipsis">
-    第零章：frp 项目简介
+    第零章：导言
   </span>
   
 
@@ -1182,7 +1184,7 @@
         
   
   <span class="md-ellipsis">
-    第二章：主要功能分析与建模
+    第二章：基本环境配置
   </span>
   
 
@@ -1203,7 +1205,28 @@
         
   
   <span class="md-ellipsis">
-    第三章：核心流程分析
+    第三章：主要功能分析与建模
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第四章：核心流程分析
   </span>
   
 
@@ -1324,16 +1347,20 @@
 
 
 <h1 id="go">第一章：Go 语言基础</h1>
-<p>frp 工具采用 Go 语言开发。一方面 Go 语言语法简单，易于学习；另一方面，Go 语言中可以轻易实现<strong>高效的并发编程</strong>。</p>
+<p>frp 工具采用 Go 语言开发。个人认为有以下两方面的考虑：</p>
+<ol>
+<li>Go 语言<strong>语法简单</strong>，易于学习；</li>
+<li>Go 语言中可以轻易实现<strong>高效的并发编程</strong>。</li>
+</ol>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>对于 Java/C++，开发者不仅需要维护线程池，包装一个个的任务，还需要自己去调度线程执行任务并进行上下文切换。相比之下，通过<code>goroutine</code>机制，Go 程序会智能地将<code>goroutine</code>中的任务合理地分配给每个 CPU。Go 语言之所以被称为现代化的编程语言，就是因为它在语言层面已经内置了调度和上下文切换的机制。</p>
 </div>
-<p>本章中，我们将从面向对象编程的角度出发，介绍 Go 语言的基础知识。</p>
-<h2 id="go_1">Go 语言简介</h2>
+<p>本章中，我们将从<em>面向对象编程的角度</em>出发，介绍 Go 语言的基础知识。</p>
+<h2 id="go_1"><strong>Go 语言简介</strong></h2>
 <p>Go(又称 Golang)是 Google 开发的一种<strong>静态强类型</strong>、<strong>编译型</strong>、<strong>并发型</strong>，并具有<strong>垃圾回收</strong>功能的编程语言。</p>
-<h2 id="go_2">Go 语言中的面向对象</h2>
-<p>Go 语言是面向对象的编程语言吗？官方回答：“<strong>是也不是</strong>”。</p>
+<h2 id="go_2"><strong>Go 语言中的面向对象</strong></h2>
+<p>Go 语言是面向对象的编程语言吗？官方回答：“<em>是也不是</em>”。</p>
 <blockquote>
 <p>Is Go an object-oriented language?</p>
 <p>Yes and no. Although Go has types and methods and allows an object-oriented
@@ -1491,7 +1518,7 @@ hierarchy，
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-11-27T04:31:50+08:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-27</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-11-27T05:14:30+08:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-27</span>
   </span>
 
     
