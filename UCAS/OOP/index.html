@@ -1231,18 +1231,18 @@
   
 
 
-<h1 id="frp">frp 源码分析</h1>
-<h2 id="_1">说明</h2>
+<h1 id="frp"><strong>frp 源码分析</strong></h1>
+<h2 id="_1"><strong>说明</strong></h2>
 <p>本文档是 2024 秋季学期 UCAS 课程《面向对象程序设计》的源码分析大作业，笔者选择对 frp 源码进行分析。</p>
 <p>frp 是一个开源的内网穿透工具。通过 frp，用户可以将内网服务暴露到公网，实现内网穿透的效果。仓库的地址为<a href="https://github.com/fatedier/frp">https://github.com/fatedier/frp</a>。本人阅读的是最新版本 v0.61.0。</p>
-<h2 id="_2">缘起</h2>
+<h2 id="_2"><strong>缘起</strong></h2>
 <p>在 2024 年秋季学期，笔者因为同时选修计算机系的两门研讨课——体系结构研讨课和操作系统研讨课(<del>原神lab!!!</del>)，需要经常把自己的游戏本和电源适配器(<del>砖头</del>)背来背去。虽然对于习武之人是强身健体的好方法<img alt="😤" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f624.svg" title=":triumph:" />，但奈何本人实在太懒<img alt="😇" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f607.svg" title=":innocent:" />，如此频繁的搬运工作非常让人头疼<img alt="😥" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f625.svg" title=":disappointed_relieved:" />。更何况，每次都要拔掉宿舍电脑外接的显示器、机械键盘和网线，实在是太麻烦了。</p>
-<p>尽管宿舍和教学楼只有不到百米的通勤距离，但为了进一步减轻负担，笔者国庆节期间在海鲜市场买了一台二手 surface，用于在宿舍外进行轻便的办公。轻薄本的体验让人爱不释手，但是两台电脑信息的同步又成了一个问题。为了从根本上解决这个问题，笔者想到将宿舍的游戏本搭建成服务器，然后让 surface 直接 ssh 连接到游戏本上，这样就可以在远程直接操作宿舍的电脑，不需要花额外精力去同步两台电脑的信息了。</p>
+<p>尽管宿舍和教学楼只有不到百米的通勤距离，但为了进一步减轻负担，笔者国庆节期间在<sub>~海鲜市场</sub>~闲鱼买了一台二手 surface，用于在宿舍外进行轻便的办公。轻薄本的体验让人爱不释手，但是两台电脑信息的同步又成了一个问题。为了从根本上解决这个问题，笔者想到将宿舍的游戏本搭建成服务器，然后让 surface 直接 ssh 连接到游戏本上，这样就可以在远程直接操作宿舍的电脑，不需要花额外精力去同步两台电脑的信息了。</p>
 <p>想法已有，但是实现起来还是面临着重重困难。利用 UCAS 校园网先进的 IPV6 <img alt="😎" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f60e.svg" title=":sunglasses:" />，很容易就能获取到公网 IP。因此，笔者最先在游戏本上用 apache 搭建了服务器。但是，先进的 IPV6 也有失灵的时候，有一天本人在一公寓活动室和组员讨论操作系统实例分析时，突然间就断连了。一打听才知道，校园网的 IPV6 寄了<img alt="😅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f605.svg" title=":sweat_smile:" />，这可如何是好？</p>
 <p>虽然就遇到一次，但是这种情况很可能会再次发生。更何况，将电脑直接暴露在公网上也是非常不安全的，尤其是 ssh 服务，一旦真的被黑客入侵，后果不堪设想<img alt="😨" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f628.svg" title=":fearful:" />。因此，笔者决定暂时抛弃 IPV6，回归到传统的内网穿透。于是又开始寻找一种更加安全、稳定的内网穿透工具，最终找到了 frp。frp 不仅支持多种协议，还提供了安全的访问认证功能，有效保护了内网服务的安全，非常符合笔者的需求。</p>
-<h2 id="_3">选题</h2>
-<p>在《面向对象程序设计》课程中，笔者立刻想到了 frp。这本来就是一个优秀的开源项目，代码量不算太大，而且 Go 语言上手也相对简单，非常适合作为源码分析的对象。因此，笔者最终选择了 frp 作为本次大作业的选题。</p>
-<p>这也是本人第一次认真阅读开源项目的源码（<del>除了 xv6，那个不够面向对象</del>），虽然是自己不太熟悉的编程语言，但得益于大模型，以及<code>goplantuml</code>和<code>Sequence Diagram</code>等工具的神助，笔者源码分析的过程并没有预想中困难。希望本次源码分析能为读者提供一些帮助，没有帮助也不要紧，frp 真的蛮好用的<img alt="😋" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f60b.svg" title=":yum:" />。有任何问题欢迎通过邮箱<a href="mailto:lanyuzhou22@mails.ucas.ac.cn">lanyuzhou22@mails.ucas.ac.cn</a>联系笔者。</p>
+<h2 id="_3"><strong>选题</strong></h2>
+<p>在《面向对象程序设计》课程中，笔者立刻想到了 frp。这本来就是一个优秀的开源项目，代码量不算太大，而且 Go 语言上手也相对简单，非常适合作为源码分析的对象。因此，笔者选择了 frp 作为本次大作业的选题。</p>
+<p>这也是本人第一次认真阅读开源项目的源码（<del>除了 xv6，那个不够面向对象</del>），虽然是自己不太熟悉的编程语言，但得益于大模型以及<code>goplantuml</code>和<code>Sequence Diagram</code>等工具的神助，笔者源码分析的过程并没有预想中困难。希望本次源码分析能为读者提供一些帮助，没有帮助也不要紧，反正 frp 真的蛮好用的<img alt="😋" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f60b.svg" title=":yum:" />。有任何问题欢迎通过邮箱<a href="mailto:lanyuzhou22@mails.ucas.ac.cn">lanyuzhou22@mails.ucas.ac.cn</a>联系笔者。</p>
 <p>P.S. 关于笔者最终如何通过 frp 实现内网穿透的细节这里不展开叙述，以免有打广告嫌疑(玩 MC 的同学应该能猜到用的是什么)</p>
 
 
@@ -1264,7 +1264,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-11-27T04:31:50+08:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-27</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-11-27T13:56:04+08:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-27</span>
   </span>
 
     
