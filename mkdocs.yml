@@ -98,7 +98,8 @@ markdown_extensions:
   - abbr
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.superfences # 代码块高亮
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
