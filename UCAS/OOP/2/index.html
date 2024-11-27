@@ -1450,10 +1450,10 @@
 
 <h1 id="_1"><strong>第二章：基本环境配置</strong></h1>
 <h2 id="_2"><strong>编译环境</strong></h2>
-<p>最新版的<code>frp</code>项目要求 Go 语言版本不低于 1.22。本人在编写本文时使用的 Go 版本为 1.23.3。
-如果读者的 Go 版本较低，可以考虑在 Release 页面下载旧版本的<code>frp</code>项目进行编译。</p>
+<p>最新版的 frp 项目要求 Go 语言版本不低于 1.22。本人在编写本文时使用的 Go 版本为 1.23.3。
+如果读者的 Go 版本较低，可以考虑在 Release 页面下载旧版本的 frp 项目进行编译。</p>
 <h2 id="_3"><strong>项目构建</strong></h2>
-<p>如果上文 Go 语言环境配置成功，那么编译<code>frp</code>项目就非常简单了。只需要在项目根目录下执行以下命令：</p>
+<p>如果上文 Go 语言环境配置成功，那么编译 frp 项目就非常简单了。只需要在项目根目录下执行以下命令：</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>make
 </span></code></pre></div>
 <p>这样就会在<code>bin</code>目录下生成<code>frps</code>和<code>frpc</code>两个可执行文件。</p>
@@ -1490,7 +1490,7 @@
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span>├──<span class="w"> </span>root<span class="w">   </span><span class="c1"># 管理和运行 frps 服务器，包括加载配置、启动服务和处理终止信号</span>
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span>└──<span class="w"> </span>verify<span class="w"> </span><span class="c1"># 验证 frps 服务端的配置文件是否有效</span>
 </span></code></pre></div>
-<p>这样，我们就可以清晰地从宏观上把握整个项目的结构，为后续的源码分析打下基础。</p>
+<p>这样，我们就可以从宏观上把握整个项目的结构，为后续的源码分析打下基础。</p>
 <h3 id="_5"><strong>核心功能模块</strong></h3>
 <p>为了成功实现 frp 项目，仅仅依靠<code>cmd</code>目录下的<code>frps</code>和<code>frpc</code>是远远不够的。实际上，整个项目
 的功能模块都在<code>server</code>、<code>client</code>和<code>pkg</code>目录下：</p>
@@ -1535,8 +1535,7 @@
 </span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">    </span>├──<span class="w"> </span>util<span class="w">          </span><span class="c1"># 一些通用的工具函数</span>
 </span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="w">    </span>└──<span class="w"> </span>virtual<span class="w">       </span><span class="c1"># 虚拟客户端，模拟真实的客户端连接行为</span>
 </span></code></pre></div>
-<p>利用<code>tree</code>工具查看该树状图，我们可以清晰了解整个项目的功能模块划分。这符合面向对象设计的思想——
-<em>高内聚、低耦合</em>。模块化的设计使得整个项目的功能更加清晰，易于维护。</p>
+<p>利用<code>tree</code>工具查看该树状图，我们可以清晰了解整个项目的功能模块划分。这符合面向对象设计<em>高内聚、低耦合</em>的思想。模块化的设计使得整个项目的功能更加清晰，易于维护。</p>
 <h2 id="_6"><strong>启动服务</strong></h2>
 <p>为了能够成功启动 frp 服务，我们需要一台具有公网 IP 的服务器以及一台能够访问互联网的内网主机，
 分别部署<code>frps</code>和<code>frpc</code>。</p>
@@ -1568,40 +1567,45 @@
 </ol>
 <p>这样，我们就成功实现了内网穿透的功能，可以通过公网 IP 访问内网的服务了。</p>
 <h3 id="_8"><strong>实操演示</strong></h3>
-<p>因为本人资源有限，既没有公网服务器，也没有两台机器。所以个人在局域网利用虚拟机搭建了一个简单的 frp 服务。下面是具体的操作步骤：</p>
-<p>首先，将本人物理机(操作系统为 Arch Linux)作为服务器，用来运行<code>frps</code>服务。配置<code>frps.toml</code>文件，打开 7000 端口和<code>frpc</code>通信：</p>
+<p>因为本人资源有限，既没有公网服务器，也没有两台机器。所以个人在局域网环境下利用虚拟机搭建了一个简单的 frp 服务。下面是具体的操作步骤：</p>
+<p>首先，将本人物理机(操作系统为 Arch Linux)作为<strong>服务器</strong>，用来运行<code>frps</code>服务。配置<code>frps.toml</code>文件如下：</p>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># frps.toml</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">bindPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7000</span><span class="w"> </span><span class="c1"># 与 frpc 通信的端口</span>
 </span></code></pre></div>
-<p>然后，在虚拟机(使用 VirtulBox 软件，操作系统为 Ubuntu 20.04)上运行<code>frpc</code>客户端。因为网卡是 NAT 模式，虚拟机能通过宿主机的局域网 IP 访问宿主机，但是宿主机不能直接访问虚拟机，所以虚拟机相当于模拟了内网机器。</p>
+<p>然后，在 VirtulBox 软件中打开虚拟机(操作系统为 Ubuntu 20.04)，并将虚拟机的网络模式设置成 NAT 模式(网络地址转换)，如下图所示。</p>
 <p><a class="glightbox" href="../assets/vb_nat.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="vb_nat" src="../assets/vb_nat.png" /></a></p>
-<p>配置<code>frpc.toml</code>文件如下：</p>
+<p>该模式下，虚拟机能通过虚拟网卡访问外部网络，也可以通过宿主机的局域网 IP 访问宿主机，但是外部网络都不能直接访问虚拟机。这样就可以用虚拟机模拟<strong>内网机器</strong>。</p>
+<p>将编译生成的<code>frpc</code>程序放入虚拟机，并在虚拟机中配置<code>frpc.toml</code>文件如下：</p>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># frpc.toml</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">serverAddr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;10.204.53.85&quot;</span><span class="w"> </span><span class="c1"># 宿主机在校园网环境下的局域网 IP</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">serverPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7000</span><span class="w"> </span><span class="c1"># 与 frps 通信的端口</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">serverPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7000</span><span class="w">           </span><span class="c1"># 与 frps 通信的端口</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">[[proxies]]</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh&quot;</span><span class="w"> </span><span class="c1"># 开启的服务名称</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;tcp&quot;</span><span class="w"> </span><span class="c1"># 服务类型</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">localIP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w"> </span><span class="c1"># 本地 IP</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">localPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="w"> </span><span class="c1"># 本地端口，因为 ssh 默认端口是 22</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">remotePort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6000</span><span class="w"> </span><span class="c1"># 映射到公网的端口</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">name</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ssh&quot;</span><span class="w">       </span><span class="c1"># 开启的服务名称</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">type</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;tcp&quot;</span><span class="w">       </span><span class="c1"># 服务类型</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">localIP</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w"> </span><span class="c1"># 虚拟机本地 IP</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">localPort</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="w">          </span><span class="c1"># 本地端口，因为 ssh 默认端口是 22</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">remotePort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6000</span><span class="w">        </span><span class="c1"># 映射到公网的端口，这里是宿主机对外暴露的端口</span>
 </span></code></pre></div>
-<p>最后，分别在宿主机和虚拟机上启动<code>frps</code>和<code>frpc</code>服务。在宿主机上执行：</p>
+<p>最后，分别在宿主机和虚拟机上启动<code>frps</code>和<code>frpc</code>服务。</p>
+<p>在宿主机上执行：</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>./frps<span class="w"> </span>-c<span class="w"> </span>frps.toml
 </span></code></pre></div>
 <p>在虚拟机上执行：</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>./frpc<span class="w"> </span>-c<span class="w"> </span>frpc.toml
 </span></code></pre></div>
-<p>这样，我们就成功搭建了一个简单的 frp 服务：</p>
+<p>这样，我们就成功搭建了一个简单的 frp 服务，如图所示：</p>
 <p><a class="glightbox" href="../assets/ex.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="ex" src="../assets/ex.png" /></a></p>
-<p>为了验证验证 ssh 的服务成功从虚拟机中穿透出去，我将安卓手机和宿主机连接在同一个校园网 WIFI 下，使用 JuiceSSH 连接到宿主机<code>10.204.53.85</code>的 6000 端口，结果如下图：</p>
-<p><a class="glightbox" href="../assets/juice1.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="juice1" src="../assets/juice1.jpg" /></a>
-<a class="glightbox" href="../assets/juice2.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="juice2" src="../assets/juice2.jpg" /></a></p>
-<p>可以看到，我通过 JuiceSSH 连接到了宿主机的 6000 端口，并且成功登录到虚拟机的 ssh 服务。这说明 frp 服务成功穿透了内网，实现了内网穿透的功能。</p>
+<p>为了验证 ssh 的服务成功从虚拟机中穿透出去，笔者将安卓手机(相当于<strong>用户</strong>)和宿主机连接在同一个校园网 WIFI 下。一方面，安卓手机可以直接访问同一局域网下的宿主机；另一方面，安卓手机对虚拟机而言是外部网络，所以并不能直接访问虚拟机。</p>
+<p>因此，如果安卓手机能通过宿主机间接向虚拟机发起 ssh 请求，并且被虚拟机响应，那么就说明 frp 服务成功穿透了内网。</p>
+<p>在手机上使用 JuiceSSH 软件连接到宿主机<code>10.204.53.85</code>的 6000 端口，结果如下图：</p>
+<p><a class="glightbox" href="../assets/juice1.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Juice 1" src="../assets/juice1.jpg" style="height: 400px;" /></a>
+<a class="glightbox" href="../assets/juice2.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Juice 2" src="../assets/juice2.jpg" style="height: 400px;" /></a></p>
+<p>可以看到，笔者的手机登录到虚拟机的 ssh 服务。这说明虚拟机中的 ssh 服务成功通过 frp 穿透了内网。</p>
 <h2 id="_9"><strong>调试环境</strong></h2>
 <p>本人推荐使用 VSCode 作为代码编辑器，可以直接通过官方的 Go 插件进行跟踪调试。</p>
 <p><a class="glightbox" href="../assets/debug.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="debug" src="../assets/debug.png" /></a></p>
+<p>此外，也可以付费或者通过教育邮箱申请 JetBrains 的 GoLand IDE，它提供了更加专业的 Go 语言开发环境。</p>
 <h2 id="_10"><strong>小结</strong></h2>
 <p>本章节主要介绍了 frp 项目的基本环境配置过程。我们了解到，在 frp 服务的工作流程中，服务端和客户端各自承担不同的角色，通过十分紧密的协作完成内网穿透的功能。</p>
 <p>接下来的章节中，我们将进一步深入到 frp 项目的实现细节中，分别从<strong>主要功能</strong>、<strong>核心流程</strong>以及<strong>设计意图</strong>三个维度对 frp 进行详细分析。</p>
@@ -1625,7 +1629,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-11-27T05:14:30+08:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-27</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-11-27T08:35:18+08:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-27</span>
   </span>
 
     
