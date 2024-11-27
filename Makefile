@@ -1,4 +1,4 @@
-.PHONY: all env host gh sync
+.PHONY: all host gh sync serve
 
 # Variables
 VENV_PATH = ~/venv/bin/activate
@@ -11,19 +11,19 @@ req:
 	@echo "Installing dependencies..."
 	@pip install -r requirements.txt
 
-env:
-	@echo "Activating virtual environment..."
-	@source $(VENV_PATH)
-
-# host: env
+# host:
 # 	@echo "Building site with MkDocs..."
 # 	@source $(VENV_PATH) && mkdocs build
 # 	@echo "Copying site files to destination..."
 # 	@cp -r $(SITE_DIR)/* $(DEST_DIR)
 
-gh: env
+gh:
 	@echo "Deploying site to GitHub Pages..."
 	@source $(VENV_PATH) && mkdocs gh-deploy
+
+serve:
+	@echo "Serving site locally..."
+	@source $(VENV_PATH) && mkdocs serve
 
 sync:
 	@echo "Syncing with Git repository..."

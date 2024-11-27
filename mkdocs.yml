@@ -39,12 +39,13 @@ nav:
       - index: UCAS/COD-Lab/index.md
       - bhv_sim_env: UCAS/COD-Lab/bhv_sim_env.md
       - prj3: UCAS/COD-Lab/prj3.md
-    - OOP:
+    - 面向对象程序设计 —— frp 源码分析:
       - index: UCAS/OOP/index.md
-      - 第零章：frp 项目简介: UCAS/OOP/0.md
+      - 第零章：导言: UCAS/OOP/0.md
       - 第一章：Go 语言基础: UCAS/OOP/1.md
-      - 第二章：主要功能分析与建模: UCAS/OOP/2.md
-      - 第三章：核心流程分析: UCAS/OOP/3.md
+      - 第二章：基本环境配置: UCAS/OOP/2.md
+      - 第三章：主要功能分析与建模: UCAS/OOP/3.md
+      - 第四章：核心流程分析: UCAS/OOP/4.md
   # - Test:
   #     - Latex: test/Latex test.md
   #     - font: test/font.md
