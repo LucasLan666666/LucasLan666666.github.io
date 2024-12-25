@@ -46,6 +46,7 @@ nav:
       - 第二章：基本环境配置: UCAS/OOP/2.md
       - 第三章：主要功能分析与建模: UCAS/OOP/3.md
       - 第四章：核心流程分析: UCAS/OOP/4.md
+      - 第五章：复杂设计意图分析: UCAS/OOP/5.md
   # - Test:
   #     - Latex: test/Latex test.md
   #     - font: test/font.md
