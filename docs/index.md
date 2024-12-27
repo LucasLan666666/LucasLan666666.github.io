@@ -2,7 +2,8 @@
 
 ***欢迎来到我的网站！***
 
-![ow](assets/ow.jpg)
+<!-- ![ow](assets/ow.jpg) -->
+![ttm_fp](assets/ttm_fp.jpg)
 
 !!! note
     这是一个懒得维护的网站:yum:，目前有很多不完备的地方，希望大家不要介意~
