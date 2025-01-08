@@ -1,3 +1,4 @@
 site/
 .cache/
 *.drawio.bkp
+.venv
