@@ -63,7 +63,8 @@ theme:
         # text: Noto Serif SC
         # text: Zen Old Mincho
         # text: LXGW WenKai Screen
-        code: JetBrains Mono
+        # code: JetBrains Mono
+        code: Monaco
     palette:
         # Palette toggle for light mode
         - scheme: default
